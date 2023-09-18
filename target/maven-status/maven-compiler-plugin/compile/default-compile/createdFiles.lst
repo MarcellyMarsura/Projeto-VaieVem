@@ -1,4 +1,4 @@
-br\edu\fesa\vaievem\PrimaryController.class
-br\edu\fesa\vaievem\SecondaryController.class
-br\edu\fesa\vaievem\App.class
+br\edu\fesa\vaievem\CadastroUsuarioController.class
 module-info.class
+br\edu\fesa\vaievem\LoginController.class
+br\edu\fesa\vaievem\App.class
