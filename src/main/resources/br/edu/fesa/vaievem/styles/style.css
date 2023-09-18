@@ -7,15 +7,11 @@
 .button1
 {
     -fx-text-fill: #ffffff;
-    -fx-background-color : #0a0c24;
+    -fx-background-color : #8d47f6;
 }
 .button1:hover
 {
--fx-background-color : #303463;
-}
-.button1:pressed
-{
--fx-background-color : #090b24;
+-fx-background-color : #9e63f7;
 }
 
 .button2
@@ -102,7 +98,7 @@
 .table-view .column-header,
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
-    -fx-background-color:   #0a0c24;
+    -fx-background-color:   #6332ac;
 }
 .table-view .column-header .label{
 
