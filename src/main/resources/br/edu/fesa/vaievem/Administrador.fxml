@@ -20,7 +20,7 @@
    <children>
       <Pane prefHeight="56.0" prefWidth="800.0" style="-fx-background-color: #6332ac;">
          <children>
-            <Label layoutX="742.0" layoutY="18.0" text="Sair" textFill="WHITE">
+            <Label layoutX="739.0" layoutY="18.0" text="Sair" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="30.0" fitWidth="23.0" layoutX="714.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="30.0" fitWidth="32.0" layoutX="703.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@icon/icon-logout.png" />
                </image>

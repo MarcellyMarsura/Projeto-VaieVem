@@ -1,5 +1,7 @@
 br\edu\fesa\vaievem\CadastroUsuarioController.class
+br\edu\fesa\vaievem\LoginController.class
+br\edu\fesa\vaievem\CrudUsuarioController.class
+br\edu\fesa\vaievem\HomeUsuarioController.class
 module-info.class
 br\edu\fesa\vaievem\AdministradorController.class
-br\edu\fesa\vaievem\LoginController.class
 br\edu\fesa\vaievem\App.class
