@@ -1,10 +1,11 @@
-br\edu\fesa\vaievem\CadastroUsuarioController.class
 br\edu\fesa\vaievem\LoginController.class
-br\edu\fesa\vaievem\CrudUsuarioController.class
-br\edu\fesa\vaievem\CrudLancamentoController.class
 br\edu\fesa\vaievem\HomeUsuarioController.class
 br\edu\fesa\vaievem\CrudContaController.class
 module-info.class
+br\edu\fesa\vaievem\App.class
+br\edu\fesa\vaievem\CadastroUsuarioController.class
+br\edu\fesa\vaievem\DetalheContaController.class
+br\edu\fesa\vaievem\CrudUsuarioController.class
+br\edu\fesa\vaievem\CrudLancamentoController.class
 br\edu\fesa\vaievem\ContasController.class
 br\edu\fesa\vaievem\AdministradorController.class
-br\edu\fesa\vaievem\App.class
