@@ -2,11 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -102,35 +97,7 @@
       </Pane>
       <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Pane layoutX="40.0" layoutY="24.0" prefHeight="452.0" prefWidth="492.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
-               <children>
-                  <ComboBox layoutX="59.0" layoutY="92.0" prefHeight="35.0" prefWidth="171.0" />
-                  <TextField layoutX="261.0" layoutY="92.0" prefHeight="35.0" prefWidth="171.0" promptText="0,00" />
-                  <ComboBox layoutX="59.0" layoutY="153.0" prefHeight="35.0" prefWidth="374.0" />
-                  <ComboBox layoutX="59.0" layoutY="214.0" prefHeight="35.0" prefWidth="171.0" />
-                  <ComboBox layoutX="261.0" layoutY="214.0" prefHeight="35.0" prefWidth="171.0" />
-                  <DatePicker layoutX="58.0" layoutY="275.0" prefHeight="35.0" />
-                  <CheckBox layoutX="262.0" layoutY="257.0" mnemonicParsing="false" text="Recorrência" />
-                  <ComboBox layoutX="261.0" layoutY="275.0" prefHeight="35.0" prefWidth="171.0" />
-                  <TextArea layoutX="59.0" layoutY="335.0" prefHeight="57.0" prefWidth="374.0" />
-                  <Text layoutX="175.0" layoutY="50.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Lançamento" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="59.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Lançamento" />
-                  <Text layoutX="260.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor" />
-                  <Text layoutX="59.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" />
-                  <Text layoutX="59.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Forma de Pagamento" />
-                  <Text layoutX="261.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões" />
-                  <Text layoutX="59.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data do Lançamento" />
-                  <Text layoutX="59.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comentário" />
-                  <Button layoutX="190.0" layoutY="403.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="108.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Button>
-               </children></Pane>
+            <Pane layoutX="39.0" layoutY="41.0" prefHeight="134.0" prefWidth="370.0" style="-fx-background-color: #fff; -fx-background-radius: 15;" />
          </children>
       </Pane>
    </children>
