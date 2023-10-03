@@ -102,9 +102,9 @@
       </Pane>
       <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Pane layoutX="16.0" layoutY="17.0" prefHeight="117.0" prefWidth="397.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="16.0" layoutY="17.0" prefHeight="111.0" prefWidth="397.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
-                  <Text layoutX="123.0" layoutY="40.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo Total" textAlignment="CENTER">
+                  <Text layoutX="124.0" layoutY="43.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo Total" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -120,9 +120,9 @@
                      </font>
                   </Text>
                </children></Pane>
-            <Pane layoutX="16.0" layoutY="147.0" prefHeight="338.0" prefWidth="539.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="16.0" layoutY="138.0" prefHeight="347.0" prefWidth="539.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
-                  <TableView layoutX="14.0" layoutY="13.0" prefHeight="314.0" prefWidth="312.0" stylesheets="@styles/style.css">
+                  <TableView layoutX="14.0" layoutY="66.0" prefHeight="261.0" prefWidth="312.0" stylesheets="@styles/style.css">
                     <columns>
                       <TableColumn prefWidth="81.0" text="Cartão" />
                         <TableColumn prefWidth="81.0" text="Vencimento" />
@@ -143,9 +143,14 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
+                  <Text layoutX="129.0" layoutY="42.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Faturas" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
-            <Pane layoutX="428.0" layoutY="17.0" prefHeight="117.0" prefWidth="127.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="428.0" layoutY="17.0" prefHeight="111.0" prefWidth="127.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
                   <Text fill="#016804a6" layoutX="21.0" layoutY="39.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Parabéns!" textAlignment="CENTER">
                      <font>

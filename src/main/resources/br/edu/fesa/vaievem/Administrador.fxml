@@ -37,6 +37,11 @@
             </ImageView>
          </children>
       </Pane>
+      <Label layoutX="30.0" layoutY="74.0" text="Olá, Administrador ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
       <GridPane layoutX="30.0" layoutY="125.0" prefHeight="360.0" prefWidth="737.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,12 +51,12 @@
           <RowConstraints maxHeight="318.0" minHeight="10.0" prefHeight="318.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/style.css" GridPane.rowIndex="1">
+            <TableView fx:id="tabela_usuario" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/style.css" GridPane.rowIndex="1">
               <columns>
-                <TableColumn prefWidth="75.0" text="Id" />
-                <TableColumn prefWidth="347.0" text="Nome do Usuário" />
-                  <TableColumn prefWidth="305.0" text="Email" />
-                  <TableColumn prefWidth="75.0" />
+                <TableColumn fx:id="col_id" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="col_nome" prefWidth="347.0" text="Nome do Usuário" />
+                  <TableColumn fx:id="col_email" prefWidth="246.0" text="Email" />
+                  <TableColumn fx:id="col_excluir" prefWidth="65.0" />
               </columns>
             </TableView>
             <HBox prefHeight="100.0" prefWidth="200.0">
@@ -69,10 +74,5 @@
             </HBox>
          </children>
       </GridPane>
-      <Label layoutX="30.0" layoutY="74.0" text="Olá, Administrador">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>

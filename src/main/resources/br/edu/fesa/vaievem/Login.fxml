@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,7 +19,15 @@
          <left>
             <Pane prefHeight="500.0" prefWidth="406.0" styleClass="linear-grad" stylesheets="@styles/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="173.0" fitWidth="200.0" layoutX="103.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="189.0" fitWidth="244.0" layoutX="81.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/img-logo.png" />
+                     </image></ImageView>
+                  <Label layoutX="121.0" layoutY="303.0" text="Seu App de Finanças" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Label>
                </children></Pane>
          </left>
          <center>
@@ -41,7 +50,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Button>
-                        <Label layoutX="161.0" layoutY="70.0" text="Entrar">
+                        <Label layoutX="161.0" layoutY="69.0" text="Entrar">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

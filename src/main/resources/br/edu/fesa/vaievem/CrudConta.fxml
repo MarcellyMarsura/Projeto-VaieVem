@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -99,57 +100,64 @@
             </Button>
          </children>
       </Pane>
-      <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
-         <children>
-            <Pane layoutX="28.0" layoutY="19.0" prefHeight="460.0" prefWidth="515.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+      <ScrollPane layoutX="229.0" prefHeight="500.0" prefWidth="573.0">
+         <content>
+            <Pane prefHeight="656.0" prefWidth="556.0" style="-fx-background-color: #fff;">
                <children>
-                  <Text layoutX="225.0" layoutY="36.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" textAlignment="CENTER">
+                  <Text layoutX="244.0" layoutY="58.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="40.0" layoutY="63.0" prefHeight="35.0" prefWidth="208.0" promptText="Nome" />
-                  <TextField layoutX="40.0" layoutY="119.0" prefHeight="35.0" prefWidth="208.0" promptText="Agência" />
-                  <ComboBox layoutX="267.0" layoutY="63.0" prefHeight="35.0" prefWidth="208.0" />
-                  <TextField layoutX="267.0" layoutY="119.0" prefHeight="35.0" prefWidth="208.0" promptText="Conta" />
-                  <Text layoutX="218.0" layoutY="190.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões" textAlignment="CENTER">
+                  <TextField layoutX="38.0" layoutY="94.0" prefHeight="35.0" prefWidth="230.0" promptText="Nome" />
+                  <TextField layoutX="38.0" layoutY="157.0" prefHeight="35.0" prefWidth="230.0" promptText="Agência" />
+                  <ComboBox layoutX="297.0" layoutY="94.0" prefHeight="35.0" prefWidth="230.0" />
+                  <TextField layoutX="297.0" layoutY="157.0" prefHeight="35.0" prefWidth="230.0" promptText="Conta" />
+                  <Text layoutX="236.0" layoutY="243.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="38.0" layoutY="218.0" prefHeight="35.0" prefWidth="208.0" promptText="Nome" />
-                  <TextField layoutX="265.0" layoutY="218.0" prefHeight="35.0" prefWidth="208.0" promptText="Nome" text="Bandeira" />
-                  <TextField layoutX="38.0" layoutY="277.0" prefHeight="35.0" prefWidth="208.0" promptText="Nome" text="Número" />
-                  <TextField layoutX="265.0" layoutY="278.0" prefHeight="35.0" prefWidth="208.0" promptText="Nome" text="Limite" />
-                  <TableView layoutX="38.0" layoutY="332.0" prefHeight="114.0" prefWidth="304.0" stylesheets="@styles/style.css">
+                  <TextField layoutX="36.0" layoutY="280.0" prefHeight="35.0" prefWidth="230.0" promptText="Nome do cartão" />
+                  <TextField layoutX="297.0" layoutY="277.0" prefHeight="35.0" prefWidth="230.0" promptText="Bandeira" />
+                  <TextField layoutX="36.0" layoutY="339.0" prefHeight="35.0" prefWidth="230.0" promptText="Número do cartão" />
+                  <TextField layoutX="297.0" layoutY="337.0" prefHeight="35.0" prefWidth="230.0" promptText="0,00" />
+                  <TableView layoutX="38.0" layoutY="449.0" prefHeight="142.0" prefWidth="493.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="78.0" text="Nome" />
-                      <TableColumn prefWidth="82.0" text="Numero" />
-                        <TableColumn prefWidth="74.0" text="Bandeira" />
-                        <TableColumn prefWidth="66.0" text="Limite" />
+                      <TableColumn prefWidth="98.0" text="Nome" />
+                      <TableColumn prefWidth="190.0" text="Numero" />
+                        <TableColumn prefWidth="94.0" text="Bandeira" />
+                        <TableColumn minWidth="0.0" prefWidth="108.0" text="Limite" />
                     </columns>
                   </TableView>
-                  <Text layoutX="40.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da conta" />
-                  <Text layoutX="267.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco" />
-                  <Text layoutX="40.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência" />
-                  <Text layoutX="267.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" />
-                  <Text layoutX="38.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do cartão" />
-                  <Text layoutX="267.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bandeira" />
-                  <Text layoutX="40.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número" />
-                  <Text layoutX="267.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite estipulado" />
-                  <Button layoutX="353.0" layoutY="332.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="125.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar cartão">
+                  <Text layoutX="38.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da conta" />
+                  <Text layoutX="298.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco" />
+                  <Text layoutX="38.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência" />
+                  <Text layoutX="298.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" />
+                  <Text layoutX="36.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do cartão" />
+                  <Text layoutX="299.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bandeira" />
+                  <Text layoutX="38.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número" />
+                  <Text layoutX="299.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite estipulado" />
+                  <Button layoutX="298.0" layoutY="396.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="229.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar cartão">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button layoutX="353.0" layoutY="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="125.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
+                  <Button layoutX="222.0" layoutY="599.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="30.0" fitWidth="50.0" layoutX="32.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/icon-back.png" />
+                     </image>
+                  </ImageView>
+                  <TextField layoutX="36.0" layoutY="397.0" prefHeight="35.0" prefWidth="230.0" promptText="0,00" />
+                  <Text layoutX="38.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia de vencimento da fatura" />
                </children>
             </Pane>
-         </children>
-      </Pane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

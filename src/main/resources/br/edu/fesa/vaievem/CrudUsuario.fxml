@@ -108,12 +108,19 @@
                   </Text>
                   <TextField layoutX="92.0" layoutY="108.0" prefHeight="35.0" prefWidth="318.0" promptText="Nome" />
                   <TextField layoutX="92.0" layoutY="167.0" prefHeight="35.0" prefWidth="318.0" promptText="Email" />
-                  <PasswordField layoutX="92.0" layoutY="229.0" prefHeight="35.0" prefWidth="318.0" promptText="Senha" />
-                  <Button layoutX="191.0" layoutY="284.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar Alterações" />
-                  <Button layoutX="191.0" layoutY="348.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #d12828;" styleClass="button1" stylesheets="@styles/style.css" text="Excluir conta" />
+                  <PasswordField layoutX="92.0" layoutY="227.0" prefHeight="35.0" prefWidth="318.0" promptText="Senha antiga" />
+                  <Button layoutX="290.0" layoutY="342.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar Alterações" />
+                  <Button layoutX="92.0" layoutY="342.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #d12828;" styleClass="button1" stylesheets="@styles/style.css" text="Excluir conta" />
                   <Text layoutX="92.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome" />
                   <Text layoutX="92.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-                  <Text layoutX="93.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha" />
+                  <Text layoutX="93.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha antiga" />
+                  <PasswordField layoutX="92.0" layoutY="288.0" prefHeight="35.0" prefWidth="318.0" promptText="Nova senha" />
+                  <Text layoutX="93.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nova senha" />
+                  <ImageView fitHeight="35.0" fitWidth="43.0" layoutX="30.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/icon-back.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

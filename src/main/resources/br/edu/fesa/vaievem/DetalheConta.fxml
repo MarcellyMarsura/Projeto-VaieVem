@@ -99,44 +99,45 @@
       </Pane>
       <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Pane layoutX="27.0" layoutY="14.0" prefHeight="103.0" prefWidth="256.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="28.0" layoutY="66.0" prefHeight="77.0" prefWidth="251.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
-                  <Text layoutX="38.0" layoutY="39.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo da Conta" textAlignment="CENTER">
+                  <Text layoutX="56.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo da Conta" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="89.0" layoutY="81.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="100,00" textAlignment="CENTER">
+                  <Text layoutX="76.0" layoutY="63.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
                      <font>
-                        <Font name="System Bold" size="27.0" />
+                        <Font size="14.0" />
                      </font>
                   </Text>
-                  <Text layoutX="65.0" layoutY="81.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                  <Text layoutX="96.0" layoutY="62.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="100,00" textAlignment="CENTER">
                      <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-               </children></Pane>
-            <Pane layoutX="294.0" layoutY="14.0" prefHeight="103.0" prefWidth="248.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
-               <children>
-                  <Text layoutX="84.0" layoutY="40.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Fatura" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="90.0" layoutY="81.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="100,00" textAlignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="27.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="66.0" layoutY="81.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
-                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <Pane layoutX="28.0" layoutY="129.0" prefHeight="163.0" prefWidth="515.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="292.0" layoutY="65.0" prefHeight="77.0" prefWidth="251.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutX="95.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Fatura" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="108.0" layoutY="62.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="50,00" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="86.0" layoutY="61.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="28.0" layoutY="149.0" prefHeight="163.0" prefWidth="515.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
                   <Text layoutX="21.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões Cadastrados" textAlignment="CENTER">
                      <font>
@@ -147,8 +148,8 @@
                     <columns>
                       <TableColumn prefWidth="93.0" text="Nome" />
                       <TableColumn prefWidth="91.0" text="Bandeira" />
-                        <TableColumn prefWidth="111.0" text="Número" />
-                        <TableColumn prefWidth="89.0" text="Limite" />
+                        <TableColumn prefWidth="122.0" text="Número" />
+                        <TableColumn prefWidth="78.0" text="Limite" />
                         <TableColumn prefWidth="41.0" />
                         <TableColumn prefWidth="43.0" />
                     </columns>
@@ -160,14 +161,14 @@
                   </Button>
                </children>
             </Pane>
-            <Pane layoutX="28.0" layoutY="300.0" prefHeight="187.0" prefWidth="515.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="28.0" layoutY="319.0" prefHeight="170.0" prefWidth="515.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
                <children>
                   <Text layoutX="21.0" layoutY="31.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Lançamentos" textAlignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <TableView layoutX="22.0" layoutY="44.0" prefHeight="130.0" prefWidth="471.0" stylesheets="@styles/style.css">
+                  <TableView layoutX="22.0" layoutY="44.0" prefHeight="118.0" prefWidth="471.0" stylesheets="@styles/style.css">
                      <columns>
                         <TableColumn prefWidth="93.0" text="Tipo" />
                         <TableColumn prefWidth="91.0" text="Valor" />
@@ -178,6 +179,16 @@
                   </TableView>
                </children>
             </Pane>
+            <ImageView fitHeight="36.0" fitWidth="38.0" layoutX="28.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/icon-back.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="181.0" layoutY="47.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalhes da Conta" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

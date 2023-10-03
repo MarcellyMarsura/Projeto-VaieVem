@@ -97,7 +97,49 @@
       </Pane>
       <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Pane layoutX="39.0" layoutY="41.0" prefHeight="134.0" prefWidth="370.0" style="-fx-background-color: #fff; -fx-background-radius: 15;" />
+            <Pane layoutX="36.0" layoutY="29.0" prefHeight="444.0" prefWidth="501.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutX="218.0" layoutY="65.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="32.0" fitWidth="38.0" layoutX="32.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/icon-back.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="40.0" layoutY="155.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No mundo agitado de hoje, manter o controle das suas finanças é mais importante do que nunca. Foi com essa visão que criamos nossa plataforma. Combinando tecnologia moderna com simplicidade, nossa missão é tornar a gestão financeira pessoal fácil, eficiente e acessível para todos." textAlignment="JUSTIFY" wrappingWidth="421.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="98.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo ao nosso aplicativo de finanças!">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="193.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores:" textOrigin="TOP">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="117.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelly Molinari Marsura - RA: 081210020" textOrigin="TOP">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="134.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analuz Marin Ramos - RA: 081210034" textOrigin="TOP">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="115.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vinicius Benevides da Silva - RA: 081210030" textOrigin="TOP">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
          </children>
       </Pane>
    </children>
