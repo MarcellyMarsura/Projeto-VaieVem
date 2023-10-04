@@ -97,6 +97,7 @@
 .table-view .column-header-background .filler {
     -fx-cell-size : 20;
     -fx-background-color:   #6332ac;
+    -fx-font-size: 14px;
 }
 .table-view .column-header .label{
 
@@ -104,10 +105,12 @@
    -fx-font-weight: bold;
    -fx-alignment: CENTER_LEFT;
 }
+
 .table-view .cell{
    -fx-cell-size: 30;
   -fx-alignment: center-left;
-  -fx-text-fill: #000000;
+  -fx-font-size: 14px;
+
 }
 
 .table-row-cell:selected {
@@ -117,6 +120,7 @@
         -fx-fill : white ;
 
  }
+
 /* scroll bar starts here */
 
 /* The increment and decrement button CSS class of scrollbar */
