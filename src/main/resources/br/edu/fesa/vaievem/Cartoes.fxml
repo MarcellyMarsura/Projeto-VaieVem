@@ -35,7 +35,7 @@
                      </font>
                   </Button>
                </children></Pane>
-            <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Contas" textAlignment="CENTER">
+            <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões de Crédito" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Bold" size="30.0" />
                </font>
@@ -45,9 +45,9 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
-            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.66" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.51" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icon/icon-conta-black.png" />
+                  <Image url="@icon/icon-cards-black.png" />
                </image>
             </ImageView>
          </children>

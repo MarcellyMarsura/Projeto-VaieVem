@@ -1,3 +1,8 @@
+.card {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-background-color: #ffffff;
+}
 .text-input
 {
     -fx-text-fill : #ffffff;
@@ -24,37 +29,36 @@
 }
 .button2:pressed
 {
--fx-background-color : rgba(0, 0, 0, 0.3); ;
+-fx-background-color : rgba(0, 0, 0, 0.3);
 
 }
 
-.button3
+.round-button
 {
-    -fx-background-color :linear-gradient(to top left, #35ACF1, #F6B46F);
-    -fx-background-radius :  12;
-    -fx-border-style: solid;
-    -fx-border-radius: 12;
-    -fx-border-insets: -5;    
-    -fx-border-color: linear-gradient(to top left, #35ACF1, #F6B46F);
-    
+    -fx-background-color:  #6332ac;
+    -fx-background-radius :  20;
 }
-.button3:hover
+.round-button:hover
 {
-    -fx-background-color :linear-gradient(to top left,  #F6B46F,#35ACF1);
-    -fx-background-radius :  12;
-    -fx-border-style: solid;
-    -fx-border-radius: 12;
-    -fx-border-insets: -5;
-    -fx-border-color: linear-gradient(to top left, #F6B46F,#35ACF1);
+    -fx-background-color:  #572d96;
 }
-.button3:pressed
+.round-button:pressed
 {
-   -fx-background-color :linear-gradient(to top left, #35ACF1, #F6B46F);
-    -fx-background-radius :  12;
-    -fx-border-style: solid;
-    -fx-border-radius: 12;
-    -fx-border-insets: -5;
-    -fx-border-color: linear-gradient(to top left, #35ACF1, #F6B46F);
+    -fx-background-color:  #40216e;
+}
+
+.back-button
+{
+    -fx-background-color:  transparent;
+    -fx-background-radius :  20;
+}
+.back-button:hover
+{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+.back-button:pressed
+{
+    -fx-background-color:  rgba(0, 0, 0, 0.2);
 }
 
 .button4
@@ -103,7 +107,7 @@
 
    -fx-text-fill: white;
    -fx-font-weight: bold;
-   -fx-alignment: CENTER_LEFT;
+   -fx-alignment: CENTER;
 }
 
 .table-view .cell{

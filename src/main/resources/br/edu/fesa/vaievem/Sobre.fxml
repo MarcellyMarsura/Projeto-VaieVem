@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,137 +7,53 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.HomeUsuarioController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.HomeUsuarioController">
    <children>
-      <Pane prefHeight="500.0" prefWidth="229.0" styleClass="linear-grad" stylesheets="@styles/style.css">
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Text fill="WHITE" layoutX="46.0" layoutY="78.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá, Usuário" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Text>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="127.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Home" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="184.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Área do Usuário" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-user.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="241.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Contas" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-cards.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="298.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Sobre" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-info.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="355.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Sair" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-logout.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <Pane layoutX="229.0" prefHeight="500.0" prefWidth="571.0" style="-fx-background-color: #dcddde;">
-         <children>
-            <Pane layoutX="36.0" layoutY="29.0" prefHeight="444.0" prefWidth="501.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+            <Pane layoutX="61.0" layoutY="90.0" prefHeight="563.0" prefWidth="888.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <Text layoutX="218.0" layoutY="65.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre" textAlignment="CENTER">
+                  <Text layoutX="89.0" layoutY="190.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No mundo agitado de hoje, manter o controle das suas finanças é mais importante do que nunca. Foi com essa visão que criamos nossa plataforma. Combinando tecnologia moderna com simplicidade, nossa missão é tornar a gestão financeira pessoal fácil, eficiente e acessível para todos." textAlignment="JUSTIFY" wrappingWidth="746.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#8005b5" layoutX="146.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo ao nosso aplicativo de finanças!">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9308b2" layoutX="350.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores:" textOrigin="TOP">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="32.0" fitWidth="38.0" layoutX="32.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-back.png" />
-                     </image>
-                  </ImageView>
-                  <Text layoutX="40.0" layoutY="155.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No mundo agitado de hoje, manter o controle das suas finanças é mais importante do que nunca. Foi com essa visão que criamos nossa plataforma. Combinando tecnologia moderna com simplicidade, nossa missão é tornar a gestão financeira pessoal fácil, eficiente e acessível para todos." textAlignment="JUSTIFY" wrappingWidth="421.0">
+                  <Text layoutX="291.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelly Molinari Marsura - RA: 081210020" textOrigin="TOP">
                      <font>
-                        <Font size="14.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="98.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo ao nosso aplicativo de finanças!">
+                  <Text layoutX="308.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analuz Marin Ramos - RA: 081210034" textOrigin="TOP">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="193.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores:" textOrigin="TOP">
+                  <Text layoutX="289.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vinicius Benevides da Silva - RA: 081210030" textOrigin="TOP">
                      <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="117.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelly Molinari Marsura - RA: 081210020" textOrigin="TOP">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="134.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analuz Marin Ramos - RA: 081210034" textOrigin="TOP">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="115.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vinicius Benevides da Silva - RA: 081210030" textOrigin="TOP">
-                     <font>
-                        <Font size="14.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
                </children></Pane>
+            <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.72" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/icon-info-black.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

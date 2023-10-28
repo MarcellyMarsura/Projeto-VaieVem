@@ -4,9 +4,12 @@
  */
 package br.edu.fesa.vaievem;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -15,12 +18,43 @@ import javafx.fxml.Initializable;
  */
 public class CadastroUsuarioController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private TextField txtNome;
+    
+    @FXML
+    private TextField txtEmail;
+    
+    @FXML
+    private TextField txtSenha;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        App.possuiMenu = false;
+    }
+    
+    @FXML
+    private void onMouseClicked_lnkEntrar() throws IOException{
+        try {
+            App.setRoot("Login");
+        }
+        catch (Exception erro){
+            //TODO
+        }
+        
+    }
+    
+    @FXML
+    private void onMouseClicked_btnCadastrar() throws IOException{
+        try {
+            String nome = txtEmail.getText();
+            String email = txtEmail.getText();
+            String senha = txtSenha.getText();
+            //TODO
+        }
+        catch (Exception erro){
+            //TODO
+        }
+        
     }    
     
 }

@@ -20,11 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * FXML Controller class
- *
- * @author m.molinari.marsura
- */
+
 public class AdministradorController implements Initializable {
 
     @FXML
