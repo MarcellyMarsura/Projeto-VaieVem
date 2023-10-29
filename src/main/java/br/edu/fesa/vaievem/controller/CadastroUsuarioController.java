@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package br.edu.fesa.vaievem;
+package br.edu.fesa.vaievem.controller;
 
+import br.edu.fesa.vaievem.App;
+import br.edu.fesa.vaievem.utils.Tela;
+import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,8 +19,11 @@ import javafx.scene.control.TextField;
  *
  * @author m.molinari.marsura
  */
-public class LoginController implements Initializable {
+public class CadastroUsuarioController implements Initializable {
 
+    @FXML
+    private TextField txtNome;
+    
     @FXML
     private TextField txtEmail;
     
@@ -26,13 +32,13 @@ public class LoginController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        App.possuiMenu = false;
+        ViewConfiguration.setPossuiMenu(false);
     }
     
     @FXML
-    private void onMouseClicked_lnkCadastrar() throws IOException{
+    private void onMouseClicked_lnkEntrar() throws IOException{
         try {
-            App.setRoot("CadastroUsuario");
+            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -41,18 +47,19 @@ public class LoginController implements Initializable {
     }
     
     @FXML
-    private void onMouseClicked_btnEntrar() throws IOException{
+    private void onMouseClicked_btnCadastrar() throws IOException{
         try {
+            String nome = txtEmail.getText();
             String email = txtEmail.getText();
             String senha = txtSenha.getText();
             
-            App.setRoot("HomeUsuario");
+            ViewConfiguration.setRoot(Tela.HOME.getNome());
             //TODO
         }
         catch (Exception erro){
             //TODO
         }
         
-    }
+    }    
     
 }

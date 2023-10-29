@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package br.edu.fesa.vaievem;
+package br.edu.fesa.vaievem.controller;
 
 
+import br.edu.fesa.vaievem.App;
+import br.edu.fesa.vaievem.utils.Tela;
+import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import br.edu.fesa.vaievem.viewmodels.UsuarioViewModel;
 import java.io.IOException;
 import java.net.URL;
@@ -77,7 +80,7 @@ public class AdministradorController implements Initializable {
     @FXML
     private void onMouseClicked_btnSair() throws IOException{
         try {
-            App.setRoot("Login");
+            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
             //TODO

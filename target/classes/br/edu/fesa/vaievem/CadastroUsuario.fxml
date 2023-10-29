@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="br.edu.fesa.vaievem.controller.LoginController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.CadastroUsuarioController">
    <children>
       <BorderPane prefHeight="706.0" prefWidth="1210.0" style="-fx-background-color: #fff;">
          <left>
@@ -35,36 +35,41 @@
                <children>
                   <Pane prefHeight="483.0" prefWidth="358.0" style="-fx-background-color: #fff;">
                      <children>
-                        <TextField fx:id="txtEmail" layoutX="137.0" layoutY="234.0" prefHeight="39.0" prefWidth="385.0" promptText="Email">
+                        <TextField fx:id="txtNome" layoutX="137.0" layoutY="193.0" prefHeight="39.0" prefWidth="385.0" promptText="Nome">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="txtSenha" layoutX="137.0" layoutY="314.0" prefHeight="39.0" prefWidth="385.0" promptText="Senha">
+                        <PasswordField fx:id="txtSenha" layoutX="137.0" layoutY="344.0" prefHeight="39.0" prefWidth="385.0" promptText="Senha">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </PasswordField>
-                        <Button fx:id="btnEntrar" layoutX="255.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnEntrar" prefHeight="56.0" prefWidth="149.0" styleClass="button1" stylesheets="@styles/style.css" text="Entrar">
+                        <Button fx:id="btnCadastrar" layoutX="255.0" layoutY="435.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnCadastrar" prefHeight="56.0" prefWidth="149.0" styleClass="button1" stylesheets="@styles/style.css" text="Cadastrar">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Label layoutX="279.0" layoutY="103.0" text="Entrar">
+                        <Label layoutX="237.0" layoutY="102.0" text="Criar Conta">
                            <font>
                               <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
-                        <Hyperlink fx:id="lnkCadastrar" layoutX="351.0" layoutY="563.0" onMouseClicked="#onMouseClicked_lnkCadastrar" text="Cadastre-se">
+                        <Hyperlink fx:id="lnkEntrar" layoutX="359.0" layoutY="563.0" onMouseClicked="#onMouseClicked_lnkEntrar" text="Entrar">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Hyperlink>
-                        <Label layoutX="162.0" layoutY="567.0" text="Não possui uma conta?" textFill="#797979">
+                        <Label layoutX="206.0" layoutY="567.0" text="Possui uma conta?" textFill="#797979">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="txtEmail" layoutX="137.0" layoutY="266.0" prefHeight="39.0" prefWidth="385.0" promptText="Email">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
                      </children>
                   </Pane>
                </children>

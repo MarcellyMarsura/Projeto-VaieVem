@@ -40,11 +40,11 @@
 }
 .round-button:hover
 {
-    -fx-background-color:  #572d96;
+    -fx-background-color:  #7930e6;
 }
 .round-button:pressed
 {
-    -fx-background-color:  #40216e;
+    -fx-background-color:  #572d96;
 }
 
 .back-button
@@ -75,26 +75,6 @@
 {
     -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
     -fx-background-radius :  30 30 30 30;
-}
-
-
-.combo-box
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #515658;
-    -fx-border-radius: 30;
-}
-.combo-box:hover
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #FFFF;
-    -fx-border-radius: 30;
-}
-.combo-box:pressed
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #FFFF;
-    -fx-border-radius: 30;
 }
 
 .table-view .column-header,

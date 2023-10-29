@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.fesa.vaievem;
+package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.viewmodels.UsuarioViewModel;
 import javafx.scene.control.Hyperlink;

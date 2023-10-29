@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
-package br.edu.fesa.vaievem;
+package br.edu.fesa.vaievem.controller;
 
+import br.edu.fesa.vaievem.App;
+import br.edu.fesa.vaievem.utils.Tela;
+import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,7 +33,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnHome() throws IOException {
         try {
-            App.setRoot("HomeUsuario");
+            ViewConfiguration.setRoot(Tela.HOME.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -40,7 +43,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnPerfil() throws IOException {
         try {
-            App.setRoot("CrudUsuario");
+            ViewConfiguration.setRoot(Tela.PERFIL.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -50,7 +53,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnContas() throws IOException {
         try {
-            App.setRoot("Contas");
+            ViewConfiguration.setRoot(Tela.CONTAS.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -60,7 +63,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnCartoes() throws IOException {
         try {
-            App.setRoot("Cartoes");
+            ViewConfiguration.setRoot(Tela.CARTOES.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -70,7 +73,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnSobre() throws IOException {
         try {
-            App.setRoot("Sobre");
+            ViewConfiguration.setRoot(Tela.SOBRE.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -80,7 +83,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnSair() throws IOException {
         try {
-            App.setRoot("Login");
+            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
             //TODO
