@@ -7,54 +7,47 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 
 public class DetalheContaController implements Initializable {
-
-    @FXML
-    private ComboBox<String> cbConta;
     
     @FXML
-    private DatePicker txtData;
+    private Text txtBanco;
     
     @FXML
-    private TextField txtValor;
+    private Text txtAgencia;
     
     @FXML
-    private TextArea txtComentario;
+    private Text txtConta;
     
-
+    @FXML
+    private Text txtMeta;
+    
+    @FXML
+    private Text txtDescricao;
+    
+    @FXML
+    private Text txtSaldo;
+    
+    @FXML
+    private Text txtFatura;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO: Preencher ComboBox cbConta
-        //TODO: Método para preencher quando selecionar editar
+        //TODO: Preencher campos text
     }
     
     @FXML
     private void onMouseClicked_btnVoltar() throws IOException {
         try {
             //TODO: MessageBox para cancelar cadastro
-            ViewConfiguration.mudaTela(Tela.HOME.getNome());
+            ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
         }
         catch (Exception erro){
             ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
-    @FXML
-    private void onMouseClicked_btnSalvar() throws IOException {
-        try {
-            //TODO: Chamar service para salvar no banco
-            //TODO: Criar maskedbox para o valor
-            ViewConfiguration.mudaTela(Tela.HOME.getNome());
-        }
-        catch (Exception erro){
-            ViewConfiguration.exibeMensagemErro(erro.getMessage());
-        }
-    }
     
 }

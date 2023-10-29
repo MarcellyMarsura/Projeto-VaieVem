@@ -33,7 +33,7 @@
                               <Insets right="2.0" top="8.0" />
                            </HBox.margin>
                         </Text>
-                        <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                        <Text fx:id="txtSaldo" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -90,22 +90,22 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="90.0" layoutY="32.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Santander" textAlignment="CENTER">
+                  <Text fx:id="txtBanco" layoutX="90.0" layoutY="32.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Santander" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="105.0" layoutY="66.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="42363" textAlignment="CENTER">
+                  <Text fx:id="txtAgencia" layoutX="105.0" layoutY="66.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="42363" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="94.0" layoutY="102.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0005251252200" textAlignment="CENTER">
+                  <Text fx:id="txtConta" layoutX="93.0" layoutY="106.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0005251252200" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="124.0" layoutY="172.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta principal" textAlignment="CENTER">
+                  <Text fx:id="txtDescricao" layoutX="124.0" layoutY="172.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta principal" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
@@ -120,7 +120,7 @@
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="108.0" layoutY="138.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                  <Text fx:id="txtMeta" layoutX="108.0" layoutY="138.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
@@ -141,7 +141,7 @@
                   <Font name="Segoe UI Semibold" size="20.0" />
                </font>
             </Text>
-            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
+            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnVoltar" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -175,7 +175,7 @@
                               <Insets right="2.0" top="8.0" />
                            </HBox.margin>
                         </Text>
-                        <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                        <Text fx:id="txtFatura" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>

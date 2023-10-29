@@ -16,62 +16,75 @@
    <children>
       <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Pane layoutX="30.0" layoutY="101.0" prefHeight="564.0" prefWidth="454.0" styleClass="card" stylesheets="@styles/style.css">
+            <Pane layoutX="30.0" layoutY="101.0" prefHeight="564.0" prefWidth="951.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <ComboBox layoutX="57.0" layoutY="144.0" prefHeight="35.0" prefWidth="340.0" />
-                  <TextField layoutX="57.0" layoutY="394.0" prefHeight="35.0" prefWidth="340.0" promptText="0,00">
+                  <ComboBox fx:id="cbBanco" layoutX="504.0" layoutY="60.0" prefHeight="35.0" prefWidth="355.0" />
+                  <TextField fx:id="txtMeta" layoutX="83.0" layoutY="221.0" prefHeight="35.0" prefWidth="355.0" promptText="0,00">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Text layoutX="58.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco:">
+                  <Text layoutX="504.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="58.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta (R$):">
+                  <Text layoutX="84.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta (R$):">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="58.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:">
+                  <Text layoutX="84.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="58.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência:">
+                  <Text layoutX="84.0" layoutY="137.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Button layoutX="154.0" layoutY="477.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="147.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
+                  <Button layoutX="402.0" layoutY="492.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnSalvar" prefHeight="45.0" prefWidth="147.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <TextField layoutX="57.0" layoutY="66.0" prefHeight="35.0" prefWidth="340.0" promptText="Descrição">
+                  <TextField fx:id="txtDescricao" layoutX="83.0" layoutY="60.0" prefHeight="35.0" prefWidth="355.0" promptText="Descrição">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="57.0" layoutY="225.0" prefHeight="35.0" prefWidth="340.0">
+                  <TextField fx:id="txtAgencia" layoutX="83.0" layoutY="145.0" prefHeight="35.0" prefWidth="355.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="58.0" layoutY="312.0" prefHeight="35.0" prefWidth="340.0">
+                  <TextField fx:id="txtConta" layoutX="504.0" layoutY="145.0" prefHeight="35.0" prefWidth="355.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Text layoutX="59.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número da conta:">
+                  <Text layoutX="504.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número da conta:">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Text>
+                  <Button layoutX="504.0" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarCartao" prefHeight="40.0" prefWidth="355.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar Cartão" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <TableView focusTraversable="false" layoutX="83.0" layoutY="282.0" prefHeight="190.0" prefWidth="776.0" stylesheets="@styles/style.css">
+                     <columns>
+                        <TableColumn prefWidth="470.0" text="Descrição" />
+                        <TableColumn prefWidth="121.0" text="Limite" />
+                        <TableColumn prefWidth="84.0" text="Editar" />
+                        <TableColumn minWidth="0.0" prefWidth="100.0" text="Excluir" />
+                     </columns>
+                  </TableView>
                </children>
             </Pane>
-            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
+            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnVoltar" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -88,23 +101,6 @@
                   <Font name="Segoe UI Bold" size="30.0" />
                </font>
             </Text>
-            <Pane layoutX="496.0" layoutY="101.0" prefHeight="564.0" prefWidth="483.0" styleClass="card" stylesheets="@styles/style.css">
-               <children>
-                  <TableView prefHeight="458.0" prefWidth="483.0" stylesheets="@styles/style.css">
-                     <columns>
-                        <TableColumn prefWidth="222.0" text="Descrição" />
-                        <TableColumn prefWidth="116.0" text="Limite" />
-                        <TableColumn prefWidth="81.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="63.0" text="Excluir" />
-                     </columns>
-                  </TableView>
-                  <Button layoutX="146.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarCartao" prefHeight="45.0" prefWidth="192.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar Cartão" textAlignment="CENTER" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
          </children>
       </Pane>
    </children>

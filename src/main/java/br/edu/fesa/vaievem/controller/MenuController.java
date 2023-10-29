@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package br.edu.fesa.vaievem.controller;
 
-import br.edu.fesa.vaievem.App;
 import br.edu.fesa.vaievem.utils.Tela;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
@@ -14,11 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
-/**
- * FXML Controller class
- *
- * @author m.molinari.marsura
- */
 public class MenuController implements Initializable {
 
     @FXML
@@ -36,7 +26,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
@@ -46,7 +36,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.PERFIL.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
@@ -56,7 +46,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
@@ -66,7 +56,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.CARTOES.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
@@ -76,7 +66,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.SOBRE.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     
@@ -86,7 +76,7 @@ public class MenuController implements Initializable {
             ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
     }
     

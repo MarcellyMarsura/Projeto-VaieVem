@@ -19,13 +19,9 @@ import javafx.stage.StageStyle;
  */
 public class App extends Application {
 
-    private static Scene scene;
-    private static Parent root;
-    static boolean possuiMenu = true;
-
     @Override
     public void start(Stage stage) throws IOException {
-        ViewConfiguration.carregaTela(Tela.LOGIN.getNome(), stage);
+        ViewConfiguration.carregaTela(Tela.DETALHE_CONTA.getNome(), stage);
     }
     
     public static void main(String[] args) {
