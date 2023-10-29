@@ -80,7 +80,7 @@ public class AdministradorController implements Initializable {
     @FXML
     private void onMouseClicked_btnSair() throws IOException{
         try {
-            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
+            ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
             //TODO

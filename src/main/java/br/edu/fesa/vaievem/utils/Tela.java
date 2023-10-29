@@ -19,7 +19,9 @@ public enum Tela {
     CARTOES("Cartoes"),
     CADASTRO_USUARIO("CadastroUsuario"),
     CADASTRO_LANCAMENTO_CONTA("CadastroLancamentoConta"),
+    CADASTRO_LANCAMENTO_CARTAO("CadastroLancamentoCartao"),
     CADASTRO_CONTA("CadastroConta"),
+    CADASTRO_CARTAO("CadastroCartao"),
     ADMINISTRADOR("Administrador"),
     
     MENU("Menu");

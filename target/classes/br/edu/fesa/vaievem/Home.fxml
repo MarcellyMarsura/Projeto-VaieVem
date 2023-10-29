@@ -41,10 +41,10 @@
                               <Font name="Segoe UI Light" size="20.0" />
                            </font>
                            <HBox.margin>
-                              <Insets top="15.0" />
+                              <Insets right="4.0" top="15.0" />
                            </HBox.margin>
                         </Text>
-                        <Text smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="100,00" textAlignment="CENTER">
+                        <Text fx:id="txtSaldoTotal" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="40.0" />
                            </font>
@@ -54,12 +54,14 @@
                </children></Pane>
             <Pane layoutX="54.0" layoutY="308.0" prefHeight="370.0" prefWidth="623.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView prefHeight="370.0" prefWidth="623.0" stylesheets="@styles/style.css">
+                  <TableView focusTraversable="false" prefHeight="370.0" prefWidth="623.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="81.0" text="Cartão" />
-                        <TableColumn prefWidth="203.0" text="Vencimento" />
-                      <TableColumn minWidth="0.0" prefWidth="189.0" text="Valor" />
-                        <TableColumn prefWidth="147.800048828125" text="Status" />
+                      <TableColumn prefWidth="94.0" text="Tipo" />
+                        <TableColumn prefWidth="97.0" text="Data" />
+                      <TableColumn minWidth="0.0" prefWidth="92.0" text="Valor" />
+                        <TableColumn prefWidth="208.0" text="Comentário" />
+                        <TableColumn prefWidth="55.0" text="Editar" />
+                        <TableColumn prefWidth="76.0" text="Excluir" />
                     </columns>
                   </TableView>
                </children>
@@ -68,7 +70,7 @@
                <children>
                   <VBox layoutX="9.0" layoutY="11.0" prefHeight="145.0" prefWidth="212.0" style="-fx-alignment: center;">
                      <children>
-                        <Text fill="#7707abd9" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Parabéns!" textAlignment="CENTER" wrappingWidth="248.91796875">
+                        <Text fx:id="txtTituloMensagem" fill="#7707abd9" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Título da Mensagem" textAlignment="CENTER" wrappingWidth="248.91796875">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -78,7 +80,7 @@
                               <Font name="System Bold" size="10.0" />
                            </font>
                         </Text>
-                        <Text fill="#000000e2" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Você não possui faturas em aberto ou atrasadas." textAlignment="CENTER" wrappingWidth="213.91796875">
+                        <Text fx:id="txtMensagem" fill="#000000e2" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Mensagem" textAlignment="CENTER" wrappingWidth="213.91796875">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -89,7 +91,7 @@
             </Pane>
             <Pane layoutX="691.0" layoutY="91.0" prefHeight="166.0" prefWidth="266.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <Button layoutX="33.0" layoutY="51.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@styles/style.css">
+                  <Button fx:id="btnLancamentoCartao" layoutX="33.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnLancamentoCartao" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@styles/style.css">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -142,7 +144,7 @@
                   </BarChart>
                </children>
             </Pane>
-            <Text fill="#000000ab" layoutX="56.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Faturas" textAlignment="CENTER">
+            <Text fill="#000000ab" layoutX="56.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Lançamentos" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="20.0" />
                </font>

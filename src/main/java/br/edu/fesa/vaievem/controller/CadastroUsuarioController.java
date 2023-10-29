@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package br.edu.fesa.vaievem.controller;
 
-import br.edu.fesa.vaievem.App;
 import br.edu.fesa.vaievem.utils.Tela;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
@@ -14,11 +9,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author m.molinari.marsura
- */
 public class CadastroUsuarioController implements Initializable {
 
     @FXML
@@ -38,10 +28,10 @@ public class CadastroUsuarioController implements Initializable {
     @FXML
     private void onMouseClicked_lnkEntrar() throws IOException{
         try {
-            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
+            ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
         
     }
@@ -49,15 +39,17 @@ public class CadastroUsuarioController implements Initializable {
     @FXML
     private void onMouseClicked_btnCadastrar() throws IOException{
         try {
-            String nome = txtEmail.getText();
+            String nome = txtNome.getText();
             String email = txtEmail.getText();
             String senha = txtSenha.getText();
             
-            ViewConfiguration.setRoot(Tela.HOME.getNome());
-            //TODO
+            //TODO: Preencher model Usuario e chamar inserir do service
+            //TODO: Em caso de erro, manter dados na tela
+            
+            ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
-            //TODO
+            ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
         
     }    

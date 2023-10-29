@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.utils.Tela;
@@ -16,18 +12,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author m.molinari.marsura
- */
-public class CadastroLancamentoContaController implements Initializable {
+public class CadastroLancamentoCartaoController implements Initializable {
 
     @FXML
-    private ComboBox<String> cbConta;
-    
-    @FXML
-    private ComboBox<String> cbTipoLancamento;
+    private ComboBox<String> cbCartao;
     
     @FXML
     private DatePicker txtData;
@@ -61,11 +49,12 @@ public class CadastroLancamentoContaController implements Initializable {
         try {
             //TODO: Chamar service para salvar no banco
             //TODO: Criar maskedbox para o valor
+            //TODO: MessageBox quando Salvar
             ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
             ViewConfiguration.exibeMensagemErro(erro.getMessage());
         }
-    }  
+    }
     
 }

@@ -20,29 +20,27 @@
                <children>
                   <TableView layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="106.0" text="Agência" />
-                      <TableColumn prefWidth="147.0" text="Conta" />
-                        <TableColumn prefWidth="220.0" text="Nome da Conta" />
-                        <TableColumn prefWidth="187.0" text="Banco" />
-                        <TableColumn minWidth="0.0" prefWidth="76.0" text="Detalhes" />
-                        <TableColumn prefWidth="66.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="66.0" text="Excluir" />
+                      <TableColumn prefWidth="270.0" text="Conta" />
+                      <TableColumn prefWidth="291.0" text="Descrição" />
+                        <TableColumn prefWidth="145.0" text="Limite" />
+                        <TableColumn prefWidth="90.0" text="Editar" />
+                        <TableColumn minWidth="0.0" prefWidth="99.0" text="Excluir" />
                     </columns>
                   </TableView>
                   <TextField layoutX="266.0" layoutY="15.0" prefHeight="35.0" prefWidth="479.0" promptText="Pesquisar" />
-                  <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
+                  <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPesquisar" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <ComboBox layoutX="19.0" layoutY="15.0" prefHeight="35.0" prefWidth="238.0" stylesheets="@styles/style.css" />
+                  <ComboBox fx:id="cbConta" layoutX="19.0" layoutY="15.0" prefHeight="35.0" prefWidth="238.0" stylesheets="@styles/style.css" />
                </children></Pane>
             <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões de Crédito" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Bold" size="30.0" />
                </font>
             </Text>
-            <Button layoutX="810.0" layoutY="33.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar">
+            <Button layoutX="810.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarCartao" prefHeight="40.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

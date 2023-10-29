@@ -32,7 +32,7 @@
              <Font name="System Bold" size="16.0" />
           </font>
        </Button>
-       <Button fx:id="btnPerfil" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPerfil" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Perfil" textFill="WHITE">
+       <Button fx:id="btnPerfil" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPerfil" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Perfil" textFill="WHITE">
           <graphic>
              <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                 <image>
@@ -47,7 +47,7 @@
              <Font name="System Bold" size="16.0" />
           </font>
        </Button>
-       <Button fx:id="btnContas" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnContas" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Contas" textFill="WHITE">
+       <Button fx:id="btnContas" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnContas" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Contas" textFill="WHITE">
           <graphic>
              <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                 <image>
@@ -92,7 +92,7 @@
              <Font name="System Bold" size="16.0" />
           </font>
        </Button>
-         <Button fx:id="btnCartoes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnCartoes" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Cartões" textFill="WHITE">
+         <Button fx:id="btnCartoes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnCartoes" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Cartões" textFill="WHITE">
             <graphic>
                <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                   <image>

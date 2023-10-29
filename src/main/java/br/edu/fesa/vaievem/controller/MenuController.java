@@ -33,7 +33,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnHome() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.HOME.getNome());
+            ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -43,7 +43,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnPerfil() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.PERFIL.getNome());
+            ViewConfiguration.mudaTela(Tela.PERFIL.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -53,7 +53,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnContas() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.CONTAS.getNome());
+            ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -63,7 +63,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnCartoes() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.CARTOES.getNome());
+            ViewConfiguration.mudaTela(Tela.CARTOES.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -73,7 +73,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnSobre() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.SOBRE.getNome());
+            ViewConfiguration.mudaTela(Tela.SOBRE.getNome());
         }
         catch (Exception erro){
             //TODO
@@ -83,7 +83,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnSair() throws IOException {
         try {
-            ViewConfiguration.setRoot(Tela.LOGIN.getNome());
+            ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
         }
         catch (Exception erro){
             //TODO

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -14,150 +12,100 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.CadastroContaController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.CadastroContaController">
    <children>
-      <Pane prefHeight="500.0" prefWidth="229.0" styleClass="linear-grad" stylesheets="@styles/style.css">
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
          <children>
-            <Text fill="WHITE" layoutX="46.0" layoutY="78.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá, Usuário" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Text>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="127.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Home" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-home.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="184.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Área do Usuário" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-user.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="241.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Contas" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-cards.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="298.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Sobre" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-info.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="355.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="229.0" styleClass="button2" stylesheets="@styles/style.css" text="Sair" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-logout.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <padding>
-                  <Insets left="45.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font>
-            </Button>
-         </children>
-      </Pane>
-      <ScrollPane layoutX="229.0" prefHeight="500.0" prefWidth="573.0">
-         <content>
-            <Pane prefHeight="656.0" prefWidth="556.0" style="-fx-background-color: #fff;">
+            <Pane layoutX="30.0" layoutY="101.0" prefHeight="564.0" prefWidth="454.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <Text layoutX="244.0" layoutY="58.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" textAlignment="CENTER">
+                  <ComboBox layoutX="57.0" layoutY="144.0" prefHeight="35.0" prefWidth="340.0" />
+                  <TextField layoutX="57.0" layoutY="394.0" prefHeight="35.0" prefWidth="340.0" promptText="0,00">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="58.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco:">
+                     <font>
+                        <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="38.0" layoutY="94.0" prefHeight="35.0" prefWidth="230.0" promptText="Nome" />
-                  <TextField layoutX="38.0" layoutY="157.0" prefHeight="35.0" prefWidth="230.0" promptText="Agência" />
-                  <ComboBox layoutX="297.0" layoutY="94.0" prefHeight="35.0" prefWidth="230.0" />
-                  <TextField layoutX="297.0" layoutY="157.0" prefHeight="35.0" prefWidth="230.0" promptText="Conta" />
-                  <Text layoutX="236.0" layoutY="243.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões" textAlignment="CENTER">
+                  <Text layoutX="58.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta (R$):">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font size="16.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="36.0" layoutY="280.0" prefHeight="35.0" prefWidth="230.0" promptText="Nome do cartão" />
-                  <TextField layoutX="297.0" layoutY="277.0" prefHeight="35.0" prefWidth="230.0" promptText="Bandeira" />
-                  <TextField layoutX="36.0" layoutY="339.0" prefHeight="35.0" prefWidth="230.0" promptText="Número do cartão" />
-                  <TextField layoutX="297.0" layoutY="337.0" prefHeight="35.0" prefWidth="230.0" promptText="0,00" />
-                  <TableView layoutX="38.0" layoutY="449.0" prefHeight="142.0" prefWidth="493.0" stylesheets="@styles/style.css">
-                    <columns>
-                      <TableColumn prefWidth="98.0" text="Nome" />
-                      <TableColumn prefWidth="190.0" text="Numero" />
-                        <TableColumn prefWidth="94.0" text="Bandeira" />
-                        <TableColumn minWidth="0.0" prefWidth="108.0" text="Limite" />
-                    </columns>
-                  </TableView>
-                  <Text layoutX="38.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome da conta" />
-                  <Text layoutX="298.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco" />
-                  <Text layoutX="38.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência" />
-                  <Text layoutX="298.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta" />
-                  <Text layoutX="36.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do cartão" />
-                  <Text layoutX="299.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bandeira" />
-                  <Text layoutX="38.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número" />
-                  <Text layoutX="299.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite estipulado" />
-                  <Button layoutX="298.0" layoutY="396.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="229.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar cartão">
+                  <Text layoutX="58.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="58.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="154.0" layoutY="477.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="147.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="222.0" layoutY="599.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="125.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
+                  <TextField layoutX="57.0" layoutY="66.0" prefHeight="35.0" prefWidth="340.0" promptText="Descrição">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font size="14.0" />
                      </font>
-                  </Button>
-                  <ImageView fitHeight="30.0" fitWidth="50.0" layoutX="32.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icon/icon-back.png" />
-                     </image>
-                  </ImageView>
-                  <TextField layoutX="36.0" layoutY="397.0" prefHeight="35.0" prefWidth="230.0" promptText="0,00" />
-                  <Text layoutX="38.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia de vencimento da fatura" />
+                  </TextField>
+                  <TextField layoutX="57.0" layoutY="225.0" prefHeight="35.0" prefWidth="340.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutX="58.0" layoutY="312.0" prefHeight="35.0" prefWidth="340.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="59.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número da conta:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
                </children>
             </Pane>
-         </content>
-      </ScrollPane>
+            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/icon-back-arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="#00000093" layoutX="115.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Conta" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            <Pane layoutX="496.0" layoutY="101.0" prefHeight="564.0" prefWidth="483.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <TableView prefHeight="458.0" prefWidth="483.0" stylesheets="@styles/style.css">
+                     <columns>
+                        <TableColumn prefWidth="222.0" text="Descrição" />
+                        <TableColumn prefWidth="116.0" text="Limite" />
+                        <TableColumn prefWidth="81.0" text="Editar" />
+                        <TableColumn minWidth="0.0" prefWidth="63.0" text="Excluir" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="146.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarCartao" prefHeight="45.0" prefWidth="192.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar Cartão" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

@@ -7,9 +7,11 @@ br\edu\fesa\vaievem\controller\CadastroContaController.class
 br\edu\fesa\vaievem\controller\HomeController.class
 br\edu\fesa\vaievem\utils\Tela.class
 br\edu\fesa\vaievem\utils\ViewConfiguration.class
+br\edu\fesa\vaievem\controller\CadastroCartaoController.class
 module-info.class
 br\edu\fesa\vaievem\App.class
 br\edu\fesa\vaievem\controller\CadastroLancamentoContaController.class
+br\edu\fesa\vaievem\controller\CadastroLancamentoCartaoController.class
 br\edu\fesa\vaievem\controller\MenuController.class
 br\edu\fesa\vaievem\viewmodels\UsuarioViewModel.class
 br\edu\fesa\vaievem\controller\CadastroUsuarioController.class

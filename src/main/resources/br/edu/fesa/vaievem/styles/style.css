@@ -3,11 +3,6 @@
     -fx-background-radius: 10;
     -fx-background-color: #ffffff;
 }
-.text-input
-{
-    -fx-text-fill : #ffffff;
-    -fx-prompt-text-fill:#D4CEE3;
-}
 
 .button1
 {

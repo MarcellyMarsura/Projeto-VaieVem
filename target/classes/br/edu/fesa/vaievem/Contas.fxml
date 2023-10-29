@@ -19,17 +19,18 @@
                <children>
                   <TableView layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="106.0" text="Agência" />
-                      <TableColumn prefWidth="147.0" text="Conta" />
-                        <TableColumn prefWidth="220.0" text="Nome da Conta" />
-                        <TableColumn prefWidth="187.0" text="Banco" />
+                        <TableColumn prefWidth="194.0" text="Descrição" />
+                      <TableColumn prefWidth="88.0" text="Agência" />
+                      <TableColumn prefWidth="136.0" text="Número da conta" />
+                        <TableColumn prefWidth="172.0" text="Banco" />
+                        <TableColumn prefWidth="86.0" text="Meta" />
                         <TableColumn minWidth="0.0" prefWidth="76.0" text="Detalhes" />
-                        <TableColumn prefWidth="66.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="66.0" text="Excluir" />
+                        <TableColumn prefWidth="65.0" text="Editar" />
+                        <TableColumn minWidth="0.0" prefWidth="78.0" text="Excluir" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="24.0" layoutY="15.0" prefHeight="35.0" prefWidth="711.0" promptText="Pesquisar" />
-                  <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
+                  <TextField fx:id="txtPesquisar" layoutX="24.0" layoutY="15.0" prefHeight="35.0" prefWidth="711.0" promptText="Pesquisar" />
+                  <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPesquisar" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -40,7 +41,7 @@
                   <Font name="Segoe UI Bold" size="30.0" />
                </font>
             </Text>
-            <Button layoutX="810.0" layoutY="33.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar">
+            <Button layoutX="810.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarConta" prefHeight="40.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
