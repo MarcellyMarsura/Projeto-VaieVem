@@ -1,4 +1,8 @@
-br\edu\fesa\vaievem\PrimaryController.class
 br\edu\fesa\vaievem\SecondaryController.class
-br\edu\fesa\vaievem\App.class
+br\edu\fesa\vaievem\dao\utils\DbProjetoDAO.class
+br\edu\fesa\vaievem\exception\PersistenciaException.class
 module-info.class
+br\edu\fesa\vaievem\PrimaryController.class
+br\edu\fesa\vaievem\main\Main.class
+br\edu\fesa\vaievem\App.class
+br\edu\fesa\vaievem\dao\utils\Conexao.class
