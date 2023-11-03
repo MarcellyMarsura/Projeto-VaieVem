@@ -1,5 +1,6 @@
 package br.edu.fesa.vaievem.controller;
 
+import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class LoginController implements Initializable {
             ViewConfiguration.mudaTela(Tela.CADASTRO_USUARIO.getNome());
         }
         catch (Exception erro){
-            ViewConfiguration.exibeMensagemErro(erro.getMessage());
+            MessageBox.exibeMensagemErro(erro);
         }
         
     }
@@ -45,7 +46,7 @@ public class LoginController implements Initializable {
             ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
-            ViewConfiguration.exibeMensagemErro(erro.getMessage());
+            MessageBox.exibeMensagemErro(erro);
         }
         
     }

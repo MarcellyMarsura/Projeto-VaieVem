@@ -6,13 +6,9 @@ package br.edu.fesa.vaievem.utils;
 
 import br.edu.fesa.vaievem.App;
 import java.io.IOException;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
@@ -56,17 +52,6 @@ public class ViewConfiguration {
         
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
-    }
-    
-    public static void exibeMensagemErro(String mensagem){
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.setTitle("Ocorreu um erro");
-        alert.setContentText(mensagem);
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.OK) {
-                alert.close();
-            }
-        });
     }
     
     private static Parent carregaFXML(String fxml) throws IOException {

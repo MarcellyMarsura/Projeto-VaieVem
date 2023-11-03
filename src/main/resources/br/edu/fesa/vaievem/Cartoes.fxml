@@ -18,13 +18,13 @@
          <children>
             <Pane layoutX="56.0" layoutY="95.0" prefHeight="579.0" prefWidth="896.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
+                  <TableView fx:id="tbCartao" layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="270.0" text="Conta" />
-                      <TableColumn prefWidth="291.0" text="Descrição" />
-                        <TableColumn prefWidth="145.0" text="Limite" />
-                        <TableColumn prefWidth="90.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="99.0" text="Excluir" />
+                      <TableColumn fx:id="colConta" prefWidth="270.0" text="Conta" />
+                      <TableColumn fx:id="colDescricao" prefWidth="291.0" text="Descrição" />
+                        <TableColumn fx:id="colLimite" prefWidth="145.0" text="Limite" />
+                        <TableColumn fx:id="colEditar" prefWidth="90.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" minWidth="0.0" prefWidth="99.0" text="Excluir" />
                     </columns>
                   </TableView>
                   <TextField layoutX="266.0" layoutY="15.0" prefHeight="35.0" prefWidth="479.0" promptText="Pesquisar" />

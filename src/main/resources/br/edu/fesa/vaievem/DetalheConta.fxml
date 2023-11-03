@@ -44,26 +44,26 @@
             </Pane>
             <Pane layoutX="57.0" layoutY="468.0" prefHeight="192.0" prefWidth="895.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView prefHeight="192.0" prefWidth="895.0" stylesheets="@styles/style.css">
+                  <TableView fx:id="tbLancamento" prefHeight="192.0" prefWidth="895.0" stylesheets="@styles/style.css">
                      <columns>
-                        <TableColumn prefWidth="103.0" text="Tipo" />
-                        <TableColumn prefWidth="123.0" text="Data" />
-                        <TableColumn minWidth="0.0" prefWidth="131.0" text="Valor" />
-                        <TableColumn prefWidth="377.0" text="Comentário" />
-                        <TableColumn prefWidth="81.0" text="Editar" />
-                        <TableColumn prefWidth="79.0" text="Excluir" />
+                        <TableColumn fx:id="colTipo" prefWidth="103.0" text="Tipo" />
+                        <TableColumn fx:id="colData" prefWidth="123.0" text="Data" />
+                        <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="131.0" text="Valor" />
+                        <TableColumn fx:id="colComentario" prefWidth="377.0" text="Comentário" />
+                        <TableColumn fx:id="colEditar" prefWidth="81.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" prefWidth="79.0" text="Excluir" />
                      </columns>
                   </TableView>
                </children>
             </Pane>
             <Pane layoutX="429.0" layoutY="127.0" prefHeight="297.0" prefWidth="520.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView prefHeight="297.0" prefWidth="520.0" stylesheets="@styles/style.css">
+                  <TableView fx:id="tbCartao" prefHeight="297.0" prefWidth="520.0" stylesheets="@styles/style.css">
                      <columns>
-                        <TableColumn prefWidth="258.0" text="Descrição" />
-                        <TableColumn prefWidth="109.0" text="Limite" />
-                        <TableColumn prefWidth="76.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="76.0" text="Excluir" />
+                        <TableColumn fx:id="colDescricao" prefWidth="258.0" text="Descrição" />
+                        <TableColumn fx:id="colLimite" prefWidth="109.0" text="Limite" />
+                        <TableColumn fx:id="colEditarCartao" prefWidth="76.0" text="Editar" />
+                        <TableColumn fx:id="colExcluirCartao" minWidth="0.0" prefWidth="76.0" text="Excluir" />
                      </columns>
                   </TableView>
                </children>

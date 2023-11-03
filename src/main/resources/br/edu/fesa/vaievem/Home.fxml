@@ -54,14 +54,14 @@
                </children></Pane>
             <Pane layoutX="54.0" layoutY="308.0" prefHeight="370.0" prefWidth="623.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView focusTraversable="false" prefHeight="370.0" prefWidth="623.0" stylesheets="@styles/style.css">
+                  <TableView fx:id="tbLancamento" focusTraversable="false" prefHeight="370.0" prefWidth="623.0" stylesheets="@styles/style.css">
                     <columns>
-                      <TableColumn prefWidth="94.0" text="Tipo" />
-                        <TableColumn prefWidth="97.0" text="Data" />
-                      <TableColumn minWidth="0.0" prefWidth="92.0" text="Valor" />
-                        <TableColumn prefWidth="208.0" text="Comentário" />
-                        <TableColumn prefWidth="55.0" text="Editar" />
-                        <TableColumn prefWidth="76.0" text="Excluir" />
+                      <TableColumn fx:id="colTipo" prefWidth="94.0" text="Tipo" />
+                        <TableColumn fx:id="colData" prefWidth="97.0" text="Data" />
+                      <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="92.0" text="Valor" />
+                        <TableColumn fx:id="colComentario" prefWidth="208.0" text="Comentário" />
+                        <TableColumn fx:id="colEditar" prefWidth="55.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" prefWidth="76.0" text="Excluir" />
                     </columns>
                   </TableView>
                </children>

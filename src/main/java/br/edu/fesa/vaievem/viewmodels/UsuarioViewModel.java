@@ -4,6 +4,7 @@
  */
 package br.edu.fesa.vaievem.viewmodels;
 
+import br.edu.fesa.vaievem.apagar.UsuarioModel;
 import javafx.beans.property.SimpleStringProperty;
 
 public class UsuarioViewModel {
@@ -12,10 +13,10 @@ public class UsuarioViewModel {
     private SimpleStringProperty Nome;
     private SimpleStringProperty Email;
 
-    public UsuarioViewModel(String id, String nome, String email){
-        this.Id = new SimpleStringProperty(id);
-        this.Nome = new SimpleStringProperty(nome);
-        this.Email = new SimpleStringProperty(email);
+    public UsuarioViewModel(UsuarioModel usuarioModel){
+        this.Id = new SimpleStringProperty(String.valueOf(usuarioModel.getId()));
+        this.Nome = new SimpleStringProperty(usuarioModel.getNome());
+        this.Email = new SimpleStringProperty(usuarioModel.getEmail());
     }
     
     public String getId() {

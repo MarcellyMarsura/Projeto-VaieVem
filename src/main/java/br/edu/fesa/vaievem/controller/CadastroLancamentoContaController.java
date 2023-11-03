@@ -4,6 +4,7 @@
  */
 package br.edu.fesa.vaievem.controller;
 
+import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
@@ -52,7 +53,7 @@ public class CadastroLancamentoContaController implements Initializable {
             ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
-            ViewConfiguration.exibeMensagemErro(erro.getMessage());
+            MessageBox.exibeMensagemErro(erro);
         }
     }
     
@@ -64,7 +65,7 @@ public class CadastroLancamentoContaController implements Initializable {
             ViewConfiguration.mudaTela(Tela.HOME.getNome());
         }
         catch (Exception erro){
-            ViewConfiguration.exibeMensagemErro(erro.getMessage());
+            MessageBox.exibeMensagemErro(erro);
         }
     }  
     

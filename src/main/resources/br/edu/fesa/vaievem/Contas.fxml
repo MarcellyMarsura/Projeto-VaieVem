@@ -17,16 +17,16 @@
          <children>
             <Pane layoutX="56.0" layoutY="95.0" prefHeight="579.0" prefWidth="896.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TableView layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
+                  <TableView fx:id="tbConta" layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
                     <columns>
-                        <TableColumn prefWidth="194.0" text="Descrição" />
-                      <TableColumn prefWidth="88.0" text="Agência" />
-                      <TableColumn prefWidth="136.0" text="Número da conta" />
-                        <TableColumn prefWidth="172.0" text="Banco" />
-                        <TableColumn prefWidth="86.0" text="Meta" />
-                        <TableColumn minWidth="0.0" prefWidth="76.0" text="Detalhes" />
-                        <TableColumn prefWidth="65.0" text="Editar" />
-                        <TableColumn minWidth="0.0" prefWidth="78.0" text="Excluir" />
+                        <TableColumn fx:id="colDescricao" prefWidth="194.0" text="Descrição" />
+                      <TableColumn fx:id="colAgencia" prefWidth="88.0" text="Agência" />
+                      <TableColumn fx:id="colConta" prefWidth="136.0" text="Número da conta" />
+                        <TableColumn fx:id="colBanco" prefWidth="172.0" text="Banco" />
+                        <TableColumn fx:id="colMeta" prefWidth="86.0" text="Meta" />
+                        <TableColumn fx:id="colDetalhes" minWidth="0.0" prefWidth="76.0" text="Detalhes" />
+                        <TableColumn fx:id="colEditar" prefWidth="65.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" minWidth="0.0" prefWidth="78.0" text="Excluir" />
                     </columns>
                   </TableView>
                   <TextField fx:id="txtPesquisar" layoutX="24.0" layoutY="15.0" prefHeight="35.0" prefWidth="711.0" promptText="Pesquisar" />
