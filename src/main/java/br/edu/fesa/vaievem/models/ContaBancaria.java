@@ -2,15 +2,25 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContaBancaria implements Serializable {
     
+    // Atributos
     private Long idContaBancaria;
     private String descricao;
     private String numeroAgencia;
     private String numeroConta;
     private Long meta;
-
+    
+    // Atributos de relacionamento
+    private Usuario usuario;
+    private Banco banco;
+    private List<Cartao> cartoes;
+    private List<LancamentoConta> lancamentosConta;
+    
+    // Construtores
     public ContaBancaria() {
     }
     public ContaBancaria(Long idContaBancaria) {
@@ -36,6 +46,7 @@ public class ContaBancaria implements Serializable {
         this.meta = meta;
     }
 
+    // Getter e Setter
     public Long getIdContaBancaria() {
         return idContaBancaria;
     }
@@ -69,5 +80,39 @@ public class ContaBancaria implements Serializable {
     }
     public void setMeta(Long meta) {
         this.meta = meta;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Banco getBanco() {
+        return banco;
+    }
+    public void setBanco(Banco banco) {
+        this.banco = banco;
+    }
+    
+    public List<Cartao> getCartoes() {
+        if(cartoes == null){
+            cartoes = new ArrayList();
+        }
+        return cartoes;
+    }
+    public void setCartoes(ArrayList<Cartao> cartoes) {
+        this.cartoes = cartoes;
+    }
+
+    public List<LancamentoConta> getLancamentosConta() {
+        if(lancamentosConta == null){
+            lancamentosConta = new ArrayList();
+        }
+        return lancamentosConta;
+    }
+    public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
+        this.lancamentosConta = lancamentosConta;
     }
 }

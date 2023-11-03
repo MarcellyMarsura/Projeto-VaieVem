@@ -6,11 +6,16 @@ import java.util.Date;
 
 public class LancamentoCartao implements Serializable {
     
+    // Atributos
     private Long idLancamentoCartao;
     private Date dataLancamento;
     private float valor;
     private String comentario;
 
+    // Atributos de relacionamento
+    private Cartao cartao;
+    
+    // Construtores
     public LancamentoCartao() {
     }
     public LancamentoCartao(Long idLancamentoCartao) {
@@ -28,6 +33,7 @@ public class LancamentoCartao implements Serializable {
         this.comentario = comentario;
     }
 
+    // Getter e Setter
     public Long getIdLancamentoCartao() {
         return idLancamentoCartao;
     }
@@ -54,5 +60,12 @@ public class LancamentoCartao implements Serializable {
     }
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public Cartao getCartao() {
+        return cartao;
+    }
+    public void setCartao(Cartao cartao) {
+        this.cartao = cartao;
     }
 }

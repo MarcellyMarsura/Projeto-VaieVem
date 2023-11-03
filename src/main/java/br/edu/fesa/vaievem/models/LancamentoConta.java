@@ -5,11 +5,17 @@ import java.util.Date;
 
 public class LancamentoConta implements Serializable {
     
+    // Atributos
     private Long idLancamentoConta;
     private Date dataLancamento;
     private float valor;
     private String comentario;
 
+    // Atributos de relacionamento
+    private TipoLancamento tipoLancamento;
+    private ContaBancaria contaBancaria;
+    
+    // Construtores
     public LancamentoConta() {
     }
     public LancamentoConta(Long idLancamentoConta) {
@@ -27,6 +33,7 @@ public class LancamentoConta implements Serializable {
         this.comentario = comentario;
     }
 
+    // Getter e Setter
     public Long getIdLancamentoConta() {
         return idLancamentoConta;
     }
@@ -53,5 +60,19 @@ public class LancamentoConta implements Serializable {
     }
     public void setComentario(String comentario) {
         this.comentario = comentario;
+    }
+
+    public TipoLancamento getTipoLancamento() {
+        return tipoLancamento;
+    }
+    public void setTipoLancamento(TipoLancamento tipoLancamento) {
+        this.tipoLancamento = tipoLancamento;
+    }
+
+    public ContaBancaria getContaBancaria() {
+        return contaBancaria;
+    }
+    public void setContaBancaria(ContaBancaria contaBancaria) {
+        this.contaBancaria = contaBancaria;
     }
 }

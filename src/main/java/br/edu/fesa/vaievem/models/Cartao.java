@@ -2,15 +2,23 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cartao implements Serializable {
     
+    // Atributos
     private Long idCartao;
     private String descricao;
     private int diaFechamento;
     private int diaVencimento;
     private float limiteEstipulado; 
 
+    // Atributos de relacionamento
+    private ContaBancaria contaBancaria;
+    private List<LancamentoCartao> lancamentosCartao;
+
+    // Construtores
     public Cartao() {
     }
     public Cartao(Long idCartao) {
@@ -36,6 +44,7 @@ public class Cartao implements Serializable {
         this.limiteEstipulado = limiteEstipulado;
     }
 
+    // Getter e Setter
     public Long getIdCartao() {
         return idCartao;
     }
@@ -69,5 +78,22 @@ public class Cartao implements Serializable {
     }
     public void setLimiteEstipulado(float limiteEstipulado) {
         this.limiteEstipulado = limiteEstipulado;
+    }
+
+    public ContaBancaria getContaBancaria() {
+        return contaBancaria;
+    }
+    public void setContaBancaria(ContaBancaria contaBancaria) {
+        this.contaBancaria = contaBancaria;
+    }
+
+    public List<LancamentoCartao> getLancamentosCartao() {
+        if(lancamentosCartao == null){
+            lancamentosCartao = new ArrayList();
+        }
+        return lancamentosCartao;
+    }
+    public void setLancamentosCartao(ArrayList<LancamentoCartao> lancamentosCartao) {
+        this.lancamentosCartao = lancamentosCartao;
     }
 }

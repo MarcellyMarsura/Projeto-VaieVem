@@ -2,12 +2,19 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TipoLancamento implements Serializable {
     
+    // Atributos
     private Long idTipoLancamento;
     private String descricao;
 
+    // Atributos de relacionamento
+    private List<LancamentoConta> lancamentosConta;
+    
+    // Construtores
     public TipoLancamento() {
     }
     public TipoLancamento(Long idTipoLancamento) {
@@ -21,6 +28,7 @@ public class TipoLancamento implements Serializable {
         this.descricao = descricao;
     }
 
+    // Getter e Setter
     public Long getIdTipoLancamento() {
         return idTipoLancamento;
     }
@@ -33,5 +41,15 @@ public class TipoLancamento implements Serializable {
     }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<LancamentoConta> getLancamentosConta() {
+        if(lancamentosConta == null){
+            lancamentosConta = new ArrayList();
+        }
+        return lancamentosConta;
+    }
+    public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
+        this.lancamentosConta = lancamentosConta;
     }
 }

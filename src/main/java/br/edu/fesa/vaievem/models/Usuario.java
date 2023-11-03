@@ -2,9 +2,12 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario implements Serializable {
     
+    // Atributos
     private Long idUsuario;
     private String nome;
     private String email;
@@ -12,6 +15,10 @@ public class Usuario implements Serializable {
     private boolean ativo;
     private boolean administrador;
     
+    // Atributos de relacionamento
+    private List<ContaBancaria> contasBancarias;
+    
+    // Construtores
     public Usuario(){
     }
     public Usuario(Long idUsuario) {
@@ -49,6 +56,7 @@ public class Usuario implements Serializable {
         this.administrador = administrador;
     }
 
+    // Getter e Setter
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -89,5 +97,15 @@ public class Usuario implements Serializable {
     }
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public List<ContaBancaria> getContasBancarias() {
+        if(contasBancarias == null){
+            contasBancarias = new ArrayList();
+        }
+        return contasBancarias;
+    }
+    public void setContasBancarias(ArrayList<ContaBancaria> contasBancarias) {
+        this.contasBancarias = contasBancarias;
     }
 }
