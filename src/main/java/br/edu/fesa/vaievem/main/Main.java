@@ -1,41 +1,25 @@
 
 package br.edu.fesa.vaievem.main;
 
-import br.edu.fesa.vaievem.dao.utils.Conexao;
-import br.edu.fesa.vaievem.dao.utils.DbProjetoDAO;
-import br.edu.fesa.vaievem.exception.PersistenciaException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import br.edu.fesa.vaievem.dao.UsuarioDAO;
+import br.edu.fesa.vaievem.models.Usuario;
 
 public class Main {
     
     public static void main(String[] args) {
-        Connection connection = null;
-
-        try {
-            connection = Conexao.getInstance().getConnection();
-            System.out.println("Conexão bem sucedida");  
-        } catch(ClassNotFoundException ex){
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Não foi possível carregar o driver de conexão com a base de dados");
-        } catch(SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Erro ao enviar o comando para a base de dados");
-        } catch(PersistenciaException ex){
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Erro de persistência de dados");
-        } finally {
-            try {
-                if(connection != null && ! connection.isClosed()){
-                    connection.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(DbProjetoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        
+        try{
+            var usuarios = usuarioDAO.listar();   
+            
+            for(Usuario u : usuarios){
+                System.out.println("Id: " + u.getIdUsuario() + " - Nome: " + u.getNome() + " - Email: " + u.getEmail() + " - Senha: " + u.getSenha() + " - Ativo: " + u.isAtivo() + " - Administrador: " + u.isAdministrador());
             }
+            
+            
+        } catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
-    
 }
