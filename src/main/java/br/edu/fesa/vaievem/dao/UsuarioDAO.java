@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 public class UsuarioDAO implements IUsuarioDAO {
 
-    private Usuario ConverteResultParaUsuario(ResultSet result) throws SQLException{
+    private Usuario ConverteResultParaModel(ResultSet result) throws SQLException{
         return new Usuario(
                 result.getLong("ID_USUARIO"),
                 result.getString("NOME"),
@@ -40,7 +40,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             while (result.next()) {
-                usuarios.add(ConverteResultParaUsuario(result));
+                usuarios.add(ConverteResultParaModel(result));
             }
         
         } catch(ClassNotFoundException ex){
@@ -77,7 +77,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             while (result.next()) {
-                usuarios.add(ConverteResultParaUsuario(result));
+                usuarios.add(ConverteResultParaModel(result));
             }
         
         } catch(ClassNotFoundException ex){
@@ -115,7 +115,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             if(result.next()) {
-                retorno = ConverteResultParaUsuario(result);
+                retorno = ConverteResultParaModel(result);
             }
         
         } catch(ClassNotFoundException ex){
@@ -153,7 +153,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             if(result.next()) {
-                retorno = ConverteResultParaUsuario(result);
+                retorno = ConverteResultParaModel(result);
             }
         
         } catch(ClassNotFoundException ex){
@@ -220,6 +220,9 @@ public class UsuarioDAO implements IUsuarioDAO {
         Connection connection = null;
         
         try{
+            if(usuario.getIdUsuario() == null){    
+                throw new PersistenciaException("Id do Usuario informado está null");
+            }
             
             if(listarPorId(usuario) == null){
                 throw new PersistenciaException("Usuário não localizado");
@@ -262,6 +265,10 @@ public class UsuarioDAO implements IUsuarioDAO {
         Connection connection = null;
         
         try{
+            if(usuario.getIdUsuario() == null){    
+                throw new PersistenciaException("Id do Usuario informado está null");
+            }
+            
             if(listarPorId(usuario) == null){
                 return;
             }

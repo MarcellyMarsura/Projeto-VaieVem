@@ -1,22 +1,21 @@
 
 package br.edu.fesa.vaievem.main;
 
-import br.edu.fesa.vaievem.dao.UsuarioDAO;
-import br.edu.fesa.vaievem.models.Usuario;
+import br.edu.fesa.vaievem.dao.BancoDAO;
+import br.edu.fesa.vaievem.models.Banco;
 
 public class Main {
     
     public static void main(String[] args) {
         
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        BancoDAO dao = new BancoDAO();
         
         try{
-            var usuarios = usuarioDAO.listar();   
+            var listagem = dao.listar();   
             
-            for(Usuario u : usuarios){
-                System.out.println("Id: " + u.getIdUsuario() + " - Nome: " + u.getNome() + " - Email: " + u.getEmail() + " - Senha: " + u.getSenha() + " - Ativo: " + u.isAtivo() + " - Administrador: " + u.isAdministrador());
+            for(Banco l : listagem){
+                System.out.println("Id: " + l.getIdBanco() + " - Descrição: " + l.getDescricao());
             }
-            
             
         } catch(Exception e){
             System.out.println(e.getMessage());
