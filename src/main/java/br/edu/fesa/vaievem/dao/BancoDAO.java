@@ -53,7 +53,7 @@ public class BancoDAO implements IBancoDAO {
                     connection.close();
                 }
             } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(BancoDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         

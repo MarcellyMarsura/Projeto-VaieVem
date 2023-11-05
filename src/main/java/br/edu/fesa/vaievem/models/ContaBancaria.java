@@ -115,4 +115,15 @@ public class ContaBancaria implements Serializable {
     public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
         this.lancamentosConta = lancamentosConta;
     }
+    
+    // Atributos Personalizados
+    public float getSaldo(){
+        float saldo = 0;
+        
+        for(LancamentoConta lancamento : lancamentosConta){
+            saldo += lancamento.getValor();
+        }
+        
+        return saldo;
+    }
 }
