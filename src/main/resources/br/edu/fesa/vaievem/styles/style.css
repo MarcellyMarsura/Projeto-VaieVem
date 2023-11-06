@@ -56,20 +56,18 @@
     -fx-background-color:  rgba(0, 0, 0, 0.2);
 }
 
-.button4
+.red-button
 {
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
-    -fx-background-radius :  30 30 30 30;
+    -fx-text-fill: #ffffff;
+    -fx-background-color : #d12828;
 }
-.button4:hover
+.red-button:hover
 {
-    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
-    -fx-background-radius :  30 30 30 30;
+    -fx-background-color : #ad2121;
 }
-.button4:pressed
+.red-button:pressed
 {
-    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
-    -fx-background-radius :  30 30 30 30;
+    -fx-background-color : #8c1b1b;
 }
 
 .table-view .column-header,
@@ -100,16 +98,12 @@
 
  }
 
-/* scroll bar starts here */
-
-/* The increment and decrement button CSS class of scrollbar */
 .table-view .increment-button ,.table-view .decrement-button {
     -fx-background-color:transparent;
-	-fx-background-radius: 2em;
+    -fx-background-radius: 2em;
 
 }
 
-/* The main scrollbar **track** CSS class  */
 .table-view .scroll-bar:horizontal .track,
 .table-view .scroll-bar:vertical .track{
 	-fx-background-color: transparent;
@@ -118,7 +112,6 @@
 	-fx-border-radius:2em;
 }
 
-/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
 .table-view .scroll-bar:horizontal .thumb,
 .table-view .scroll-bar:vertical .thumb {
     -fx-background-color:derive( #2D75E8,90%);
@@ -127,22 +120,15 @@
 
 }
 
-/* chart properties */
-
-.chart {
-    -fx-padding: 10px;
-    -fx-background-color: transparent;
-    -fx-legend-visible: false;
-}
-.chart-plot-background {
-    -fx-background-color:transparent;
-}
-
-.chart-pie {
-    -fx-border-color: derive(-fx-pie-color, 1%);
-    -fx-border-width: 0px;
-}
 .linear-grad
 {
     -fx-background-color: linear-gradient(to bottom left, #B324FF, #329AE0);
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #11ad00;
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill: #d12828;
 }

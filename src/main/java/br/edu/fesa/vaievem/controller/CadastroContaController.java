@@ -34,15 +34,6 @@ public class CadastroContaController implements Initializable {
         // TODO
     }    
     
-    @FXML
-    private void onMouseClicked_btnAdicionarCartao() throws IOException {
-        try {
-            ViewConfiguration.criaModal(Tela.CADASTRO_CARTAO.getNome());
-        }
-        catch (Exception erro){
-            MessageBox.exibeMensagemErro(erro);
-        }
-    }
     
     @FXML
     private void onMouseClicked_btnVoltar() throws IOException {

@@ -1,6 +1,7 @@
 package br.edu.fesa.vaievem.controller;
 
-import br.edu.fesa.vaievem.apagar.ContaModel;
+import br.edu.fesa.vaievem.models.ContaBancaria;
+import br.edu.fesa.vaievem.utils.FormatString;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
@@ -15,6 +16,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -59,7 +61,7 @@ public class DetalheContaController implements Initializable {
     private TableColumn<CartaoViewModel, CartaoViewModel> colExcluirCartao;
 
     @FXML
-    private Text txtBanco;
+    private ComboBox txtBanco;
 
     @FXML
     private Text txtAgencia;
@@ -83,7 +85,11 @@ public class DetalheContaController implements Initializable {
 
     private ObservableList<CartaoViewModel> dadosCartao;
 
-    private static ContaModel conta;
+    private static ContaBancaria conta;
+    
+    public static void setConta(ContaBancaria conta) {
+        DetalheContaController.conta = conta;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -95,19 +101,17 @@ public class DetalheContaController implements Initializable {
 
     private void preencheTela() {
         if (conta != null) {
-            txtBanco.setText(conta.getBanco());
-            txtAgencia.setText(conta.getAgencia());
-            txtConta.setText(conta.getConta());
-            txtMeta.setText(conta.getMeta().toString());
+            txtBanco.setValue(conta.getBanco());
+            txtAgencia.setText(conta.getNumeroAgencia());
+            txtConta.setText(conta.getNumeroConta());
+            txtMeta.setText(FormatString.formataDecimal(conta.getMeta()));
             txtDescricao.setText(conta.getDescricao());
-            txtSaldo.setText("1000,00");
         }
+        
+        txtSaldo.setText("0,00"); //TODO: Chamar service
     }
 
-    public static void setConta(ContaModel conta) {
-        DetalheContaController.conta = conta;
-    }
-
+    
     private void configurarTabelaLancamento() {
         dadosLancamento = FXCollections.observableArrayList(new LancamentoViewModel("1", "Despesa", "05/11/2002", "1000,00", "Primeira compra"));
         colTipo.setCellValueFactory(new PropertyValueFactory<>("Tipo"));
@@ -128,7 +132,6 @@ public class DetalheContaController implements Initializable {
     }
 
     private void configurarTabelaCartao() {
-        dadosCartao = FXCollections.observableArrayList(new CartaoViewModel("1", "Despesa", "05/11/2002", "1000,00", "Primeira compra", ""));
         colDescricao.setCellValueFactory(new PropertyValueFactory<>("Descricao"));
         colLimite.setCellValueFactory(new PropertyValueFactory<>("Limite"));
 

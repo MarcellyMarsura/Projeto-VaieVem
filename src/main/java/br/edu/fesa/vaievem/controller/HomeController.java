@@ -7,12 +7,16 @@ import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import br.edu.fesa.vaievem.viewmodels.LancamentoViewModel;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -50,6 +54,9 @@ public class HomeController implements Initializable {
     @FXML
     private Text txtSaldoTotal;
     
+    @FXML
+    private BarChart<String, Number> grafico;
+    
     private ObservableList<LancamentoViewModel> dados;
     
     @Override
@@ -59,6 +66,22 @@ public class HomeController implements Initializable {
         txtSaldoTotal.setText("100,00"); //TODO: Obter saldo total pelo service
         
         configurarTabela();
+        configurarGrafico();
+
+    }
+    
+    private void configurarGrafico(){
+        String mesEAnoFormatado = (new SimpleDateFormat("MMM/yyyy")).format(Calendar.getInstance().getTime());
+        
+        XYChart.Series<String, Number> receita = new XYChart.Series<>();
+        receita.setName("Receita");
+        receita.getData().add(new XYChart.Data<>(mesEAnoFormatado, 1000)); // Substitua 1000 pelo valor da receita
+
+        XYChart.Series<String, Number> despesa = new XYChart.Series<>();
+        despesa.setName("Despesa");
+        despesa.getData().add(new XYChart.Data<>(mesEAnoFormatado, 800)); // Substitua 800 pelo valor da despesa
+        
+        grafico.getData().addAll(receita, despesa); 
     }
     
     private void configurarTabela(){
@@ -73,11 +96,17 @@ public class HomeController implements Initializable {
         
         
         HelperTable.criaHyperLink(colExcluir, "Excluir", (LancamentoViewModel lancamento, ActionEvent event) -> {
-            //TODO
+            try {
+                //TODO
+                throw new Exception();
+            } catch (Exception ex) {
+                MessageBox.exibeMensagemErro(ex);
+            }
         });
         
         HelperTable.criaHyperLink(colEditar, "Editar", (LancamentoViewModel lancamento, ActionEvent event) -> {
             //TODO
+
         });
     }
     

@@ -58,7 +58,7 @@
                         <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text layoutX="100.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta:">
+                  <Text layoutX="98.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta:">
                      <font>
                         <Font size="16.0" />
                      </font>

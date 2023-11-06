@@ -4,6 +4,7 @@
  */
 package br.edu.fesa.vaievem.viewmodels;
 
+import br.edu.fesa.vaievem.models.Cartao;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -18,13 +19,13 @@ public class CartaoViewModel {
     private SimpleStringProperty DiaVencimento;
     private SimpleStringProperty Limite;
 
-    public CartaoViewModel(String id, String descricao, String diaFechamento, String conta, String diaVencimento, String limite){
-        this.Id = new SimpleStringProperty(id);
-        this.Descricao = new SimpleStringProperty(descricao);
-        this.DiaFechamento = new SimpleStringProperty(diaFechamento);
-        this.Conta = new SimpleStringProperty(conta);
-        this.DiaVencimento = new SimpleStringProperty(diaVencimento);
-        this.Limite = new SimpleStringProperty(limite);
+    public CartaoViewModel(Cartao model){
+        this.Id = new SimpleStringProperty(String.valueOf(model.getIdCartao()));
+        this.Descricao = new SimpleStringProperty(model.getDescricao());
+        this.DiaFechamento = new SimpleStringProperty(String.valueOf(model.getDiaFechamento()));
+        this.Conta = new SimpleStringProperty(model.getContaBancaria().getNumeroConta());
+        this.DiaVencimento = new SimpleStringProperty(String.valueOf(model.getDiaVencimento()));
+        this.Limite = new SimpleStringProperty(String.valueOf(model.getLimiteEstipulado()));
     }
 
     public String getId() {

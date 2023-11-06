@@ -1,6 +1,7 @@
+
 package br.edu.fesa.vaievem.controller;
 
-import br.edu.fesa.vaievem.apagar.ContaModel;
+import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
@@ -71,12 +72,18 @@ public class ContasController implements Initializable {
         tbConta.setItems(dados);
 
         HelperTable.criaHyperLink(colDetalhes, "Detalhes", (ContaViewModel conta, ActionEvent event) -> {
+            
             try {
-                DetalheContaController.setConta(new ContaModel(1, conta.getAgencia(), conta.getBanco(), conta.getDescricao(), conta.getConta(), 110.20));
+                DetalheContaController.setConta(new ContaBancaria(Long.parseLong(conta.getId()), 
+                                                                  conta.getDescricao(), 
+                                                                  conta.getAgencia(),
+                                                                  conta.getConta(),
+                                                                  Long.parseLong(conta.getMeta())));
                 ViewConfiguration.mudaTela(Tela.DETALHE_CONTA.getNome());
             } catch (Exception erro) {
                 MessageBox.exibeMensagemErro(erro);
             }
+            
         });
 
         HelperTable.criaHyperLink(colExcluir, "Excluir", (ContaViewModel conta, ActionEvent event) -> {

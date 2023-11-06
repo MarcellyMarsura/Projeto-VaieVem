@@ -24,8 +24,8 @@ public class MessageBox {
     public static void exibeMensagemErro(Exception ex){    
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.initStyle(StageStyle.UTILITY);
-        alert.setTitle("Ocorreu um erro");
         alert.setHeaderText(null);
+        alert.setTitle("Ocorreu um erro");
         alert.setContentText(ex.getMessage());
         
         StringWriter sw = new StringWriter();
@@ -49,21 +49,33 @@ public class MessageBox {
         expContent.add(label, 0, 0);
         expContent.add(textArea, 0, 1);
 
-        // Set expandable Exception into the dialog pane.
         alert.getDialogPane().setExpandableContent(expContent);
 
         alert.showAndWait();
-        
-        
-        alert.showAndWait().ifPresent(rs -> {
-            if (rs == ButtonType.OK) {
-                alert.close();
-            }
-        });
     }
     
     public static Optional<ButtonType> exibeAlerta(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+
+        return alert.showAndWait();
+    }
+    
+    public static Optional<ButtonType> exibeConfirmacao(String titulo, String mensagem) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+
+        return alert.showAndWait();
+    }
+    
+    public static Optional<ButtonType> exibeInformacao(String titulo, String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.initStyle(StageStyle.UTILITY);
         alert.setTitle(titulo);
         alert.setHeaderText(null);

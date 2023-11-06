@@ -42,17 +42,6 @@ public class ViewConfiguration {
         tela.setRoot(root);
     }
 
-    public static void criaModal(String fxml) throws IOException{
-        Parent parent = carregaFXML(fxml);
-        Stage stage = new Stage();
-        configuraJanela(stage);
-        
-        Scene dialog = new Scene(parent);
-        stage.setScene(dialog);
-        
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
-    }
     
     private static Parent carregaFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));

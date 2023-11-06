@@ -77,7 +77,7 @@
             </Pane>
             <Pane layoutX="62.0" layoutY="475.0" prefHeight="183.0" prefWidth="887.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <Button fx:id="btnInativarConta" layoutX="586.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnInativarConta" prefHeight="65.0" prefWidth="173.0" style="-fx-background-color: #d12828;" styleClass="button1" stylesheets="@styles/style.css" text="Inativar conta">
+                  <Button fx:id="btnInativarConta" layoutX="586.0" layoutY="59.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnInativarConta" prefHeight="65.0" prefWidth="173.0" styleClass="red-button" stylesheets="@styles/style.css" text="Inativar conta">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>
