@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 public class DbProjetoDAO {
     
     private final ResourceBundle DB_PROJETO = ResourceBundle.getBundle("db_projeto", new Locale("pt", "BR"));
-    private final ResourceBundle DAO = ResourceBundle.getBundle("dao", new Locale("pt", "BR"));
 
     public void validaDbProjeto() throws PersistenciaException {
         validaSchemas();
@@ -118,7 +117,7 @@ public class DbProjetoDAO {
     
     
     private void validaSchemas() throws PersistenciaException {
-        String[] schemas = DAO.getString("schemas").split(",");
+        String[] schemas = DB_PROJETO.getString("schemas").split(",");
         
         for (String schema : schemas) {
             if(!verificaExistenciaSchema(schema.toUpperCase())){
@@ -128,7 +127,7 @@ public class DbProjetoDAO {
     }
     
     private void validaTabelas() throws PersistenciaException {
-        String[] tabelas = DAO.getString("tabelas").split(",");
+        String[] tabelas = DB_PROJETO.getString("tabelas").split(",");
         
         for (String tabela : tabelas) {
             if(!verificaExistenciaTabela(tabela.toUpperCase())){
