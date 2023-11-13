@@ -5,24 +5,24 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 
 
-public class PersistenciaException extends Exception {
+public class LogicalException extends Exception {
 
-    public PersistenciaException() {
+    public LogicalException() {
     }
 
-    public PersistenciaException(String message) {
+    public LogicalException(String message) {
         super(message);
     }
     
-    public PersistenciaException(String message, Throwable cause) {
+    public LogicalException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public PersistenciaException(Throwable cause) {
+    public LogicalException(Throwable cause) {
         super(cause);
     }
 
-    public PersistenciaException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public LogicalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
 
@@ -80,8 +80,4 @@ public class PersistenciaException extends Exception {
     public String getMessage() {
         return super.getMessage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> develop

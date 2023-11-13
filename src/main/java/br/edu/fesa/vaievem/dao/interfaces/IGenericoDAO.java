@@ -15,4 +15,8 @@ public interface IGenericoDAO<E> {
     void alterar(E e) throws PersistenciaException;
     
     void remover(E e) throws PersistenciaException;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> develop
