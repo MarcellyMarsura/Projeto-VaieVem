@@ -63,44 +63,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         
         return usuarios;
     }
-    
-    @Override
-    public List<Usuario> listarAtivos() throws PersistenciaException {
-        List<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE ATIVO = true";
-        Connection connection = null;
         
-        try{
-            connection = Conexao.getInstance().getConnection();
-            
-            PreparedStatement pStatement = connection.prepareStatement(sql);
-            ResultSet result = pStatement.executeQuery();
-            
-            while (result.next()) {
-                usuarios.add(ConverteResultParaModel(result));
-            }
-        
-        } catch(ClassNotFoundException ex){
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
-
-        } catch(SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
-
-        } finally {
-            try {
-                if(connection != null && ! connection.isClosed()){
-                    connection.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return usuarios;
-    }
-    
     @Override
     public Usuario listarPorId(Usuario usuario) throws PersistenciaException {
         Usuario retorno = null;

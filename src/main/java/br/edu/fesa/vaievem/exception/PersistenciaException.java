@@ -80,8 +80,4 @@ public class PersistenciaException extends Exception {
     public String getMessage() {
         return super.getMessage(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> develop

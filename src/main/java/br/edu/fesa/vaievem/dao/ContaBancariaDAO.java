@@ -247,5 +247,10 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
             }
         }
     }
+
+    @Override
+    public List<ContaBancaria> listarPorUsuario(long idUsuario, String descricao) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
