@@ -42,5 +42,6 @@ public class UsuarioViewModel {
     public void setEmail(String email) {
         this.Email.set(email);
     }
-        
+
 }
+

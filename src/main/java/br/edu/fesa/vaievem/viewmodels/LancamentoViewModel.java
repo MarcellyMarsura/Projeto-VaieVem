@@ -69,6 +69,5 @@ public class LancamentoViewModel {
     public void setComentario(String comentario) {
         this.Comentario.set(comentario);
     }
-    
-    
+  
 }

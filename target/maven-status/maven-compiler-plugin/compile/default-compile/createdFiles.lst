@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 br\edu\fesa\vaievem\models\Usuario.class
 br\edu\fesa\vaievem\models\ContaBancaria.class
 br\edu\fesa\vaievem\viewmodels\LancamentoViewModel.class
@@ -31,3 +32,25 @@ br\edu\fesa\vaievem\viewmodels\CartaoViewModel.class
 br\edu\fesa\vaievem\controller\CartoesController.class
 br\edu\fesa\vaievem\controller\ContasController.class
 br\edu\fesa\vaievem\utils\MessageBox.class
+=======
+br\edu\fesa\vaievem\exception\PersistenciaException.class
+br\edu\fesa\vaievem\models\Usuario.class
+br\edu\fesa\vaievem\models\ContaBancaria.class
+br\edu\fesa\vaievem\dao\interfaces\IBancoDAO.class
+br\edu\fesa\vaievem\dao\interfaces\ILancamentoCartaoDAO.class
+br\edu\fesa\vaievem\dao\interfaces\ICartaoDAO.class
+module-info.class
+br\edu\fesa\vaievem\models\LancamentoConta.class
+br\edu\fesa\vaievem\App.class
+br\edu\fesa\vaievem\models\Banco.class
+br\edu\fesa\vaievem\SecondaryController.class
+br\edu\fesa\vaievem\dao\interfaces\ILancamentoContaDAO.class
+br\edu\fesa\vaievem\PrimaryController.class
+br\edu\fesa\vaievem\dao\interfaces\ITipoLancamentoDAO.class
+br\edu\fesa\vaievem\models\LancamentoCartao.class
+br\edu\fesa\vaievem\models\TipoLancamento.class
+br\edu\fesa\vaievem\dao\interfaces\IGenericoDAO.class
+br\edu\fesa\vaievem\dao\interfaces\IUsuarioDAO.class
+br\edu\fesa\vaievem\dao\interfaces\IContaBancariaDAO.class
+br\edu\fesa\vaievem\models\Cartao.class
+>>>>>>> develop
