@@ -7,5 +7,5 @@ import br.edu.fesa.vaievem.models.Usuario;
 
 public interface IUsuarioDAO extends IGenericoDAO<Usuario> {
     
-    Usuario listarPorEmail(Usuario usuario) throws PersistenciaException;
+    Usuario listarPorEmail(String email) throws PersistenciaException;
 }

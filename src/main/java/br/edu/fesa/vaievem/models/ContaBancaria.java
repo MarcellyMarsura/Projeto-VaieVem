@@ -45,6 +45,17 @@ public class ContaBancaria implements Serializable {
         this.numeroConta = numeroConta;
         this.meta = meta;
     }
+    
+    public ContaBancaria(Long idContaBancaria, Long idUsuario, Long idBanco, String descricao, String numeroAgencia, String numeroConta, float meta) {
+        this.idContaBancaria = idContaBancaria;
+        this.descricao = descricao;
+        this.numeroAgencia = numeroAgencia;
+        this.numeroConta = numeroConta;
+        this.meta = meta;
+        
+        this.usuario = new Usuario(idUsuario);
+        this.banco = new Banco(idBanco);
+    }
 
     // Getter e Setter
     public Long getIdContaBancaria() {

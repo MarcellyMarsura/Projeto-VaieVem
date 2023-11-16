@@ -1,10 +1,10 @@
 
 package br.edu.fesa.vaievem.dao;
 
-import br.edu.fesa.vaievem.dao.interfaces.IUsuarioDAO;
+import br.edu.fesa.vaievem.dao.interfaces.ICartaoDAO;
 import br.edu.fesa.vaievem.dao.utils.Conexao;
 import br.edu.fesa.vaievem.exception.PersistenciaException;
-import br.edu.fesa.vaievem.models.Usuario;
+import br.edu.fesa.vaievem.models.Cartao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,23 +14,115 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UsuarioDAO implements IUsuarioDAO {
+public class CartaoDAO implements ICartaoDAO {
 
-    private Usuario ConverteResultParaModel(ResultSet result) throws SQLException{
-        return new Usuario(
-                result.getLong("ID_USUARIO"),
-                result.getString("NOME"),
-                result.getString("EMAIL"),
-                result.getString("SENHA"),
-                result.getBoolean("ATIVO"),
-                result.getBoolean("ADMINISTRADOR")
+    private Cartao ConverteResultParaModel(ResultSet result) throws SQLException{
+        return new Cartao (
+                result.getLong("ID_CARTAO"),
+                result.getString("DESCRICAO"),
+                result.getInt("DIA_FECHAMENTO"),
+                result.getInt("DIA_VENCIMENTO"),
+                result.getFloat("LIMITE_ESTIPULADO")
         );
     }
     
     @Override
-    public List<Usuario> listar() throws PersistenciaException {
-        List<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO";
+    public List<Cartao> listarPorUsuario(long idUsuario, String descricao) throws PersistenciaException {
+        List<Cartao> cartoes = new ArrayList<>();
+        
+        String sql;
+        if(descricao == null){
+            sql = "SELECT ID_CARTAO, CONTA_BANCARIA_ID, CARTAO.TB_CARTAO.DESCRICAO, DIA_FECHAMENTO, DIA_VENCIMENTO, LIMITE_ESTIPULADO FROM CARTAO.TB_CARTAO "
+                    + "JOIN CONTA.TB_CONTA_BANCARIA ON CARTAO.TB_CARTAO.CONTA_BANCARIA_ID = CONTA.TB_CONTA_BANCARIA.ID_CONTA_BANCARIA "
+                    + "WHERE CONTA.TB_CONTA_BANCARIA.USUARIO_ID = ?";
+        }else{         
+            sql = "SELECT ID_CARTAO, CONTA_BANCARIA_ID, CARTAO.TB_CARTAO.DESCRICAO, DIA_FECHAMENTO, DIA_VENCIMENTO, LIMITE_ESTIPULADO FROM CARTAO.TB_CARTAO "
+                    + "JOIN CONTA.TB_CONTA_BANCARIA ON CARTAO.TB_CARTAO.CONTA_BANCARIA_ID = CONTA.TB_CONTA_BANCARIA.ID_CONTA_BANCARIA "
+                    + "WHERE CONTA.TB_CONTA_BANCARIA.USUARIO_ID = ? "
+                    + "AND CARTAO.TB_CARTAO.DESCRICAO LIKE ?";
+        }       
+        
+        Connection connection = null;
+        
+        try{
+            connection = Conexao.getInstance().getConnection();           
+            PreparedStatement pStatement = connection.prepareStatement(sql);
+            
+            pStatement.setLong(1, idUsuario);
+            if(descricao != null){
+                descricao = '%' + descricao + '%';
+                pStatement.setString(2, descricao);
+            }   
+            
+            ResultSet result = pStatement.executeQuery();
+            
+            while (result.next()) {
+                cartoes.add(ConverteResultParaModel(result));
+            }
+        
+        } catch(ClassNotFoundException ex){
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
+
+        } catch(SQLException ex) {
+            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
+
+        } finally {
+            try {
+                if(connection != null && ! connection.isClosed()){
+                    connection.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return cartoes;
+    }
+
+    @Override
+    public List<Cartao> listarPorConta(long idContaBancaria) throws PersistenciaException {
+        List<Cartao> cartoes = new ArrayList<>();
+        String sql = "SELECT * FROM CARTAO.TB_CARTAO WHERE CONTA_BANCARIA_ID = ?";
+        Connection connection = null;
+        
+        try {
+            connection = Conexao.getInstance().getConnection();
+            
+            PreparedStatement pStatement = connection.prepareStatement(sql);
+            pStatement.setLong(1, idContaBancaria);
+            ResultSet result = pStatement.executeQuery();
+            
+            while (result.next()) {
+                cartoes.add(ConverteResultParaModel(result));
+            }
+        
+        } catch(ClassNotFoundException ex){
+            Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
+
+        } catch(SQLException ex) {
+            Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
+
+        } finally {
+            try {
+                if(connection != null && ! connection.isClosed()){
+                    connection.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return cartoes;
+    }
+
+    @Override
+    public List<Cartao> listar() throws PersistenciaException {
+        List<Cartao> cartoes = new ArrayList<>();
+        String sql = "SELECT * FROM CARTAO.TB_CARTAO";
         Connection connection = null;
         
         try{
@@ -40,7 +132,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             while (result.next()) {
-                usuarios.add(ConverteResultParaModel(result));
+                cartoes.add(ConverteResultParaModel(result));
             }
         
         } catch(ClassNotFoundException ex){
@@ -61,68 +153,20 @@ public class UsuarioDAO implements IUsuarioDAO {
             }
         }
         
-        return usuarios;
+        return cartoes;
     }
-        
+
     @Override
-    public Usuario listarPorId(Long idUsuario) throws PersistenciaException {
-        Usuario retorno = null;
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE ID_USUARIO = ?";
+    public Cartao listarPorId(Long idCartao) throws PersistenciaException {
+        Cartao retorno = null;
+        String sql = "SELECT * FROM CARTAO.TB_CARTAO WHERE ID_CARTAO = ?";
         Connection connection = null;
         
         try{
-            
-            if(idUsuario == null){    
-                throw new PersistenciaException("Id do Usuario informado está null");
-            }
-            
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, idUsuario);
-            ResultSet result = pStatement.executeQuery();
-            
-            if(result.next()) {
-                retorno = ConverteResultParaModel(result);
-            }
-        
-        } catch(ClassNotFoundException ex){
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
-
-        } catch(SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
-
-        } finally {
-            try {
-                if(connection != null && ! connection.isClosed()){
-                    connection.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return retorno;
-    }
-    
-    @Override
-    public Usuario listarPorEmail(String email ) throws PersistenciaException {
-        Usuario retorno = null;
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE EMAIL = ?";
-        Connection connection = null;
-        
-        try{
-            
-            if(email == null){    
-                throw new PersistenciaException("E-mail informado está null");
-            }
-            
-            connection = Conexao.getInstance().getConnection();
-            
-            PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, email);
+            pStatement.setLong(1, idCartao);
             ResultSet result = pStatement.executeQuery();
             
             if(result.next()) {
@@ -150,21 +194,21 @@ public class UsuarioDAO implements IUsuarioDAO {
         return retorno;
     }
 
-    
     @Override
-    public void inserir(Usuario usuario) throws PersistenciaException {
-        String sql = "INSERT INTO USUARIO.TB_USUARIO (NOME, EMAIL, SENHA, ATIVO, ADMINISTRADOR) VALUES (?, ?, ?, ?, ?)";
+    public void inserir(Cartao e) throws PersistenciaException {
+        String sql = "INSERT INTO CARTAO.TB_CARTAO (CONTA_BANCARIA_ID, DESCRICAO, DIA_FECHAMENTO, DIA_VENCIMENTO, LIMITE_ESTIPULADO) "
+                    + "VALUES (?, ?, ?, ?, ?)";
         Connection connection = null;
         
         try{
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, usuario.getNome());
-            pStatement.setString(2, usuario.getEmail());
-            pStatement.setString(3, usuario.getSenha());
-            pStatement.setBoolean(4, usuario.isAtivo());
-            pStatement.setBoolean(5, usuario.isAdministrador());
+            pStatement.setLong(1, e.getContaBancaria().getIdContaBancaria());
+            pStatement.setString(2, e.getDescricao());
+            pStatement.setInt(3, e.getDiaFechamento());
+            pStatement.setInt(4,e.getDiaVencimento());
+            pStatement.setDouble(5, e.getLimiteEstipulado());
             
             pStatement.execute();
             
@@ -188,28 +232,29 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public void alterar(Usuario usuario) throws PersistenciaException {
-        String sql = "UPDATE USUARIO.TB_USUARIO SET NOME = ?, EMAIL = ?, SENHA = ?, ATIVO = ?, ADMINISTRADOR = ? WHERE ID_USUARIO = ?";
+    public void alterar(Cartao e) throws PersistenciaException {
+        
+        String sql = "UPDATE CARTAO.TB_CARTAO SET CONTA_BANCARIA_ID = ?, DESCRICAO = ?, DIA_FECHAMENTO = ?, DIA_VENCIMENTO = ?, LIMITE_ESTIPULADO = ? WHERE ID_CARTAO = ?";
         Connection connection = null;
         
         try{
-            if(usuario.getIdUsuario() == null){    
-                throw new PersistenciaException("Id do Usuario informado está null");
+            if(e.getIdCartao() == null){    
+                throw new PersistenciaException("Id do Cartão informado está null");
             }
             
-            if(listarPorId(usuario.getIdUsuario()) == null){
-                throw new PersistenciaException("Usuário não localizado");
+            if(listarPorId(e.getIdCartao()) == null){
+                throw new PersistenciaException("Cartao não localizado");
             }
             
             connection = Conexao.getInstance().getConnection();
                         
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, usuario.getNome());
-            pStatement.setString(2, usuario.getEmail());
-            pStatement.setString(3, usuario.getSenha());
-            pStatement.setBoolean(4, usuario.isAtivo());
-            pStatement.setBoolean(5, usuario.isAdministrador());
-            pStatement.setLong(6, usuario.getIdUsuario());
+            pStatement.setLong(1, e.getContaBancaria().getIdContaBancaria());
+            pStatement.setString(2, e.getDescricao());
+            pStatement.setInt(3, e.getDiaFechamento());
+            pStatement.setInt(4,e.getDiaVencimento());
+            pStatement.setDouble(5, e.getLimiteEstipulado());
+            pStatement.setDouble(6, e.getIdCartao());
 
             pStatement.execute();
             
@@ -233,22 +278,22 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public void remover(Long idUsuario) throws PersistenciaException {
-        String sql = "DELETE FROM USUARIO.TB_USUARIO WHERE ID_USUARIO = ?";
+    public void remover(Long idCartao) throws PersistenciaException {
+        String sql = "DELETE FROM CARTAO.TB_CARTAO WHERE ID_CARTAO = ?";
         Connection connection = null;
         
         try{
-            if(idUsuario == null){    
+            if(idCartao == null){    
                 throw new PersistenciaException("Id do Usuario informado está null");
             }
             
-            if(listarPorId(idUsuario) == null){
+            if(listarPorId(idCartao) == null){
                 return;
             }
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, idUsuario);
+            pStatement.setLong(1, idCartao);
 
             pStatement.execute();
             
@@ -268,6 +313,6 @@ public class UsuarioDAO implements IUsuarioDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }    
-    }
+        }       
+    }  
 }

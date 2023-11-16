@@ -1,10 +1,13 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package br.edu.fesa.vaievem.dao;
 
-import br.edu.fesa.vaievem.dao.interfaces.IUsuarioDAO;
-import br.edu.fesa.vaievem.dao.utils.Conexao;
+import br.edu.fesa.vaievem.dao.interfaces.ITipoLancamentoDAO;
 import br.edu.fesa.vaievem.exception.PersistenciaException;
-import br.edu.fesa.vaievem.models.Usuario;
+import br.edu.fesa.vaievem.dao.utils.Conexao;
+import br.edu.fesa.vaievem.models.TipoLancamento;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,24 +16,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+/**
+ *
+ * @author Analuz
+ */
+public class TipoLancamentoDAO implements ITipoLancamentoDAO {
 
-public class UsuarioDAO implements IUsuarioDAO {
-
-    private Usuario ConverteResultParaModel(ResultSet result) throws SQLException{
-        return new Usuario(
-                result.getLong("ID_USUARIO"),
-                result.getString("NOME"),
-                result.getString("EMAIL"),
-                result.getString("SENHA"),
-                result.getBoolean("ATIVO"),
-                result.getBoolean("ADMINISTRADOR")
+    private TipoLancamento ConverteResultParaModel(ResultSet result) throws SQLException{
+        return new TipoLancamento (
+                result.getLong("ID_TIPO_LANCAMENTO"),
+                result.getString("DESCRICAO")
         );
     }
     
     @Override
-    public List<Usuario> listar() throws PersistenciaException {
-        List<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO";
+    public List<TipoLancamento> listar() throws PersistenciaException {
+        List<TipoLancamento> retorno = new ArrayList<>();
+        String sql = "SELECT * FROM LANCAMENTO.TB_TIPO_LANCAMENTO";
         Connection connection = null;
         
         try{
@@ -40,7 +42,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             ResultSet result = pStatement.executeQuery();
             
             while (result.next()) {
-                usuarios.add(ConverteResultParaModel(result));
+                retorno.add(ConverteResultParaModel(result));
             }
         
         } catch(ClassNotFoundException ex){
@@ -61,68 +63,25 @@ public class UsuarioDAO implements IUsuarioDAO {
             }
         }
         
-        return usuarios;
+        return retorno;
     }
-        
+
     @Override
-    public Usuario listarPorId(Long idUsuario) throws PersistenciaException {
-        Usuario retorno = null;
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE ID_USUARIO = ?";
+    public TipoLancamento listarPorId(Long id) throws PersistenciaException {
+        TipoLancamento retorno = null;
+        String sql = "SELECT * FROM LANCAMENTO.TB_TIPO_LANCAMENTO WHERE ID_TIPO_LANCAMENTO = ?";
         Connection connection = null;
         
         try{
             
-            if(idUsuario == null){    
+            if(id == null){    
                 throw new PersistenciaException("Id do Usuario informado está null");
             }
             
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, idUsuario);
-            ResultSet result = pStatement.executeQuery();
-            
-            if(result.next()) {
-                retorno = ConverteResultParaModel(result);
-            }
-        
-        } catch(ClassNotFoundException ex){
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
-
-        } catch(SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
-
-        } finally {
-            try {
-                if(connection != null && ! connection.isClosed()){
-                    connection.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        return retorno;
-    }
-    
-    @Override
-    public Usuario listarPorEmail(String email ) throws PersistenciaException {
-        Usuario retorno = null;
-        String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE EMAIL = ?";
-        Connection connection = null;
-        
-        try{
-            
-            if(email == null){    
-                throw new PersistenciaException("E-mail informado está null");
-            }
-            
-            connection = Conexao.getInstance().getConnection();
-            
-            PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, email);
+            pStatement.setLong(1, id);
             ResultSet result = pStatement.executeQuery();
             
             if(result.next()) {
@@ -150,21 +109,16 @@ public class UsuarioDAO implements IUsuarioDAO {
         return retorno;
     }
 
-    
     @Override
-    public void inserir(Usuario usuario) throws PersistenciaException {
-        String sql = "INSERT INTO USUARIO.TB_USUARIO (NOME, EMAIL, SENHA, ATIVO, ADMINISTRADOR) VALUES (?, ?, ?, ?, ?)";
+    public void inserir(TipoLancamento e) throws PersistenciaException {
+        String sql = "INSERT INTO LANCAMENTO.TB_TIPO_LANCAMENTO (DESCRICAO) VALUES (?)";
         Connection connection = null;
         
         try{
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, usuario.getNome());
-            pStatement.setString(2, usuario.getEmail());
-            pStatement.setString(3, usuario.getSenha());
-            pStatement.setBoolean(4, usuario.isAtivo());
-            pStatement.setBoolean(5, usuario.isAdministrador());
+            pStatement.setString(1, e.getDescricao());
             
             pStatement.execute();
             
@@ -188,28 +142,24 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
 
     @Override
-    public void alterar(Usuario usuario) throws PersistenciaException {
-        String sql = "UPDATE USUARIO.TB_USUARIO SET NOME = ?, EMAIL = ?, SENHA = ?, ATIVO = ?, ADMINISTRADOR = ? WHERE ID_USUARIO = ?";
+    public void alterar(TipoLancamento e) throws PersistenciaException {
+        String sql = "UPDATE LANCAMENTO.TB_TIPO_LANCAMENTO SET DESCRICAO = ? WHERE ID_TIPO_LANCAMENTO = ?";
         Connection connection = null;
         
         try{
-            if(usuario.getIdUsuario() == null){    
-                throw new PersistenciaException("Id do Usuario informado está null");
+            if(e.getIdTipoLancamento() == null){    
+                throw new PersistenciaException("Id do Tipo de Lançamento informado está null");
             }
             
-            if(listarPorId(usuario.getIdUsuario()) == null){
-                throw new PersistenciaException("Usuário não localizado");
+            if(listarPorId(e.getIdTipoLancamento()) == null){
+                throw new PersistenciaException("Tipo não localizado");
             }
             
             connection = Conexao.getInstance().getConnection();
                         
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setString(1, usuario.getNome());
-            pStatement.setString(2, usuario.getEmail());
-            pStatement.setString(3, usuario.getSenha());
-            pStatement.setBoolean(4, usuario.isAtivo());
-            pStatement.setBoolean(5, usuario.isAdministrador());
-            pStatement.setLong(6, usuario.getIdUsuario());
+            pStatement.setString(1, e.getDescricao());
+            pStatement.setLong(2, e.getIdTipoLancamento());
 
             pStatement.execute();
             
@@ -229,26 +179,26 @@ public class UsuarioDAO implements IUsuarioDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }    
+        }
     }
 
     @Override
-    public void remover(Long idUsuario) throws PersistenciaException {
-        String sql = "DELETE FROM USUARIO.TB_USUARIO WHERE ID_USUARIO = ?";
+    public void remover(Long id) throws PersistenciaException {
+        String sql = "DELETE FROM LANCAMENTO.TB_TIPO_LANCAMENTO WHERE ID_TIPO_LANCAMENTO = ?";
         Connection connection = null;
         
         try{
-            if(idUsuario == null){    
-                throw new PersistenciaException("Id do Usuario informado está null");
+            if(id == null){    
+                throw new PersistenciaException("Id do Tipo de Lançamento informado está null");
             }
             
-            if(listarPorId(idUsuario) == null){
-                return;
+            if(listarPorId(id) == null){
+                throw new PersistenciaException("Tipo não localizado");
             }
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, idUsuario);
+            pStatement.setLong(1, id);
 
             pStatement.execute();
             
@@ -268,6 +218,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }    
+        }
     }
+    
 }

@@ -31,6 +31,14 @@ public class LancamentoCartao implements Serializable {
         this.dataLancamento = dataLancamento;
         this.valor = valor;
         this.comentario = comentario;
+    }   
+    public LancamentoCartao(Long idLancamentoCartao, Long idCartao, Date dataLancamento, float valor, String comentario) {
+        this.idLancamentoCartao = idLancamentoCartao;
+        this.dataLancamento = dataLancamento;
+        this.valor = valor;
+        this.comentario = comentario;
+        
+        this.cartao = new Cartao(idCartao);
     }
 
     // Getter e Setter

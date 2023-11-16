@@ -22,6 +22,8 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
     private ContaBancaria ConverteResultParaModel(ResultSet result) throws SQLException{
         return new ContaBancaria(
                 result.getLong("ID_CONTA_BANCARIA"),
+                result.getLong("USUARIO_ID"),
+                result.getLong("BANCO_ID"),
                 result.getString("DESCRICAO"),
                 result.getString("NUMERO_AGENCIA"),
                 result.getString("NUMERO_CONTA"),
@@ -82,17 +84,22 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
     }
 
     @Override
-    public ContaBancaria listarPorId(ContaBancaria contaBancaria) throws PersistenciaException {
+    public ContaBancaria listarPorId(Long idContaBancaria) throws PersistenciaException {
 
         ContaBancaria retorno = null;
         String sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE ID_CONTA_BANCARIA = ?";
         Connection connection = null;
         
         try {
+            
+            if(idContaBancaria == null){    
+                throw new PersistenciaException("Id da Conta Bancária informada está null");
+            }
+            
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, contaBancaria.getIdContaBancaria());
+            pStatement.setLong(1, idContaBancaria);
             ResultSet result = pStatement.executeQuery();
             
             if(result.next()) {
@@ -172,7 +179,7 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
                 throw new PersistenciaException("Id da Conta Bancária informada está null");
             }
             
-            if(listarPorId(contaBancaria) == null){
+            if(listarPorId(contaBancaria.getIdContaBancaria()) == null){
                 throw new PersistenciaException("Conta Bancária não localizada");
             }
             
@@ -208,25 +215,25 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
     }
 
     @Override
-    public void remover(ContaBancaria contaBancaria) throws PersistenciaException {
-        validaRelacionamentos(contaBancaria);
+    public void remover(Long idContaBancaria) throws PersistenciaException {
+        validaRelacionamentos(listarPorId(idContaBancaria));
         
         String sql = "DELETE FROM CONTA.TB_CONTA_BANCARIA WHERE ID_CONTA_BANCARIA = ?";
         Connection connection = null;
         
         try {
-            if(contaBancaria.getIdContaBancaria() == null){    
+            if(idContaBancaria == null){    
                 throw new PersistenciaException("Id da Conta Bancária informada está null");
             }
             
-            if(listarPorId(contaBancaria) == null){
+            if(listarPorId(idContaBancaria) == null){
                 return;
             }
             
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, contaBancaria.getIdContaBancaria());
+            pStatement.setLong(1, idContaBancaria);
             pStatement.execute();
             
         } catch(ClassNotFoundException ex){
@@ -249,8 +256,51 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
     }
 
     @Override
-    public List<ContaBancaria> listarPorUsuario(long idUsuario, String descricao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public List<ContaBancaria> listarPorUsuario(long idUsuario, String descricao) throws PersistenciaException {
+        
+        List<ContaBancaria> contasBancarias = new ArrayList<>();
+        String sql;
+        if(descricao == null){
+            sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE USUARIO_ID = ?";
+        }else{
+            sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE USUARIO_ID = ? AND DESCRICAO = ?";
+        }
+        
+        Connection connection = null;
+        
+        try {
+            connection = Conexao.getInstance().getConnection();
+            
+            PreparedStatement pStatement = connection.prepareStatement(sql);
+            pStatement.setLong(1, idUsuario);
+            if(descricao != null){
+                pStatement.setString(2, descricao);
+            }          
+            ResultSet result = pStatement.executeQuery();
+            
+            while (result.next()) {
+                contasBancarias.add(ConverteResultParaModel(result));
+            }
+        
+        } catch(ClassNotFoundException ex){
+            Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Não foi possível carregar o driver de conexão com a base de dados");
+
+        } catch(SQLException ex) {
+            Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new PersistenciaException("Erro ao enviar o comando para a base de dados");
+
+        } finally {
+            try {
+                if(connection != null && ! connection.isClosed()){
+                    connection.close();
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(ContaBancariaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return contasBancarias;
     }
     
 }

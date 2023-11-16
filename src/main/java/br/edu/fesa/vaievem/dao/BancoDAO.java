@@ -61,7 +61,7 @@ public class BancoDAO implements IBancoDAO {
     }
 
     @Override
-    public Banco listarPorId(Banco banco) throws PersistenciaException {
+    public Banco listarPorId(Long idBanco) throws PersistenciaException {
         Banco retorno = null;
         String sql = "SELECT * FROM CONTA.TB_BANCO WHERE ID_BANCO = ?";
         Connection connection = null;
@@ -70,7 +70,7 @@ public class BancoDAO implements IBancoDAO {
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, banco.getIdBanco());
+            pStatement.setLong(1, idBanco);
             ResultSet result = pStatement.executeQuery();
             
             if (result.next()) {
@@ -139,7 +139,7 @@ public class BancoDAO implements IBancoDAO {
                 throw new PersistenciaException("Id do Banco informado está null");
             }
             
-            if(listarPorId(banco) == null){
+            if(listarPorId(banco.getIdBanco()) == null){
                 throw new PersistenciaException("Banco não localizado");
             }
             
@@ -170,22 +170,22 @@ public class BancoDAO implements IBancoDAO {
     }
 
     @Override
-    public void remover(Banco banco) throws PersistenciaException {
+    public void remover(Long idBanco) throws PersistenciaException {
         String sql = "DELETE FROM CONTA.TB_BANCO WHERE ID_BANCO = ?";
         Connection connection = null;
         
         try {
-            if(banco.getIdBanco() == null){    
+            if(idBanco == null){    
                 throw new PersistenciaException("Id do Banco informado está null");
             }
             
-            if(listarPorId(banco) == null){
+            if(listarPorId(idBanco) == null){
                 return;
             }
             connection = Conexao.getInstance().getConnection();
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
-            pStatement.setLong(1, banco.getIdBanco());
+            pStatement.setLong(1, idBanco);
             pStatement.execute();
             
         } catch(ClassNotFoundException ex){

@@ -8,12 +8,12 @@ import java.util.List;
 public interface IGenericoDAO<E> {
     List<E> listar() throws PersistenciaException;
     
-    E listarPorId(E e) throws PersistenciaException;
+    E listarPorId(Long id) throws PersistenciaException;
 
     void inserir(E e) throws PersistenciaException;
     
     void alterar(E e) throws PersistenciaException;
     
-    void remover(E e) throws PersistenciaException;
+    void remover(Long id) throws PersistenciaException;
 
 }
