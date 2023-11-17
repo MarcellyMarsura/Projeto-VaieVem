@@ -85,42 +85,42 @@
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="31.0" layoutY="173.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" textAlignment="CENTER">
+                  <Text layoutX="31.0" layoutY="137.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtBanco" layoutX="90.0" layoutY="32.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Santander" textAlignment="CENTER">
+                  <Text fx:id="txtBanco" layoutX="92.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Santander" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtAgencia" layoutX="105.0" layoutY="66.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="42363" textAlignment="CENTER">
+                  <Text fx:id="txtAgencia" layoutX="108.0" layoutY="66.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="42363" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtConta" layoutX="93.0" layoutY="106.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0005251252200" textAlignment="CENTER">
+                  <Text fx:id="txtConta" layoutX="93.0" layoutY="104.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0005251252200" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtDescricao" layoutX="124.0" layoutY="172.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta principal" textAlignment="CENTER">
+                  <Text fx:id="txtDescricao" layoutX="121.0" layoutY="137.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta principal" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text layoutX="32.0" layoutY="138.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta:" textAlignment="CENTER">
+                  <Text layoutX="31.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta:" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semibold" size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="85.0" layoutY="138.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                  <Text layoutX="84.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>
                   </Text>
-                  <Text fx:id="txtMeta" layoutX="108.0" layoutY="138.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                  <Text fx:id="txtMeta" layoutX="107.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI Semilight" size="17.0" />
                      </font>

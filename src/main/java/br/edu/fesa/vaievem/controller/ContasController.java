@@ -1,20 +1,25 @@
 
 package br.edu.fesa.vaievem.controller;
 
+import br.edu.fesa.vaievem.exception.LogicalException;
+import br.edu.fesa.vaievem.mockService.ContaBancariaService;
+import br.edu.fesa.vaievem.models.Banco;
 import br.edu.fesa.vaievem.models.ContaBancaria;
+import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
+import br.edu.fesa.vaievem.utils.TipoCadastro;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import br.edu.fesa.vaievem.viewmodels.ContaViewModel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -54,50 +59,103 @@ public class ContasController implements Initializable {
 
     private ObservableList<ContaViewModel> dados;
 
+    IContaBancariaService _contaBancariaService;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO: Obter dados pelo service
-        configurarTabela();
+        try {
+            _contaBancariaService = new ContaBancariaService();
+
+            configurarTabela();
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+
     }
 
     private void configurarTabela() {
-        dados = FXCollections.observableArrayList(new ContaViewModel("1", "Despesa", "05/11/2002", "1000,00", "Primeira compra", ""));
-        colDescricao.setCellValueFactory(new PropertyValueFactory<>("Descricao"));
-        colAgencia.setCellValueFactory(new PropertyValueFactory<>("Agencia"));
-        colConta.setCellValueFactory(new PropertyValueFactory<>("Conta"));
-        colBanco.setCellValueFactory(new PropertyValueFactory<>("Banco"));
-        colMeta.setCellValueFactory(new PropertyValueFactory<>("Meta"));
+        try {
+            colDescricao.setCellValueFactory(new PropertyValueFactory<>("Descricao"));
+            colAgencia.setCellValueFactory(new PropertyValueFactory<>("Agencia"));
+            colConta.setCellValueFactory(new PropertyValueFactory<>("Conta"));
+            colBanco.setCellValueFactory(new PropertyValueFactory<>("Banco"));
+            colMeta.setCellValueFactory(new PropertyValueFactory<>("Meta"));
 
-        tbConta.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tbConta.setItems(dados);
+            dados = _contaBancariaService.listarDadosTabela("");
+            tbConta.setItems(dados);
 
-        HelperTable.criaHyperLink(colDetalhes, "Detalhes", (ContaViewModel conta, ActionEvent event) -> {
-            
-            try {
-                DetalheContaController.setConta(new ContaBancaria(Long.parseLong(conta.getId()), 
-                                                                  conta.getDescricao(), 
-                                                                  conta.getAgencia(),
-                                                                  conta.getConta(),
-                                                                  Long.parseLong(conta.getMeta())));
-                ViewConfiguration.mudaTela(Tela.DETALHE_CONTA.getNome());
-            } catch (Exception erro) {
-                MessageBox.exibeMensagemErro(erro);
-            }
-            
-        });
+            HelperTable.criaHyperLink(colDetalhes, "Detalhes", (ContaViewModel conta, ActionEvent event) -> {
 
-        HelperTable.criaHyperLink(colExcluir, "Excluir", (ContaViewModel conta, ActionEvent event) -> {
-            //TODO
-        });
+                try {
 
-        HelperTable.criaHyperLink(colEditar, "Editar", (ContaViewModel conta, ActionEvent event) -> {
-            //TODO
-        });
+                    ContaBancaria c = new ContaBancaria(
+                            Long.valueOf(conta.getId()),
+                            conta.getDescricao(),
+                            conta.getAgencia(),
+                            conta.getConta(),
+                            Float.valueOf(conta.getMeta()));
+
+                    c.setBanco(new Banco(0L, conta.getBanco()));
+
+                    DetalheContaController.setConta(c);
+
+                    ViewConfiguration.mudaTela(Tela.DETALHE_CONTA.getNome());
+                } catch (Exception erro) {
+                    MessageBox.exibeMensagemErro(erro);
+                }
+
+            });
+
+            HelperTable.criaHyperLink(colExcluir, "Excluir", (ContaViewModel conta, ActionEvent event) -> {
+
+                try {
+                    var resultado = MessageBox.exibeAlerta("Confirmar exclusão", String.format("Deseja excluir a conta %s?", conta.getDescricao()));
+
+                    if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                        _contaBancariaService.remover(new ContaBancaria(Long.valueOf(conta.getId())));
+                        tbConta.setItems(_contaBancariaService.listarDadosTabela(""));
+                    }
+                } catch (LogicalException erro) {
+                    MessageBox.exibeAlerta(erro.getMessage());
+                } catch (Exception erro) {
+                    MessageBox.exibeMensagemErro(erro);
+                }
+
+            });
+
+            HelperTable.criaHyperLink(colEditar, "Editar", (ContaViewModel conta, ActionEvent event) -> {
+                try {
+                    ContaBancaria c = new ContaBancaria(
+                            Long.valueOf(conta.getId()),
+                            conta.getDescricao(),
+                            conta.getAgencia(),
+                            conta.getConta(),
+                            Float.valueOf(conta.getMeta()));
+
+                    c.setBanco(conta.getBancoModel());
+
+                    CadastroContaController.setConta(c);
+                    CadastroContaController.setTipoCadastro(TipoCadastro.UPDATE);
+
+                    ViewConfiguration.mudaTela(Tela.CADASTRO_CONTA.getNome());
+                } catch (Exception erro) {
+                    MessageBox.exibeMensagemErro(erro);
+                }
+            });
+
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+
     }
 
     @FXML
     private void onMouseClicked_btnAdicionarConta() throws IOException {
         try {
+            CadastroContaController.setTipoCadastro(TipoCadastro.INSERT);
+            CadastroContaController.setConta(null);
             ViewConfiguration.mudaTela(Tela.CADASTRO_CONTA.getNome());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
@@ -107,7 +165,7 @@ public class ContasController implements Initializable {
     @FXML
     private void onMouseClicked_btnPesquisar() throws IOException {
         try {
-            //TODO: Atualizar tabela com os dados retornados do service
+            tbConta.setItems(_contaBancariaService.listarDadosTabela(txtPesquisar.getText().trim()));
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

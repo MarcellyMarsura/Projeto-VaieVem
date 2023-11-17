@@ -52,4 +52,9 @@ public class TipoLancamento implements Serializable {
     public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
         this.lancamentosConta = lancamentosConta;
     }
+    
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }

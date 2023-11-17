@@ -16,28 +16,28 @@
          <children>
             <Pane layoutX="168.0" layoutY="90.0" prefHeight="568.0" prefWidth="636.0" styleClass="card" stylesheets="@styles/style.css">
                <children>
-                  <TextField layoutX="120.0" layoutY="96.0" prefHeight="35.0" prefWidth="397.0">
+                  <TextField fx:id="txtDescricao" layoutX="120.0" layoutY="96.0" prefHeight="35.0" prefWidth="397.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <ComboBox layoutX="120.0" layoutY="181.0" prefHeight="35.0" prefWidth="397.0" />
-                  <TextField layoutX="120.0" layoutY="277.0" prefHeight="35.0" prefWidth="186.0">
+                  <ComboBox fx:id="cbConta" layoutX="120.0" layoutY="181.0" prefHeight="35.0" prefWidth="397.0" />
+                  <TextField fx:id="txtDiaFechamento" layoutX="120.0" layoutY="277.0" prefHeight="35.0" prefWidth="186.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="331.0" layoutY="277.0" prefHeight="35.0" prefWidth="186.0">
+                  <TextField fx:id="txtDiaVencimento" layoutX="331.0" layoutY="277.0" prefHeight="35.0" prefWidth="186.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="120.0" layoutY="368.0" prefHeight="35.0" prefWidth="397.0" promptText="0,00">
+                  <TextField fx:id="txtLimite" layoutX="120.0" layoutY="368.0" prefHeight="35.0" prefWidth="397.0" promptText="0,00">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="233.0" layoutY="451.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="147.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
+                  <Button layoutX="233.0" layoutY="451.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnSalvar" prefHeight="45.0" prefWidth="147.0" styleClass="button1" stylesheets="@styles/style.css" text="Salvar">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

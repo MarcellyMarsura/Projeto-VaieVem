@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -27,13 +26,12 @@
                         <TableColumn fx:id="colExcluir" minWidth="0.0" prefWidth="99.0" text="Excluir" />
                     </columns>
                   </TableView>
-                  <TextField layoutX="266.0" layoutY="15.0" prefHeight="35.0" prefWidth="479.0" promptText="Pesquisar" />
+                  <TextField layoutX="26.0" layoutY="15.0" prefHeight="35.0" prefWidth="719.0" promptText="Pesquisar" />
                   <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPesquisar" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="cbConta" layoutX="19.0" layoutY="15.0" prefHeight="35.0" prefWidth="238.0" stylesheets="@styles/style.css" />
                </children></Pane>
             <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões de Crédito" textAlignment="CENTER">
                <font>

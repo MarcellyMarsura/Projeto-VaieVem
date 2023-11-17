@@ -149,7 +149,7 @@
                   <Font name="Segoe UI Semibold" size="20.0" />
                </font>
             </Text>
-            <Text fill="#000000ab" layoutX="691.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Balanço mensal" textAlignment="CENTER">
+            <Text fill="#000000ab" layoutX="691.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Balanço Total" textAlignment="CENTER">
                <font>
                   <Font name="Segoe UI Semibold" size="20.0" />
                </font>

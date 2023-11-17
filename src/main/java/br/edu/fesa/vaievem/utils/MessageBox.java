@@ -64,6 +64,16 @@ public class MessageBox {
         return alert.showAndWait();
     }
     
+    public static Optional<ButtonType> exibeAlerta(String mensagem) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.initStyle(StageStyle.UTILITY);
+        alert.setTitle("ERRO");
+        alert.setHeaderText(null);
+        alert.setContentText(mensagem);
+
+        return alert.showAndWait();
+    }
+    
     public static Optional<ButtonType> exibeConfirmacao(String titulo, String mensagem) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.initStyle(StageStyle.UTILITY);

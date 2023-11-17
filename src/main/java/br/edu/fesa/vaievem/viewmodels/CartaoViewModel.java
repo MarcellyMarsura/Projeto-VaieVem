@@ -5,6 +5,7 @@
 package br.edu.fesa.vaievem.viewmodels;
 
 import br.edu.fesa.vaievem.models.Cartao;
+import br.edu.fesa.vaievem.models.ContaBancaria;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -18,6 +19,8 @@ public class CartaoViewModel {
     private SimpleStringProperty Conta;
     private SimpleStringProperty DiaVencimento;
     private SimpleStringProperty Limite;
+    
+    private ContaBancaria contaBancaria;
 
     public CartaoViewModel(Cartao model){
         this.Id = new SimpleStringProperty(String.valueOf(model.getIdCartao()));
@@ -26,6 +29,8 @@ public class CartaoViewModel {
         this.Conta = new SimpleStringProperty(model.getContaBancaria().getNumeroConta());
         this.DiaVencimento = new SimpleStringProperty(String.valueOf(model.getDiaVencimento()));
         this.Limite = new SimpleStringProperty(String.valueOf(model.getLimiteEstipulado()));
+        
+        this.contaBancaria = model.getContaBancaria();
     }
 
     public String getId() {
@@ -80,5 +85,12 @@ public class CartaoViewModel {
 
     public void setLimite(String limite) {
         this.Limite.set(limite);
+    }
+    
+    public ContaBancaria getContaBancaria() {
+        return contaBancaria;
+    }
+    public void setContaBancaria(ContaBancaria contaBancaria) {
+        this.contaBancaria = contaBancaria;
     }
 }

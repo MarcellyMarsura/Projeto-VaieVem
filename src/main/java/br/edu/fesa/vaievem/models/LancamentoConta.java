@@ -1,13 +1,13 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class LancamentoConta implements Serializable {
     
     // Atributos
     private Long idLancamentoConta;
-    private Date dataLancamento;
+    private LocalDate dataLancamento;
     private float valor;
     private String comentario;
 
@@ -21,12 +21,12 @@ public class LancamentoConta implements Serializable {
     public LancamentoConta(Long idLancamentoConta) {
         this.idLancamentoConta = idLancamentoConta;
     }
-    public LancamentoConta(Long idLancamentoConta, Date dataLancamento, float valor) {
+    public LancamentoConta(Long idLancamentoConta, LocalDate dataLancamento, float valor) {
         this.idLancamentoConta = idLancamentoConta;
         this.dataLancamento = dataLancamento;
         this.valor = valor;
     }
-    public LancamentoConta(Long idLancamentoConta, Date dataLancamento, float valor, String comentario) {
+    public LancamentoConta(Long idLancamentoConta, LocalDate dataLancamento, float valor, String comentario) {
         this.idLancamentoConta = idLancamentoConta;
         this.dataLancamento = dataLancamento;
         this.valor = valor;
@@ -41,10 +41,10 @@ public class LancamentoConta implements Serializable {
         this.idLancamentoConta = idLancamentoConta;
     }
 
-    public Date getDataLancamento() {
+    public LocalDate getDataLancamento() {
         return dataLancamento;
     }
-    public void setDataLancamento(Date dataLancamento) {
+    public void setDataLancamento(LocalDate dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 

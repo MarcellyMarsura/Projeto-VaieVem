@@ -42,7 +42,7 @@
                      </font>
                   </TextField>
                   <ComboBox fx:id="cbConta" layoutX="97.0" layoutY="69.0" prefHeight="35.0" prefWidth="441.0" />
-                  <DatePicker fx:id="txtData" layoutX="329.0" layoutY="165.0" prefHeight="35.0" prefWidth="210.0" />
+                  <DatePicker fx:id="txtData" editable="false" layoutX="329.0" layoutY="165.0" prefHeight="35.0" prefWidth="210.0" />
                   <TextArea fx:id="txtComentario" layoutX="97.0" layoutY="354.0" prefHeight="89.0" prefWidth="441.0">
                      <font>
                         <Font size="14.0" />

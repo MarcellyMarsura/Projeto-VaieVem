@@ -52,4 +52,9 @@ public class Banco implements Serializable {
     public void setContasBancarias(ArrayList<ContaBancaria> contasBancarias) {
         this.contasBancarias = contasBancarias;
     }
+    
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }
