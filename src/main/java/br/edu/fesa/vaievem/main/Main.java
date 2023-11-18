@@ -16,7 +16,8 @@ import br.edu.fesa.vaievem.models.LancamentoCartao;
 import br.edu.fesa.vaievem.models.LancamentoConta;
 import br.edu.fesa.vaievem.models.TipoLancamento;
 import br.edu.fesa.vaievem.models.Usuario;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Month;
 
 public class Main {
     
@@ -223,7 +224,7 @@ public class Main {
         
         long id = 3;
         long idCartao = 5;
-        Date data = new Date();
+        LocalDate data = LocalDate.of(2023, Month.JANUARY, 25);
         float valor = 80;
         String comentario = "AAAA";
         
@@ -257,7 +258,7 @@ public class Main {
         long id = 2;
         long idConta = 11;
         long tipo = 1;
-        Date data = new Date();
+        LocalDate data = LocalDate.of(2023, Month.JANUARY, 25);
         float valor = 80;
         String comentario = "Teste";
         

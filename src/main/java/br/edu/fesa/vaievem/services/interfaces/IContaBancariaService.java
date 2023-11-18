@@ -6,6 +6,7 @@ import br.edu.fesa.vaievem.exception.PersistenciaException;
 import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.viewmodels.ContaViewModel;
 import java.util.List;
+import javafx.collections.ObservableList;
 
 
 public interface IContaBancariaService extends IGenericoTabela<ContaBancaria, ContaViewModel> {
@@ -26,4 +27,6 @@ public interface IContaBancariaService extends IGenericoTabela<ContaBancaria, Co
     void alterar(ContaBancaria contaBancaria) throws PersistenciaException, LogicalException; 
     
     void remover(ContaBancaria contaBancaria) throws PersistenciaException, LogicalException; 
+    
+    ObservableList<ContaBancaria> listarComboBox() throws PersistenciaException, LogicalException;
 }

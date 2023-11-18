@@ -137,4 +137,9 @@ public class ContaBancaria implements Serializable {
         
         return saldo;
     }
+    
+    @Override
+    public String toString() {
+        return descricao;
+    }
 }

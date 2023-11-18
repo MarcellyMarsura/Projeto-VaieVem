@@ -4,6 +4,8 @@
  */
 package br.edu.fesa.vaievem.viewmodels;
 
+import br.edu.fesa.vaievem.models.Banco;
+import br.edu.fesa.vaievem.models.ContaBancaria;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -17,14 +19,18 @@ public class ContaViewModel {
     private SimpleStringProperty Conta;
     private SimpleStringProperty Banco;
     private SimpleStringProperty Meta;
+    
+    private Banco bancoModel;
 
-    public ContaViewModel(String id, String descricao, String agencia, String conta, String banco, String meta){
-        this.Id = new SimpleStringProperty(id);
-        this.Descricao = new SimpleStringProperty(descricao);
-        this.Agencia = new SimpleStringProperty(agencia);
-        this.Conta = new SimpleStringProperty(conta);
-        this.Banco = new SimpleStringProperty(banco);
-        this.Meta = new SimpleStringProperty(meta);
+
+    public ContaViewModel(ContaBancaria model){
+        this.Id = new SimpleStringProperty(String.valueOf(model.getIdContaBancaria()));
+        this.Descricao = new SimpleStringProperty(model.getDescricao());
+        this.Agencia = new SimpleStringProperty(model.getNumeroAgencia());
+        this.Conta = new SimpleStringProperty(model.getNumeroConta());
+        this.Banco = new SimpleStringProperty(model.getBanco().getDescricao());
+        this.Meta = new SimpleStringProperty(String.valueOf(model.getMeta()));
+        this.bancoModel = model.getBanco();
     }
 
     public String getId() {
@@ -79,5 +85,13 @@ public class ContaViewModel {
 
     public void setMeta(String meta) {
         this.Meta.set(meta);
+    }
+
+    public Banco getBancoModel() {
+        return bancoModel;
+    }
+
+    public void setBancoModel(Banco bancoModel) {
+        this.bancoModel = bancoModel;
     }
 }

@@ -9,6 +9,7 @@ import br.edu.fesa.vaievem.exception.PersistenciaException;
 import br.edu.fesa.vaievem.models.LancamentoConta;
 import br.edu.fesa.vaievem.dao.utils.Conexao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
                 result.getLong("ID_LANCAMENTO_CONTA"),
                 result.getLong("TIPO_LANCAMENTO_ID"),
                 result.getLong("CONTA_BANCARIA_ID"),
-                result.getDate("DATA_LANCAMENTO"),
+                result.getDate("DATA_LANCAMENTO").toLocalDate(),
                 result.getFloat("VALOR"),
                 result.getString("COMENTARIO")
         );
@@ -364,7 +365,7 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, e.getTipoLancamento().getIdTipoLancamento());
             pStatement.setLong(2, e.getContaBancaria().getIdContaBancaria());
-            pStatement.setDate(3, new java.sql.Date(e.getDataLancamento().getTime()));
+            pStatement.setDate(3, Date.valueOf(e.getDataLancamento()));
             pStatement.setFloat(4, e.getValor());
             pStatement.setString(5, e.getComentario());
             
@@ -408,7 +409,7 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, e.getTipoLancamento().getIdTipoLancamento());
             pStatement.setLong(2, e.getContaBancaria().getIdContaBancaria());
-            pStatement.setDate(3, new java.sql.Date(e.getDataLancamento().getTime()));
+            pStatement.setDate(3, Date.valueOf(e.getDataLancamento()));
             pStatement.setFloat(4, e.getValor());
             pStatement.setString(5, e.getComentario());
             pStatement.setLong(6, e.getIdLancamentoConta());

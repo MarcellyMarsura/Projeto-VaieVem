@@ -2,13 +2,13 @@
 package br.edu.fesa.vaievem.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class LancamentoCartao implements Serializable {
     
     // Atributos
     private Long idLancamentoCartao;
-    private Date dataLancamento;
+    private LocalDate dataLancamento;
     private float valor;
     private String comentario;
 
@@ -21,18 +21,18 @@ public class LancamentoCartao implements Serializable {
     public LancamentoCartao(Long idLancamentoCartao) {
         this.idLancamentoCartao = idLancamentoCartao;
     }
-    public LancamentoCartao(Long idLancamentoCartao, Date dataLancamento, float valor) {
+    public LancamentoCartao(Long idLancamentoCartao, LocalDate dataLancamento, float valor) {
         this.idLancamentoCartao = idLancamentoCartao;
         this.dataLancamento = dataLancamento;
         this.valor = valor;
     }
-    public LancamentoCartao(Long idLancamentoCartao, Date dataLancamento, float valor, String comentario) {
+    public LancamentoCartao(Long idLancamentoCartao, LocalDate dataLancamento, float valor, String comentario) {
         this.idLancamentoCartao = idLancamentoCartao;
         this.dataLancamento = dataLancamento;
         this.valor = valor;
         this.comentario = comentario;
     }   
-    public LancamentoCartao(Long idLancamentoCartao, Long idCartao, Date dataLancamento, float valor, String comentario) {
+    public LancamentoCartao(Long idLancamentoCartao, Long idCartao, LocalDate dataLancamento, float valor, String comentario) {
         this.idLancamentoCartao = idLancamentoCartao;
         this.dataLancamento = dataLancamento;
         this.valor = valor;
@@ -49,10 +49,10 @@ public class LancamentoCartao implements Serializable {
         this.idLancamentoCartao = idLancamentoCartao;
     }
 
-    public Date getDataLancamento() {
+    public LocalDate getDataLancamento() {
         return dataLancamento;
     }
-    public void setDataLancamento(Date dataLancamento) {
+    public void setDataLancamento(LocalDate dataLancamento) {
         this.dataLancamento = dataLancamento;
     }
 

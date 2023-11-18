@@ -9,6 +9,7 @@ import br.edu.fesa.vaievem.exception.PersistenciaException;
 import br.edu.fesa.vaievem.models.LancamentoCartao;
 import br.edu.fesa.vaievem.dao.utils.Conexao;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class LancamentoCartaoDAO implements ILancamentoCartaoDAO {
         return new LancamentoCartao (
                 result.getLong("ID_LANCAMENTO_CARTAO"),
                 result.getLong("CARTAO_ID"),
-                result.getDate("DATA_LANCAMENTO"),
+                result.getDate("DATA_LANCAMENTO").toLocalDate(),
                 result.getFloat("VALOR"),
                 result.getString("COMENTARIO")
         );
@@ -123,7 +124,7 @@ public class LancamentoCartaoDAO implements ILancamentoCartaoDAO {
             
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, e.getCartao().getIdCartao());
-            pStatement.setDate(2, new java.sql.Date(e.getDataLancamento().getTime()));
+            pStatement.setDate(2, Date.valueOf(e.getDataLancamento()));
             pStatement.setFloat(3, e.getValor());
             pStatement.setString(4, e.getComentario());
             
@@ -166,7 +167,7 @@ public class LancamentoCartaoDAO implements ILancamentoCartaoDAO {
                         
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, e.getCartao().getIdCartao());
-            pStatement.setDate(2, new java.sql.Date(e.getDataLancamento().getTime()));
+            pStatement.setDate(2, Date.valueOf(e.getDataLancamento()));
             pStatement.setFloat(3, e.getValor());
             pStatement.setString(4, e.getComentario());
             pStatement.setLong(5, e.getIdLancamentoCartao());

@@ -64,5 +64,10 @@ public class ContaBancariaService implements IContaBancariaService {
     public ObservableList<ContaViewModel> listarDadosTabela(String pesquisa) throws PersistenciaException, LogicalException {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public ObservableList<ContaBancaria> listarComboBox() throws PersistenciaException, LogicalException {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
