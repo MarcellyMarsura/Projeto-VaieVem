@@ -19,6 +19,7 @@ public class CartaoDAO implements ICartaoDAO {
     private Cartao ConverteResultParaModel(ResultSet result) throws SQLException{
         return new Cartao (
                 result.getLong("ID_CARTAO"),
+                result.getLong("CONTA_BANCARIA_ID"),
                 result.getString("DESCRICAO"),
                 result.getInt("DIA_FECHAMENTO"),
                 result.getInt("DIA_VENCIMENTO"),
