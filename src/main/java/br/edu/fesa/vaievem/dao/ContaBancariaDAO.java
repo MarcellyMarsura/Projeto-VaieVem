@@ -263,7 +263,7 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
         if(descricao == null){
             sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE USUARIO_ID = ?";
         }else{
-            sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE USUARIO_ID = ? AND DESCRICAO = ?";
+            sql = "SELECT * FROM CONTA.TB_CONTA_BANCARIA WHERE USUARIO_ID = ? AND DESCRICAO LIKE ?";
         }
         
         Connection connection = null;
@@ -274,6 +274,7 @@ public class ContaBancariaDAO implements IContaBancariaDAO {
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, idUsuario);
             if(descricao != null){
+                descricao = '%' + descricao + '%';
                 pStatement.setString(2, descricao);
             }          
             ResultSet result = pStatement.executeQuery();
