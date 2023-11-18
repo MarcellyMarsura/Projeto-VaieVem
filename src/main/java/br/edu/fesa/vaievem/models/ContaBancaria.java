@@ -12,7 +12,7 @@ public class ContaBancaria implements Serializable {
     private String descricao;
     private String numeroAgencia;
     private String numeroConta;
-    private Long meta;
+    private float meta;
     
     // Atributos de relacionamento
     private Usuario usuario;
@@ -33,17 +33,28 @@ public class ContaBancaria implements Serializable {
         this.idContaBancaria = idContaBancaria;
         this.descricao = descricao;
     }
-    public ContaBancaria(Long idContaBancaria, String descricao, Long meta) {
+    public ContaBancaria(Long idContaBancaria, String descricao, float meta) {
         this.idContaBancaria = idContaBancaria;
         this.descricao = descricao;
         this.meta = meta;
     }
-    public ContaBancaria(Long idContaBancaria, String descricao, String numeroAgencia, String numeroConta, Long meta) {
+    public ContaBancaria(Long idContaBancaria, String descricao, String numeroAgencia, String numeroConta, float meta) {
         this.idContaBancaria = idContaBancaria;
         this.descricao = descricao;
         this.numeroAgencia = numeroAgencia;
         this.numeroConta = numeroConta;
         this.meta = meta;
+    }
+    
+    public ContaBancaria(Long idContaBancaria, Long idUsuario, Long idBanco, String descricao, String numeroAgencia, String numeroConta, float meta) {
+        this.idContaBancaria = idContaBancaria;
+        this.descricao = descricao;
+        this.numeroAgencia = numeroAgencia;
+        this.numeroConta = numeroConta;
+        this.meta = meta;
+        
+        this.usuario = new Usuario(idUsuario);
+        this.banco = new Banco(idBanco);
     }
 
     // Getter e Setter
@@ -75,10 +86,10 @@ public class ContaBancaria implements Serializable {
         this.numeroConta = numeroConta;
     }
     
-    public Long getMeta() {
+    public float getMeta() {
         return meta;
     }
-    public void setMeta(Long meta) {
+    public void setMeta(float meta) {
         this.meta = meta;
     }
 
@@ -114,5 +125,16 @@ public class ContaBancaria implements Serializable {
     }
     public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
         this.lancamentosConta = lancamentosConta;
+    }
+    
+    // Atributos Personalizados
+    public float getSaldo(){
+        float saldo = 0;
+        
+        for(LancamentoConta lancamento : lancamentosConta){
+            saldo += lancamento.getValor();
+        }
+        
+        return saldo;
     }
 }

@@ -1,6 +1,7 @@
 
 package br.edu.fesa.vaievem.services;
 
+import br.edu.fesa.vaievem.dao.UsuarioDAO;
 import br.edu.fesa.vaievem.dao.interfaces.IUsuarioDAO;
 import br.edu.fesa.vaievem.exception.LogicalException;
 import br.edu.fesa.vaievem.exception.PersistenciaException;
@@ -12,13 +13,11 @@ import java.util.regex.Pattern;
 
 public class UsuarioService implements IUsuarioService {
 
-    private final IUsuarioDAO _usuarioDAO;
+    private final IUsuarioDAO _usuarioDAO = new UsuarioDAO();
     private String _emailRegex;
     private Pattern _pattern;
     
-    public UsuarioService(IUsuarioDAO usuarioDAO){
-        _usuarioDAO = usuarioDAO;
-        
+    public UsuarioService(){        
         iniciaRegex();
     }
     
@@ -51,7 +50,7 @@ public class UsuarioService implements IUsuarioService {
     
     private boolean emailJaCadastrado(Usuario usuario) throws PersistenciaException {
         
-        Usuario usuarioBD = _usuarioDAO.listarPorEmail(usuario);        
+        Usuario usuarioBD = _usuarioDAO.listarPorEmail(usuario.getEmail());        
         
         return usuarioBD != null && !usuarioBD.getIdUsuario().equals(usuario.getIdUsuario());
     }
@@ -80,7 +79,7 @@ public class UsuarioService implements IUsuarioService {
     public boolean autenticaUsuario(Usuario usuarioForm) throws PersistenciaException, LogicalException {
         Session.RemoveUsuarioLogado();
         
-        Usuario usuarioDB = _usuarioDAO.listarPorEmail(usuarioForm);
+        Usuario usuarioDB = _usuarioDAO.listarPorEmail(usuarioForm.getEmail());
         
         if(usuarioDB == null || !usuarioDB.isAtivo()){
             return false;
@@ -105,7 +104,7 @@ public class UsuarioService implements IUsuarioService {
         encriptaSenha(novoUsuario);
         _usuarioDAO.inserir(novoUsuario);
         
-        Session.setUsuarioLogado(_usuarioDAO.listarPorEmail(novoUsuario));
+        Session.setUsuarioLogado(_usuarioDAO.listarPorEmail(novoUsuario.getEmail()));
     }
         
     @Override
@@ -120,7 +119,7 @@ public class UsuarioService implements IUsuarioService {
 
         _usuarioDAO.alterar(usuarioAlterado);    
 
-        Session.setUsuarioLogado(_usuarioDAO.listarPorId(usuarioAlterado));    
+        Session.setUsuarioLogado(_usuarioDAO.listarPorId(usuarioAlterado.getIdUsuario()));    
     }
 
     @Override
@@ -137,7 +136,7 @@ public class UsuarioService implements IUsuarioService {
         
         _usuarioDAO.alterar(usuarioAlterado); 
         
-        Session.setUsuarioLogado(_usuarioDAO.listarPorId(usuarioAlterado));    
+        Session.setUsuarioLogado(_usuarioDAO.listarPorId(usuarioAlterado.getIdUsuario()));    
     }
 
     @Override
@@ -153,7 +152,7 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public Usuario listarPorEmail(Usuario usuario) throws PersistenciaException, LogicalException {
-        return _usuarioDAO.listarPorEmail(usuario);
+        return _usuarioDAO.listarPorEmail(usuario.getEmail());
     }
     
 }
