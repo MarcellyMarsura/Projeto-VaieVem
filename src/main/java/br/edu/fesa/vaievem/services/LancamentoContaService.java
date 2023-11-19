@@ -147,6 +147,7 @@ public class LancamentoContaService implements ILancamentoContaService {
         
         for(LancamentoConta lancamentoModel : lancamentosModel){
             lancamentoModel.setContaBancaria(conta);
+            lancamentoModel.setTipoLancamento(_tipoLancamentoDAO.listarPorId(lancamentoModel.getTipoLancamento().getIdTipoLancamento()));
             retorno.add(new LancamentoViewModel(lancamentoModel));
         }
         

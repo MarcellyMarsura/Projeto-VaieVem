@@ -1,10 +1,10 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.LancamentoContaService;
 import br.edu.fesa.vaievem.models.Cartao;
 import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.services.CartaoService;
+import br.edu.fesa.vaievem.services.LancamentoContaService;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
 import br.edu.fesa.vaievem.services.interfaces.ILancamentoContaService;
 import br.edu.fesa.vaievem.utils.FormatString;
@@ -96,10 +96,6 @@ public class DetalheContaController implements Initializable {
     ILancamentoContaService _lancamentoContaService;
     ICartaoService _cartaoService;
 
-    public static void setConta(ContaBancaria conta) {
-        DetalheContaController.conta = conta;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         _lancamentoContaService = new LancamentoContaService();
@@ -108,6 +104,10 @@ public class DetalheContaController implements Initializable {
         preencheTela();
         configurarTabelaLancamento();
         configurarTabelaCartao();
+    }
+
+    public static void setConta(ContaBancaria conta) {
+        DetalheContaController.conta = conta;
     }
 
     private void preencheTela() {
@@ -131,13 +131,12 @@ public class DetalheContaController implements Initializable {
 
     private void configurarTabelaLancamento() {
         try {
-            dadosLancamento = _lancamentoContaService.listarDadosTabela("");
             colTipo.setCellValueFactory(new PropertyValueFactory<>("Tipo"));
             colData.setCellValueFactory(new PropertyValueFactory<>("Data"));
             colValor.setCellValueFactory(new PropertyValueFactory<>("Valor"));
             colComentario.setCellValueFactory(new PropertyValueFactory<>("Comentario"));
 
-            tbLancamento.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            dadosLancamento = _lancamentoContaService.listarDadosTabelaPorConta(conta.getIdContaBancaria());
             tbLancamento.setItems(dadosLancamento);
 
             HelperTable.criaHyperLink(colExcluir, "Excluir", (LancamentoViewModel lancamento, ActionEvent event) -> {
@@ -156,6 +155,8 @@ public class DetalheContaController implements Initializable {
                 }
             });
 
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -166,43 +167,60 @@ public class DetalheContaController implements Initializable {
             colDescricao.setCellValueFactory(new PropertyValueFactory<>("Descricao"));
             colLimite.setCellValueFactory(new PropertyValueFactory<>("Limite"));
 
-            tbCartao.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            dadosCartao = _cartaoService.listarDadosTabelaPorConta(conta.getIdContaBancaria());
             tbCartao.setItems(dadosCartao);
 
-            HelperTable.criaHyperLink(colExcluirCartao, "Excluir", (CartaoViewModel cartao, ActionEvent event) -> {
-                try {
-                    var resultado = MessageBox.exibeAlerta("Confirmar exclusão", String.format("Deseja excluir o cartão %s?", cartao.getDescricao()));
-
-                    if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-                        _cartaoService.remover(new Cartao(Long.valueOf(cartao.getId())));
-                        tbCartao.setItems(_cartaoService.listarDadosTabelaPorConta(conta.getIdContaBancaria()));
-                    }
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
-            });
-
             HelperTable.criaHyperLink(colEditarCartao, "Editar", (CartaoViewModel cartao, ActionEvent event) -> {
-                try {
-                    Cartao c = new Cartao(
-                            Long.valueOf(cartao.getId()),
-                            cartao.getDescricao(),
-                            Integer.parseInt(cartao.getDiaFechamento()),
-                            Integer.parseInt(cartao.getDiaVencimento()),
-                            Float.valueOf(cartao.getLimite()));
-                    c.setContaBancaria(conta);
-                    
-                    CadastroCartaoController.setTipoCadastro(TipoCadastro.UPDATE);
-                    ViewConfiguration.mudaTela(Tela.CADASTRO_CONTA.getNome());
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
+                configuraEditarCartao(cartao);
             });
 
+            HelperTable.criaHyperLink(colExcluirCartao, "Excluir", (CartaoViewModel cartao, ActionEvent event) -> {
+                configuraExcluirCartao(cartao);
+            });
+
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
 
+    }
+
+    private void configuraEditarCartao(CartaoViewModel cartao) {
+        try {
+            CadastroCartaoController.setCartao(montaModelCartao(cartao));
+            CadastroCartaoController.setTipoCadastro(TipoCadastro.UPDATE);
+            ViewConfiguration.mudaTela(Tela.CADASTRO_CARTAO.getNome());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private void configuraExcluirCartao(CartaoViewModel cartao) {
+        try {
+            var resultado = MessageBox.exibeConfirmacao("Confirmar exclusão",
+                    String.format("Deseja excluir o cartão %s?", cartao.getDescricao()));
+
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                _cartaoService.remover(new Cartao(Long.valueOf(cartao.getId())));
+                tbCartao.setItems(_cartaoService.listarDadosTabelaPorConta(conta.getIdContaBancaria()));
+            }
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private Cartao montaModelCartao(CartaoViewModel cartao) {
+        Cartao c = new Cartao(
+                Long.valueOf(cartao.getId()),
+                cartao.getDescricao(),
+                Integer.parseInt(cartao.getDiaFechamento()),
+                Integer.parseInt(cartao.getDiaVencimento()),
+                Float.valueOf(cartao.getLimite()));
+        c.setContaBancaria(conta);
+        return c;
     }
 
     @FXML

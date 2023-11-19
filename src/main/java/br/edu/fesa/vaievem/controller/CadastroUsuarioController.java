@@ -18,51 +18,61 @@ public class CadastroUsuarioController implements Initializable {
 
     @FXML
     private TextField txtNome;
-    
+
     @FXML
     private TextField txtEmail;
-    
+
     @FXML
     private TextField txtSenha;
-    
+
     IUsuarioService _usuarioService;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        _usuarioService = new UsuarioService();
-        ViewConfiguration.setPossuiMenu(false);
-    }
-    
-    @FXML
-    private void onMouseClicked_lnkEntrar() throws IOException{
         try {
-            ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
+            _usuarioService = new UsuarioService();
+            configurarTela();
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
         }
-        catch (Exception erro){
+
+    }
+
+    private void configurarTela() {
+        try {
+            ViewConfiguration.setPossuiMenu(false);
+        } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
     }
-    
+
     @FXML
-    private void onMouseClicked_btnCadastrar() throws IOException{
+    private void onMouseClicked_lnkEntrar() throws IOException {
+        try {
+            ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    @FXML
+    private void onMouseClicked_btnCadastrar() throws IOException {
         try {
             String nome = txtNome.getText().trim();
             String email = txtEmail.getText().trim();
             String senha = txtSenha.getText().trim();
-            
-            if(nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+
+            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                 throw new LogicalException("Preencha todos os campos");
             }
             _usuarioService.inserir(new Usuario(email, senha, nome));
-            ViewConfiguration.mudaTela(Tela.PERFIL.getNome());
-        }
-        catch (LogicalException erro) {
+            ViewConfiguration.mudaTela(Tela.HOME.getNome());
+        } catch (LogicalException erro) {
             MessageBox.exibeAlerta("Erro ao cadastrar usuário", erro.getMessage());
-        }
-        catch (Exception erro){
+        } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
-        
-    }    
-    
+
+    }
+
 }

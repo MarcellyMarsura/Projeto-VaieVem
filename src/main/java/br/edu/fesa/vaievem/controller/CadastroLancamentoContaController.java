@@ -1,12 +1,11 @@
-
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.LancamentoContaService;
 import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.models.LancamentoConta;
 import br.edu.fesa.vaievem.models.TipoLancamento;
 import br.edu.fesa.vaievem.services.ContaBancariaService;
+import br.edu.fesa.vaievem.services.LancamentoContaService;
 import br.edu.fesa.vaievem.services.TipoLancamentoService;
 import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.ILancamentoContaService;
@@ -53,6 +52,7 @@ public class CadastroLancamentoContaController implements Initializable {
             _contaBancariaService = new ContaBancariaService();
             _tipoLancamentoService = new TipoLancamentoService();
             _lancamentoContaService = new LancamentoContaService();
+
             configurarTela();
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
@@ -90,11 +90,14 @@ public class CadastroLancamentoContaController implements Initializable {
             if (conta == null || tipoLancamento == null || data == null) {
                 throw new LogicalException("Preencha todos os campos obrigatórios.");
             }
-            if (valor == 0f) {
-                throw new LogicalException("O valor não pode ser igual a zero.");
+            if (valor <= 0f) {
+                throw new LogicalException("O valor não pode ser menor ou igual a zero.");
             }
             if (data.isAfter(LocalDate.now())) {
                 throw new LogicalException("Data inválida");
+            }
+            if (valor >= 10000000) {
+                throw new LogicalException("Valor inválido.");
             }
 
             LancamentoConta novoLancamento = new LancamentoConta();

@@ -3,7 +3,9 @@ package br.edu.fesa.vaievem.controller;
 import br.edu.fesa.vaievem.exception.LogicalException;
 import br.edu.fesa.vaievem.models.Cartao;
 import br.edu.fesa.vaievem.services.CartaoService;
+import br.edu.fesa.vaievem.services.ContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
+import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
@@ -18,7 +20,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -45,19 +46,18 @@ public class CartoesController implements Initializable {
     private TableColumn<CartaoViewModel, CartaoViewModel> colExcluir;
 
     @FXML
-    private ComboBox<String> cbConta;
-
-    @FXML
     private TextField txtPesquisar;
 
     private ObservableList<CartaoViewModel> dados;
 
     ICartaoService _cartaoService;
+    IContaBancariaService _contaBancariaService;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             _cartaoService = new CartaoService();
+            _contaBancariaService = new ContaBancariaService();
             configurarTabela();
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
@@ -74,41 +74,14 @@ public class CartoesController implements Initializable {
             dados = _cartaoService.listarDadosTabela("");
             tbCartao.setItems(dados);
 
-            HelperTable.criaHyperLink(colExcluir, "Excluir", (CartaoViewModel cartao, ActionEvent event) -> {
-                try {
-                    var resultado = MessageBox.exibeAlerta("Confirmar exclusão", String.format("Deseja excluir o cartão %s?", cartao.getDescricao()));
-
-                    if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-                        _cartaoService.remover(new Cartao(Long.valueOf(cartao.getId())));
-                        tbCartao.setItems(_cartaoService.listarDadosTabela(""));
-                    }
-                } catch (LogicalException erro) {
-                    MessageBox.exibeAlerta(erro.getMessage());
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
-            });
-
             HelperTable.criaHyperLink(colEditar, "Editar", (CartaoViewModel cartao, ActionEvent event) -> {
-                try {
-                    Cartao c = new Cartao(
-                            Long.valueOf(cartao.getId()),
-                            cartao.getDescricao(),
-                            Integer.parseInt(cartao.getDiaFechamento()),
-                            Integer.parseInt(cartao.getDiaVencimento()),
-                            Float.valueOf(cartao.getLimite()));
-                    
-                    c.setContaBancaria(cartao.getContaBancaria());
-                    
-                    CadastroCartaoController.setCartao(c);
-                    CadastroCartaoController.setTipoCadastro(TipoCadastro.UPDATE);
-
-                    ViewConfiguration.mudaTela(Tela.CADASTRO_CARTAO.getNome());
-
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
+                configurarEditar(cartao);
             });
+
+            HelperTable.criaHyperLink(colExcluir, "Excluir", (CartaoViewModel cartao, ActionEvent event) -> {
+                configurarExcluir(cartao);
+            });
+
         } catch (LogicalException erro) {
             MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
@@ -117,12 +90,60 @@ public class CartoesController implements Initializable {
 
     }
 
+    private void configurarEditar(CartaoViewModel cartao) {
+        try {
+
+            CadastroCartaoController.setCartao(montaModel(cartao));
+            CadastroCartaoController.setTipoCadastro(TipoCadastro.UPDATE);
+
+            ViewConfiguration.mudaTela(Tela.CADASTRO_CARTAO.getNome());
+
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private void configurarExcluir(CartaoViewModel cartao) {
+        try {
+            var resultado = MessageBox.exibeConfirmacao("Confirmar exclusão",
+                    String.format("Deseja excluir o cartão %s?", cartao.getDescricao()));
+
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                _cartaoService.remover(new Cartao(Long.valueOf(cartao.getId())));
+                tbCartao.setItems(_cartaoService.listarDadosTabela(""));
+            }
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private Cartao montaModel(CartaoViewModel cartao) {
+        Cartao c = new Cartao(
+                Long.valueOf(cartao.getId()),
+                cartao.getDescricao(),
+                Integer.parseInt(cartao.getDiaFechamento()),
+                Integer.parseInt(cartao.getDiaVencimento()),
+                Float.valueOf(cartao.getLimite()));
+
+        c.setContaBancaria(cartao.getContaBancaria());
+        return c;
+    }
+
     @FXML
     private void onMouseClicked_btnAdicionarCartao() throws IOException {
         try {
+            if (_contaBancariaService.listarPorUsuario().isEmpty()) {
+                throw new LogicalException("Cadastre uma conta primeiro.");
+            }
+
             CadastroCartaoController.setTipoCadastro(TipoCadastro.INSERT);
             CadastroCartaoController.setCartao(null);
             ViewConfiguration.mudaTela(Tela.CADASTRO_CARTAO.getNome());
+
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -133,6 +154,8 @@ public class CartoesController implements Initializable {
         try {
             String pesquisa = txtPesquisar.getText().trim().isEmpty() ? "" : txtPesquisar.getText().trim();
             tbCartao.setItems(_cartaoService.listarDadosTabela(pesquisa));
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

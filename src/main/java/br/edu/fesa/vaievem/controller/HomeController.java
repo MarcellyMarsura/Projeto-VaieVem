@@ -1,10 +1,11 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.exception.PersistenciaException;
-import br.edu.fesa.vaievem.mockService.LancamentoContaService;
-import br.edu.fesa.vaievem.mockService.MensagemService;
 import br.edu.fesa.vaievem.models.Mensagem;
+import br.edu.fesa.vaievem.services.ContaBancariaService;
+import br.edu.fesa.vaievem.services.LancamentoContaService;
+import br.edu.fesa.vaievem.services.MensagemService;
+import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.ILancamentoContaService;
 import br.edu.fesa.vaievem.services.interfaces.IMensagemService;
 import br.edu.fesa.vaievem.utils.FormatString;
@@ -16,7 +17,6 @@ import br.edu.fesa.vaievem.viewmodels.LancamentoViewModel;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -67,17 +67,16 @@ public class HomeController implements Initializable {
 
     IMensagemService _mensagemService;
     ILancamentoContaService _lancamentoContaService;
+    IContaBancariaService _contaBancariaService;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             _mensagemService = new MensagemService();
             _lancamentoContaService = new LancamentoContaService();
+            _contaBancariaService = new ContaBancariaService();
 
             configurarTela();
-            configurarTabela();
-            configurarGrafico();
-
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -91,7 +90,8 @@ public class HomeController implements Initializable {
             txtMensagem.setText(mensagem.getCorpo());
 
             txtSaldoTotal.setText(FormatString.formataDecimal(_lancamentoContaService.retornaSaldoTotal()));
-
+            configurarGrafico();
+            configurarTabela();
         } catch (LogicalException erro) {
             MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
@@ -112,21 +112,21 @@ public class HomeController implements Initializable {
 
             grafico.getData().addAll(receita, despesa);
 
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
-
     }
 
     private void configurarTabela() {
         try {
-            dados = _lancamentoContaService.listarDadosTabela("");
             colTipo.setCellValueFactory(new PropertyValueFactory<>("Tipo"));
             colData.setCellValueFactory(new PropertyValueFactory<>("Data"));
             colValor.setCellValueFactory(new PropertyValueFactory<>("Valor"));
             colComentario.setCellValueFactory(new PropertyValueFactory<>("Comentario"));
 
-            tbLancamento.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+            dados = _lancamentoContaService.listarDadosTabela("");
             tbLancamento.setItems(dados);
 
             HelperTable.criaHyperLink(colExcluir, "Excluir", (LancamentoViewModel lancamento, ActionEvent event) -> {
@@ -145,6 +145,8 @@ public class HomeController implements Initializable {
                 }
             });
 
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -154,7 +156,13 @@ public class HomeController implements Initializable {
     @FXML
     private void onMouseClicked_btnLancamentoConta() throws IOException {
         try {
+            if (_contaBancariaService.listarPorUsuario().isEmpty()) {
+                throw new LogicalException("Cadastre uma conta primeiro.");
+            }
+
             ViewConfiguration.mudaTela(Tela.CADASTRO_LANCAMENTO_CONTA.getNome());
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -163,8 +171,7 @@ public class HomeController implements Initializable {
     @FXML
     private void onMouseClicked_btnLancamentoCartao() throws IOException {
         try {
-            ViewConfiguration.mudaTela(Tela.CADASTRO_LANCAMENTO_CARTAO.getNome());
-            //throw new UnsupportedOperationException("Funcionalidade não implementada ainda.");
+            throw new UnsupportedOperationException("Funcionalidade não implementada ainda.");
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

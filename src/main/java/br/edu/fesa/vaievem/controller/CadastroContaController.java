@@ -69,6 +69,8 @@ public class CadastroContaController implements Initializable {
             txtMeta.setTextFormatter(FormatString.formataInputDouble());
             txtConta.setTextFormatter(FormatString.formataInputInteger());
             txtAgencia.setTextFormatter(FormatString.formataInputInteger());
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
@@ -111,13 +113,13 @@ public class CadastroContaController implements Initializable {
                         _contaBancariaService.inserir(novaConta);
                         break;
                     case 1:
-                        novaConta.setIdContaBancaria(this.conta.getIdContaBancaria());
+                        novaConta.setIdContaBancaria(CadastroContaController.conta.getIdContaBancaria());
                         _contaBancariaService.alterar(novaConta);
                         break;
                     default:
                         throw new LogicalException("Erro ao salvar.");
                 }
-
+                CadastroContaController.setConta(null);
                 ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
             }
 
@@ -138,6 +140,13 @@ public class CadastroContaController implements Initializable {
 
             if (banco == null || descricao.isEmpty() || agencia.isEmpty() || conta.isEmpty()) {
                 throw new LogicalException("Preencha todos os campos obrigatórios.");
+            }
+            if (meta >= 10000000) {
+                throw new LogicalException("Valor inválido.");
+            }
+            
+            if (conta.length() > 7 || agencia.length() > 4) {
+                throw new LogicalException("Conta ou agência inválidos.");
             }
 
             ContaBancaria novaConta = new ContaBancaria();

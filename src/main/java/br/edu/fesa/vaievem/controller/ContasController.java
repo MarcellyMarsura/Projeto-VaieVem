@@ -1,8 +1,6 @@
-
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.models.Banco;
 import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.services.ContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
@@ -85,62 +83,15 @@ public class ContasController implements Initializable {
             tbConta.setItems(dados);
 
             HelperTable.criaHyperLink(colDetalhes, "Detalhes", (ContaViewModel conta, ActionEvent event) -> {
-
-                try {
-
-                    ContaBancaria c = new ContaBancaria(
-                            Long.valueOf(conta.getId()),
-                            conta.getDescricao(),
-                            conta.getAgencia(),
-                            conta.getConta(),
-                            Float.valueOf(conta.getMeta()));
-
-                    c.setBanco(new Banco(0L, conta.getBanco()));
-
-                    DetalheContaController.setConta(c);
-
-                    ViewConfiguration.mudaTela(Tela.DETALHE_CONTA.getNome());
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
-
-            });
-
-            HelperTable.criaHyperLink(colExcluir, "Excluir", (ContaViewModel conta, ActionEvent event) -> {
-
-                try {
-                    var resultado = MessageBox.exibeAlerta("Confirmar exclusão", String.format("Deseja excluir a conta %s?", conta.getDescricao()));
-
-                    if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
-                        _contaBancariaService.remover(new ContaBancaria(Long.valueOf(conta.getId())));
-                        tbConta.setItems(_contaBancariaService.listarDadosTabela(""));
-                    }
-                } catch (LogicalException erro) {
-                    MessageBox.exibeAlerta(erro.getMessage());
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
-
+                configuraDetalhes(conta);
             });
 
             HelperTable.criaHyperLink(colEditar, "Editar", (ContaViewModel conta, ActionEvent event) -> {
-                try {
-                    ContaBancaria c = new ContaBancaria(
-                            Long.valueOf(conta.getId()),
-                            conta.getDescricao(),
-                            conta.getAgencia(),
-                            conta.getConta(),
-                            Float.valueOf(conta.getMeta()));
+                configuraEditar(conta);
+            });
 
-                    c.setBanco(conta.getBancoModel());
-
-                    CadastroContaController.setConta(c);
-                    CadastroContaController.setTipoCadastro(TipoCadastro.UPDATE);
-
-                    ViewConfiguration.mudaTela(Tela.CADASTRO_CONTA.getNome());
-                } catch (Exception erro) {
-                    MessageBox.exibeMensagemErro(erro);
-                }
+            HelperTable.criaHyperLink(colExcluir, "Excluir", (ContaViewModel conta, ActionEvent event) -> {
+                configuraExcluir(conta);
             });
 
         } catch (LogicalException erro) {
@@ -149,6 +100,55 @@ public class ContasController implements Initializable {
             MessageBox.exibeMensagemErro(erro);
         }
 
+    }
+
+    private void configuraDetalhes(ContaViewModel conta) {
+        try {
+            DetalheContaController.setConta(montaModel(conta));
+
+            ViewConfiguration.mudaTela(Tela.DETALHE_CONTA.getNome());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private void configuraEditar(ContaViewModel conta) {
+        try {
+            CadastroContaController.setConta(montaModel(conta));
+            CadastroContaController.setTipoCadastro(TipoCadastro.UPDATE);
+
+            ViewConfiguration.mudaTela(Tela.CADASTRO_CONTA.getNome());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private void configuraExcluir(ContaViewModel conta) {
+        try {
+            var resultado = MessageBox.exibeConfirmacao("Confirmar exclusão",
+                    String.format("Deseja excluir a conta %s?", conta.getDescricao()));
+
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                _contaBancariaService.remover(new ContaBancaria(Long.valueOf(conta.getId())));
+                tbConta.setItems(_contaBancariaService.listarDadosTabela(""));
+            }
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+    }
+
+    private ContaBancaria montaModel(ContaViewModel conta) {
+        ContaBancaria c = new ContaBancaria(
+                Long.valueOf(conta.getId()),
+                conta.getDescricao(),
+                conta.getAgencia(),
+                conta.getConta(),
+                Float.valueOf(conta.getMeta()));
+
+        c.setBanco(conta.getBancoModel());
+        return c;
     }
 
     @FXML
@@ -167,6 +167,8 @@ public class ContasController implements Initializable {
         try {
             String pesquisa = txtPesquisar.getText().trim().isEmpty() ? "" : txtPesquisar.getText().trim();
             tbConta.setItems(_contaBancariaService.listarDadosTabela(pesquisa));
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

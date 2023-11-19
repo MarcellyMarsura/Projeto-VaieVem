@@ -81,7 +81,7 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>
-                  <Text layoutX="80.0" layoutY="91.0" lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicando no botão &quot;Inativar conta&quot;, você irá excluir o seu cadastro do Vai e Vem, juntamente com todos os seus dados financeiros." textAlignment="JUSTIFY" wrappingWidth="415.15625">
+                  <Text layoutX="80.0" layoutY="91.0" lineSpacing="3.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Clicando no botão &quot;Inativar conta&quot;, você irá inativar o seu cadastro do Vai e Vem. Esta operação não poderá ser revertida." textAlignment="JUSTIFY" wrappingWidth="415.15625">
                      <font>
                         <Font size="16.0" />
                      </font>

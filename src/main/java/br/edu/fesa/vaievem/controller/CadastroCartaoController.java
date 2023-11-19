@@ -43,14 +43,6 @@ public class CadastroCartaoController implements Initializable {
     IContaBancariaService _contaBancariaService;
     ICartaoService _cartaoService;
 
-    public static void setCartao(Cartao cartao) {
-        CadastroCartaoController.cartao = cartao;
-    }
-
-    public static void setTipoCadastro(TipoCadastro tipoCadastro) {
-        CadastroCartaoController.tipoCadastro = tipoCadastro;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -63,6 +55,13 @@ public class CadastroCartaoController implements Initializable {
         }
     }
 
+    public static void setCartao(Cartao cartao) {
+        CadastroCartaoController.cartao = cartao;
+    }
+
+    public static void setTipoCadastro(TipoCadastro tipoCadastro) {
+        CadastroCartaoController.tipoCadastro = tipoCadastro;
+    }
     private void configurarTela() {
         try {
             cbConta.setItems(_contaBancariaService.listarComboBox());
@@ -100,6 +99,43 @@ public class CadastroCartaoController implements Initializable {
             MessageBox.exibeMensagemErro(erro);
         }
     }
+    
+    private Cartao SalvarCartao() {
+        try {
+            ContaBancaria conta = cbConta.getValue();
+            String descricao = txtDescricao.getText().trim();
+            Integer diaFechamento = txtDiaFechamento.getText().trim().isEmpty() ? 0 : Integer.valueOf(txtDiaFechamento.getText().trim());
+            Integer diaVencimento = txtDiaVencimento.getText().trim().isEmpty() ? 0 : Integer.valueOf(txtDiaVencimento.getText().trim());
+            Float limite = txtLimite.getText().trim().isEmpty() ? 0F : Float.valueOf(txtLimite.getText().trim());
+
+            if (conta == null || descricao.isEmpty()) {
+                throw new LogicalException("Preencha todos os campos obrigatórios.");
+            }
+
+            if (diaFechamento <= 0 || diaFechamento > 31 || diaVencimento <= 0 || diaVencimento > 31) {
+                throw new LogicalException("Dias inválidos.");
+            }
+            
+            if (limite >= 10000000) {
+                throw new LogicalException("Valor inválido.");
+            }
+
+            Cartao novoCartao = new Cartao();
+            novoCartao.setContaBancaria(conta);
+            novoCartao.setDescricao(descricao);
+            novoCartao.setDiaFechamento(diaFechamento);
+            novoCartao.setDiaVencimento(diaVencimento);
+            novoCartao.setLimiteEstipulado(limite);
+
+            return novoCartao;
+
+        } catch (LogicalException erro) {
+            MessageBox.exibeAlerta(erro.getMessage());
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
+        return null;
+    }
 
     @FXML
     private void onMouseClicked_btnSalvar() throws IOException {
@@ -119,6 +155,8 @@ public class CadastroCartaoController implements Initializable {
                     default:
                         throw new LogicalException("Erro ao salvar.");
                 }
+                
+                CadastroCartaoController.setCartao(null);
                 ViewConfiguration.mudaTela(Tela.CARTOES.getNome());
             }
 
@@ -130,37 +168,6 @@ public class CadastroCartaoController implements Initializable {
 
     }
 
-    private Cartao SalvarCartao() {
-        try {
-            ContaBancaria conta = cbConta.getValue();
-            String descricao = txtDescricao.getText().trim();
-            Integer diaFechamento = txtDiaFechamento.getText().trim().isEmpty() ? 0 : Integer.valueOf(txtDiaFechamento.getText().trim());
-            Integer diaVencimento = txtDiaVencimento.getText().trim().isEmpty() ? 0 : Integer.valueOf(txtDiaVencimento.getText().trim());
-            Float limite = txtLimite.getText().trim().isEmpty() ? 0F : Float.valueOf(txtLimite.getText().trim());
-
-            if (conta == null || descricao.isEmpty()) {
-                throw new LogicalException("Preencha todos os campos obrigatórios.");
-            }
-
-            if (diaFechamento == 0 || diaFechamento > 31 || diaVencimento == 0 || diaVencimento > 31) {
-                throw new LogicalException("Dias inválidos.");
-            }
-
-            Cartao novoCartao = new Cartao();
-            novoCartao.setContaBancaria(conta);
-            novoCartao.setDescricao(descricao);
-            novoCartao.setDiaFechamento(diaFechamento);
-            novoCartao.setDiaVencimento(diaVencimento);
-            novoCartao.setLimiteEstipulado(limite);
-
-            return novoCartao;
-
-        } catch (LogicalException erro) {
-            MessageBox.exibeAlerta(erro.getMessage());
-        } catch (Exception erro) {
-            MessageBox.exibeMensagemErro(erro);
-        }
-        return null;
-    }
+    
 
 }

@@ -14,23 +14,26 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
-
 public class LoginController implements Initializable {
 
     @FXML
     private TextField txtEmail;
-    
+
     @FXML
     private TextField txtSenha;
-    
+
     IUsuarioService _usuarioService;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        _usuarioService = new UsuarioService();
-        configurarTela();
+        try {
+            _usuarioService = new UsuarioService();
+            configurarTela();
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
     }
-    
+
     private void configurarTela() {
         try {
             ViewConfiguration.setPossuiMenu(false);
@@ -38,42 +41,38 @@ public class LoginController implements Initializable {
             MessageBox.exibeMensagemErro(erro);
         }
     }
-    
+
     @FXML
-    private void onMouseClicked_lnkCadastrar() throws IOException{
+    private void onMouseClicked_lnkCadastrar() throws IOException {
         try {
             ViewConfiguration.mudaTela(Tela.CADASTRO_USUARIO.getNome());
-        }
-        catch (Exception erro){
+        } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
-        
+
     }
-    
+
     @FXML
-    private void onMouseClicked_btnEntrar() throws IOException{
+    private void onMouseClicked_btnEntrar() throws IOException {
         try {
             String email = txtEmail.getText().trim();
             String senha = txtSenha.getText().trim();
-            
-            if(email.isEmpty() || senha.isEmpty()) {
+
+            if (email.isEmpty() || senha.isEmpty()) {
                 throw new LogicalException("Preencha todos os campos.");
-            }
-            else {
-                if(!_usuarioService.autenticaUsuario(new Usuario(email, senha))){
+            } else {
+                if (!_usuarioService.autenticaUsuario(new Usuario(email, senha))) {
                     txtSenha.clear();
                     throw new LogicalException("Usuário/senha incorretos.");
                 }
                 ViewConfiguration.mudaTela(Tela.HOME.getNome());
             }
-            
-        }
-        catch (LogicalException erro) {
+
+        } catch (LogicalException erro) {
             MessageBox.exibeAlerta("Erro ao autenticar usuário", erro.getMessage());
-        }
-        catch (Exception erro){
+        } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
     }
-    
+
 }

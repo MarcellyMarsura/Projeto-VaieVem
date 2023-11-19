@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\controller\CadastroLancamentoCartaoController.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IGenericoDAO.java
+C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\MensagemService.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\App.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\controller\MenuController.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IContaBancariaService.java
@@ -14,7 +14,6 @@ C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Progr
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\ContaBancaria.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\LancamentoConta.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IUsuarioService.java
-C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\mockService\MensagemService.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\utils\FormatString.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\LancamentoCartaoDAO.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\ICartaoDAO.java
@@ -34,7 +33,6 @@ C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Progr
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\controller\CadastroUsuarioController.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\exception\LogicalException.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IContaBancariaDAO.java
-C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\mockService\LancamentoContaService.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\viewmodels\CartaoViewModel.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\BancoDAO.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\utils\TipoCadastro.java
@@ -70,56 +68,4 @@ C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Progr
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\UsuarioDAO.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\LancamentoContaDAO.java
 C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\utils\DbProjetoDAO.java
-=======
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\TipoLancamentoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\ContaBancariaDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\Mensagem.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\UsuarioService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\CartaoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\BancoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IGenericoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\exception\PersistenciaException.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\viewmodels\LancamentoViewModel.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\ContaBancariaService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IUsuarioService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\CartaoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\ILancamentoContaDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IContaBancariaDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\ILancamentoContaService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\TipoLancamento.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\LancamentoCartao.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\Usuario.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IContaBancariaService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\LancamentoCartaoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\exception\LogicalException.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\viewmodels\UsuarioViewModel.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IBancoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\viewmodels\CartaoViewModel.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\App.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\Banco.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IGenericoTabela.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\Cartao.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IUsuarioDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\ITipoLancamentoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\ICartaoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\IBancoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\LancamentoContaService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\ICartaoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\UsuarioDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\LancamentoContaDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\utils\DbProjetoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\main\Main.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\TipoLancamentoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\utils\Security.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\interfaces\IMensagemService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\ITipoLancamentoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\viewmodels\ContaViewModel.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\interfaces\ILancamentoCartaoDAO.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\dao\utils\Conexao.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\BancoService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\MensagemService.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\LancamentoConta.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\models\ContaBancaria.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\module-info.java
-C:\Users\HP\Documents\Git\Projetos\Faculdade\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\utils\Session.java
->>>>>>> feature/services
+C:\Users\m.molinari.marsura\Documents\1 DESKTOP\Faculdade\EC6\Linguagem de Programação II\Projeto Interdisciplinar\v2.0.0\Projeto-VaieVem\src\main\java\br\edu\fesa\vaievem\services\LancamentoContaService.java
