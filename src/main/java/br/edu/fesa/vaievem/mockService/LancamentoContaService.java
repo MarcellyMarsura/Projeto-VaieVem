@@ -35,12 +35,12 @@ public class LancamentoContaService implements ILancamentoContaService {
 
     @Override
     public double retornaSaldoTotal() throws PersistenciaException, LogicalException {
-        return 200.23;
+        return 0;
     }
 
     @Override
     public double retornaSaldoPorConta(long idContaBancaria) throws PersistenciaException, LogicalException {
-        return 10.00;
+        return 0;
     }
 
     @Override
@@ -50,7 +50,7 @@ public class LancamentoContaService implements ILancamentoContaService {
 
     @Override
     public ObservableList<LancamentoViewModel> listarDadosTabela(String pesquisa) throws PersistenciaException, LogicalException {
-        return FXCollections.observableArrayList(new LancamentoViewModel("1", "Despesa", "05/11/2002", "1000,00", "Primeira compra"));
+        return FXCollections.observableArrayList();
     }
     
 }

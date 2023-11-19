@@ -17,7 +17,7 @@ public class MensagemService implements IMensagemService {
 
     @Override
     public Mensagem retornaMensagemMeta() throws PersistenciaException, LogicalException {
-        return new Mensagem("Titulo", "Mensagem");
+        return new Mensagem("Parabéns!", "Tudo certo com as suas finanças.");
     }
     
 }

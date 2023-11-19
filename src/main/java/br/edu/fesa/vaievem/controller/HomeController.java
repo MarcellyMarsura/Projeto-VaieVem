@@ -163,7 +163,8 @@ public class HomeController implements Initializable {
     @FXML
     private void onMouseClicked_btnLancamentoCartao() throws IOException {
         try {
-            throw new UnsupportedOperationException("Funcionalidade não implementada ainda.");
+            ViewConfiguration.mudaTela(Tela.CADASTRO_LANCAMENTO_CARTAO.getNome());
+            //throw new UnsupportedOperationException("Funcionalidade não implementada ainda.");
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
