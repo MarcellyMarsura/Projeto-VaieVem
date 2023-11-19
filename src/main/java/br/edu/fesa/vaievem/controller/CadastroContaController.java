@@ -81,8 +81,8 @@ public class CadastroContaController implements Initializable {
 
             if (conta != null) {
                 cbBanco.setValue(conta.getBanco());
-                txtAgencia.setText(conta.getNumeroAgencia());
-                txtConta.setText(conta.getNumeroConta().replace("-", ""));
+                txtAgencia.setText(conta.getNumeroAgencia() == null ? "" : conta.getNumeroAgencia());
+                txtConta.setText(conta.getNumeroConta() == null ? "" : conta.getNumeroConta().replace("-", ""));
                 txtMeta.setText(String.valueOf(conta.getMeta()));
                 txtDescricao.setText(conta.getDescricao());
             }

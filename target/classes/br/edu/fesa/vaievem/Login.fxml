@@ -36,12 +36,12 @@
                <children>
                   <Pane prefHeight="483.0" prefWidth="358.0" style="-fx-background-color: #fff;">
                      <children>
-                        <TextField fx:id="txtEmail" focusTraversable="false" layoutX="137.0" layoutY="234.0" prefHeight="39.0" prefWidth="385.0" promptText="Email">
+                        <TextField fx:id="txtEmail" layoutX="137.0" layoutY="234.0" prefHeight="39.0" prefWidth="385.0" promptText="Email">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </TextField>
-                        <PasswordField fx:id="txtSenha" focusTraversable="false" layoutX="137.0" layoutY="314.0" prefHeight="39.0" prefWidth="385.0" promptText="Senha">
+                        <PasswordField fx:id="txtSenha" layoutX="137.0" layoutY="314.0" prefHeight="39.0" prefWidth="385.0" promptText="Senha">
                            <font>
                               <Font size="18.0" />
                            </font>
