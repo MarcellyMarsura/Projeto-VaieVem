@@ -32,6 +32,16 @@ public class LancamentoConta implements Serializable {
         this.valor = valor;
         this.comentario = comentario;
     }
+    
+    public LancamentoConta(Long idLancamentoConta, Long tipo, Long idContaBancaria, LocalDate dataLancamento, float valor, String comentario) {
+        this.idLancamentoConta = idLancamentoConta;
+        this.dataLancamento = dataLancamento;
+        this.valor = valor;
+        this.comentario = comentario;
+        
+        this.tipoLancamento = new TipoLancamento(tipo);
+        this.contaBancaria = new ContaBancaria(idContaBancaria);
+    }
 
     // Getter e Setter
     public Long getIdLancamentoConta() {

@@ -86,10 +86,11 @@ public class CartaoViewModel {
     public void setLimite(String limite) {
         this.Limite.set(limite);
     }
-    
+
     public ContaBancaria getContaBancaria() {
         return contaBancaria;
     }
+
     public void setContaBancaria(ContaBancaria contaBancaria) {
         this.contaBancaria = contaBancaria;
     }

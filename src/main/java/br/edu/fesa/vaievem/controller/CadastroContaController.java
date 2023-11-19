@@ -81,7 +81,7 @@ public class CadastroContaController implements Initializable {
                 cbBanco.setValue(conta.getBanco());
                 txtAgencia.setText(conta.getNumeroAgencia());
                 txtConta.setText(conta.getNumeroConta());
-                txtMeta.setText(conta.getMeta().toString());
+                txtMeta.setText(String.valueOf(conta.getMeta()));
                 txtDescricao.setText(conta.getDescricao());
             }
 

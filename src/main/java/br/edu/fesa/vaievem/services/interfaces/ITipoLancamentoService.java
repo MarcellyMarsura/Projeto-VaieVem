@@ -11,6 +11,6 @@ import javafx.collections.ObservableList;
 public interface ITipoLancamentoService {
     
     List<TipoLancamento> listar() throws PersistenciaException, LogicalException; 
-    
+
     ObservableList<TipoLancamento> listarComboBox() throws PersistenciaException, LogicalException; 
 }

@@ -1,6 +1,7 @@
 
 package br.edu.fesa.vaievem.models;
 
+import br.edu.fesa.vaievem.exception.PersistenciaException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,16 @@ public class Cartao implements Serializable {
         this.diaFechamento = diaFechamento;
         this.diaVencimento = diaVencimento;
         this.limiteEstipulado = limiteEstipulado;
+    }
+    
+    public Cartao(Long idCartao, Long idContaBancaria, String descricao, int diaFechamento, int diaVencimento, float limiteEstipulado) {
+        this.idCartao = idCartao;
+        this.descricao = descricao;
+        this.diaFechamento = diaFechamento;
+        this.diaVencimento = diaVencimento;
+        this.limiteEstipulado = limiteEstipulado;
+        
+        this.contaBancaria = new ContaBancaria(idContaBancaria);
     }
 
     // Getter e Setter
