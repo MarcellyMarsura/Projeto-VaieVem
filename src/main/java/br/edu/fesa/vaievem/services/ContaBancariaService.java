@@ -36,21 +36,32 @@ public class ContaBancariaService implements IContaBancariaService {
     }
     
     private void realizaValidacoesConta(ContaBancaria conta) throws PersistenciaException, LogicalException {
-        if(descricaoInvalida(conta)){
-            throw new LogicalException("Descrição inválida");
-        }
-        
-        if(metaInvalida(conta)){
-            throw new LogicalException("Meta inválida");
-        }  
+        validaCampos(conta); 
         
         if(bancoInvalido(conta)){
             throw new LogicalException("Banco inválido");
         }
     }
     
-    private boolean descricaoInvalida(ContaBancaria conta) throws LogicalException{
-        return conta.getDescricao() == null || conta.getDescricao().isBlank();
+    private void validaCampos(ContaBancaria conta) throws LogicalException{
+        if(conta.getDescricao() == null || conta.getDescricao().isBlank()){
+            throw new LogicalException("Descrição não pode ser vazia");
+        }
+        
+        if(conta.getMeta() < 0){
+            throw new LogicalException("Meta não deve ser menor que zero");
+        }
+        
+        if(conta.getNumeroAgencia() != null && conta.getNumeroAgencia().length() != 4){
+            throw new LogicalException("Número da agência deve conter 4 números");
+        }
+        
+        if(conta.getNumeroConta() != null){
+            if(conta.getNumeroConta().length() != 6){
+                throw new LogicalException("Número da conta deve conter 6 números");
+            }
+            conta.setNumeroConta(conta.getNumeroConta().substring(0, 5) + "-" + conta.getNumeroConta().substring(5));
+        }
     }
     
     private boolean metaInvalida(ContaBancaria conta) throws LogicalException{
