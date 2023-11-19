@@ -7,7 +7,6 @@ br\edu\fesa\vaievem\controller\LoginController.class
 br\edu\fesa\vaievem\viewmodels\ContaViewModel.class
 br\edu\fesa\vaievem\services\interfaces\IMensagemService.class
 br\edu\fesa\vaievem\utils\HelperTable$1.class
-br\edu\fesa\vaievem\mockService\CartaoService.class
 br\edu\fesa\vaievem\controller\AdministradorController.class
 br\edu\fesa\vaievem\services\interfaces\IUsuarioService.class
 br\edu\fesa\vaievem\utils\ViewConfiguration.class
@@ -43,7 +42,6 @@ br\edu\fesa\vaievem\models\Mensagem.class
 br\edu\fesa\vaievem\models\ContaBancaria.class
 br\edu\fesa\vaievem\dao\interfaces\ILancamentoCartaoDAO.class
 br\edu\fesa\vaievem\mockService\LancamentoContaService.class
-br\edu\fesa\vaievem\mockService\TipoLancamentoService.class
 br\edu\fesa\vaievem\controller\PerfilController.class
 br\edu\fesa\vaievem\controller\DetalheContaController.class
 br\edu\fesa\vaievem\controller\CadastroContaController.class
@@ -64,7 +62,6 @@ br\edu\fesa\vaievem\services\ContaBancariaService.class
 br\edu\fesa\vaievem\dao\LancamentoCartaoDAO.class
 br\edu\fesa\vaievem\models\LancamentoConta.class
 br\edu\fesa\vaievem\services\TipoLancamentoService.class
-br\edu\fesa\vaievem\mockService\ContaBancariaService.class
 br\edu\fesa\vaievem\controller\CadastroLancamentoContaController.class
 br\edu\fesa\vaievem\controller\CadastroLancamentoCartaoController.class
 br\edu\fesa\vaievem\dao\utils\DbProjetoDAO.class
@@ -72,6 +69,4 @@ br\edu\fesa\vaievem\utils\Session.class
 br\edu\fesa\vaievem\viewmodels\CartaoViewModel.class
 br\edu\fesa\vaievem\controller\ContasController.class
 br\edu\fesa\vaievem\services\interfaces\ITipoLancamentoService.class
-br\edu\fesa\vaievem\mockService\UsuarioService.class
 br\edu\fesa\vaievem\utils\MessageBox.class
-br\edu\fesa\vaievem\mockService\BancoService.class

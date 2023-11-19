@@ -32,10 +32,10 @@ public class FormatString {
     private static UnaryOperator<TextFormatter.Change> getMonetarioFilter() {
         return change -> {
             String newText = change.getControlNewText();
-            if (newText.matches("\\d*\\.?\\d{0,2}")) { // Permite dígitos, ponto e até duas casas decimais
+            if (newText.matches("\\d*\\.?\\d{0,2}")) {
                 return change;
             }
-            return null; // Rejeita a mudança se a entrada não corresponder ao padrão
+            return null;
         };
     }
     
@@ -46,10 +46,10 @@ public class FormatString {
     private static UnaryOperator<TextFormatter.Change> getIntegerFilter() {
         return change -> {
             String newText = change.getControlNewText();
-            if (newText.matches("\\d*")) { // Permite dígitos, ponto e até duas casas decimais
+            if (newText.matches("\\d*")) {
                 return change;
             }
-            return null; // Rejeita a mudança se a entrada não corresponder ao padrão
+            return null;
         };
     }
     
@@ -60,10 +60,10 @@ public class FormatString {
     private static UnaryOperator<TextFormatter.Change> getDayFilter() {
         return change -> {
             String newText = change.getControlNewText();
-            if (newText.matches("\\d{0,2}")) { // Permite dígitos, ponto e até duas casas decimais
+            if (newText.matches("\\d{0,2}")) {
                 return change;
             }
-            return null; // Rejeita a mudança se a entrada não corresponder ao padrão
+            return null;
         };
     }
     

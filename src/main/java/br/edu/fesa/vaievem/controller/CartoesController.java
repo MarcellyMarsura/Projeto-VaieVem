@@ -1,8 +1,8 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.CartaoService;
 import br.edu.fesa.vaievem.models.Cartao;
+import br.edu.fesa.vaievem.services.CartaoService;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
@@ -97,11 +97,14 @@ public class CartoesController implements Initializable {
                             Integer.parseInt(cartao.getDiaFechamento()),
                             Integer.parseInt(cartao.getDiaVencimento()),
                             Float.valueOf(cartao.getLimite()));
-
+                    
+                    c.setContaBancaria(cartao.getContaBancaria());
+                    
                     CadastroCartaoController.setCartao(c);
                     CadastroCartaoController.setTipoCadastro(TipoCadastro.UPDATE);
 
                     ViewConfiguration.mudaTela(Tela.CADASTRO_CARTAO.getNome());
+
                 } catch (Exception erro) {
                     MessageBox.exibeMensagemErro(erro);
                 }
@@ -128,7 +131,8 @@ public class CartoesController implements Initializable {
     @FXML
     private void onMouseClicked_btnPesquisar() throws IOException {
         try {
-            tbCartao.setItems(_cartaoService.listarDadosTabela(txtPesquisar.getText().trim()));
+            String pesquisa = txtPesquisar.getText().trim().isEmpty() ? "" : txtPesquisar.getText().trim();
+            tbCartao.setItems(_cartaoService.listarDadosTabela(pesquisa));
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

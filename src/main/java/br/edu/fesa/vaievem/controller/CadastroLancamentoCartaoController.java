@@ -1,8 +1,5 @@
 package br.edu.fesa.vaievem.controller;
 
-import br.edu.fesa.vaievem.utils.MessageBox;
-import br.edu.fesa.vaievem.utils.Tela;
-import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,32 +27,17 @@ public class CadastroLancamentoCartaoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //TODO: Preencher ComboBox cbConta
-        //TODO: Método para preencher quando selecionar editar
+        //TODO
     }
     
     @FXML
     private void onMouseClicked_btnVoltar() throws IOException {
-        try {
-            //TODO: MessageBox para cancelar cadastro
-            ViewConfiguration.mudaTela(Tela.HOME.getNome());
-        }
-        catch (Exception erro){
-            MessageBox.exibeMensagemErro(erro);
-        }
+        //TODO
     }
     
     @FXML
     private void onMouseClicked_btnSalvar() throws IOException {
-        try {
-            //TODO: Chamar service para salvar no banco
-            //TODO: Criar maskedbox para o valor
-            //TODO: MessageBox quando Salvar
-            ViewConfiguration.mudaTela(Tela.HOME.getNome());
-        }
-        catch (Exception erro){
-            MessageBox.exibeMensagemErro(erro);
-        }
+        //TODO
     }
     
 }

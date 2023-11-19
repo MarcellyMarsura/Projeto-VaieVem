@@ -1,10 +1,10 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.CartaoService;
-import br.edu.fesa.vaievem.mockService.ContaBancariaService;
 import br.edu.fesa.vaievem.models.Cartao;
 import br.edu.fesa.vaievem.models.ContaBancaria;
+import br.edu.fesa.vaievem.services.CartaoService;
+import br.edu.fesa.vaievem.services.ContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
 import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.FormatString;
@@ -107,27 +107,26 @@ public class CadastroCartaoController implements Initializable {
         try {
             Cartao novoCartao = SalvarCartao();
 
-            if (novoCartao == null) {
-                throw new LogicalException("Erro ao salvar.");
+            if (novoCartao != null) {
+                switch (tipoCadastro.getTipo()) {
+                    case 0:
+                        _cartaoService.inserir(novoCartao);
+                        break;
+                    case 1:
+                        novoCartao.setIdCartao(cartao.getIdCartao());
+                        _cartaoService.alterar(novoCartao);
+                        break;
+                    default:
+                        throw new LogicalException("Erro ao salvar.");
+                }
+                ViewConfiguration.mudaTela(Tela.CARTOES.getNome());
             }
-
-            switch (tipoCadastro.getTipo()) {
-                case 0:
-                    _cartaoService.inserir(novoCartao);
-                    break;
-                case 1:
-                    _cartaoService.alterar(novoCartao);
-                    break;
-                default:
-                    throw new LogicalException("Erro ao salvar.");
-            }
-            ViewConfiguration.mudaTela(Tela.CARTOES.getNome());
 
         } catch (LogicalException erro) {
             MessageBox.exibeAlerta(erro.getMessage());
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
-        } 
+        }
 
     }
 

@@ -26,7 +26,7 @@ public class CartaoViewModel {
         this.Id = new SimpleStringProperty(String.valueOf(model.getIdCartao()));
         this.Descricao = new SimpleStringProperty(model.getDescricao());
         this.DiaFechamento = new SimpleStringProperty(String.valueOf(model.getDiaFechamento()));
-        this.Conta = new SimpleStringProperty(model.getContaBancaria().getNumeroConta());
+        this.Conta = new SimpleStringProperty(model.getContaBancaria().getDescricao());
         this.DiaVencimento = new SimpleStringProperty(String.valueOf(model.getDiaVencimento()));
         this.Limite = new SimpleStringProperty(String.valueOf(model.getLimiteEstipulado()));
         

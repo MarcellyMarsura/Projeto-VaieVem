@@ -1,6 +1,7 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.utils.MessageBox;
+import br.edu.fesa.vaievem.utils.Session;
 import br.edu.fesa.vaievem.utils.Tela;
 import br.edu.fesa.vaievem.utils.ViewConfiguration;
 import java.io.IOException;
@@ -17,8 +18,9 @@ public class MenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String nomeUsuario = "Marcelly"; //TODO: Obter nome do usuário BD
-        txtNome.setText(nomeUsuario);
+        String nomeCompleto = Session.getUsuarioLogado().getNome();
+        String[] nomes = nomeCompleto.split(" ");
+        txtNome.setText(nomes[0]);
     }
     
     @FXML
@@ -74,6 +76,7 @@ public class MenuController implements Initializable {
     @FXML
     private void onMouseClicked_btnSair() throws IOException {
         try {
+            Session.RemoveUsuarioLogado();
             ViewConfiguration.mudaTela(Tela.LOGIN.getNome());
         }
         catch (Exception erro){

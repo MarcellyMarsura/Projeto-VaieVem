@@ -2,9 +2,9 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.ContaBancariaService;
 import br.edu.fesa.vaievem.models.Banco;
 import br.edu.fesa.vaievem.models.ContaBancaria;
+import br.edu.fesa.vaievem.services.ContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.HelperTable;
 import br.edu.fesa.vaievem.utils.MessageBox;
@@ -165,7 +165,8 @@ public class ContasController implements Initializable {
     @FXML
     private void onMouseClicked_btnPesquisar() throws IOException {
         try {
-            tbConta.setItems(_contaBancariaService.listarDadosTabela(txtPesquisar.getText().trim()));
+            String pesquisa = txtPesquisar.getText().trim().isEmpty() ? "" : txtPesquisar.getText().trim();
+            tbConta.setItems(_contaBancariaService.listarDadosTabela(pesquisa));
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }

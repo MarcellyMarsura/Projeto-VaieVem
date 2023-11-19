@@ -1,8 +1,8 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.UsuarioService;
 import br.edu.fesa.vaievem.models.Usuario;
+import br.edu.fesa.vaievem.services.UsuarioService;
 import br.edu.fesa.vaievem.services.interfaces.IUsuarioService;
 import br.edu.fesa.vaievem.utils.MessageBox;
 import br.edu.fesa.vaievem.utils.Tela;
@@ -28,7 +28,15 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         _usuarioService = new UsuarioService();
-        ViewConfiguration.setPossuiMenu(false);
+        configurarTela();
+    }
+    
+    private void configurarTela() {
+        try {
+            ViewConfiguration.setPossuiMenu(false);
+        } catch (Exception erro) {
+            MessageBox.exibeMensagemErro(erro);
+        }
     }
     
     @FXML

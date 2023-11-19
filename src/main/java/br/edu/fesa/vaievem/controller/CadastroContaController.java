@@ -1,10 +1,10 @@
 package br.edu.fesa.vaievem.controller;
 
 import br.edu.fesa.vaievem.exception.LogicalException;
-import br.edu.fesa.vaievem.mockService.BancoService;
-import br.edu.fesa.vaievem.mockService.ContaBancariaService;
 import br.edu.fesa.vaievem.models.Banco;
 import br.edu.fesa.vaievem.models.ContaBancaria;
+import br.edu.fesa.vaievem.services.BancoService;
+import br.edu.fesa.vaievem.services.ContaBancariaService;
 import br.edu.fesa.vaievem.services.interfaces.IBancoService;
 import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.FormatString;
@@ -43,14 +43,6 @@ public class CadastroContaController implements Initializable {
     IBancoService _bancoService;
     IContaBancariaService _contaBancariaService;
 
-    public static void setConta(ContaBancaria conta) {
-        CadastroContaController.conta = conta;
-    }
-
-    public static void setTipoCadastro(TipoCadastro tipoCadastro) {
-        CadastroContaController.tipoCadastro = tipoCadastro;
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -61,6 +53,14 @@ public class CadastroContaController implements Initializable {
         } catch (Exception erro) {
             MessageBox.exibeMensagemErro(erro);
         }
+    }
+
+    public static void setConta(ContaBancaria conta) {
+        CadastroContaController.conta = conta;
+    }
+
+    public static void setTipoCadastro(TipoCadastro tipoCadastro) {
+        CadastroContaController.tipoCadastro = tipoCadastro;
     }
 
     private void configurarTela() {
@@ -102,24 +102,24 @@ public class CadastroContaController implements Initializable {
     @FXML
     private void onMouseClicked_btnSalvar() throws IOException {
         try {
+
             ContaBancaria novaConta = SalvarConta();
 
-            if (novaConta == null) {
-                throw new LogicalException("Erro ao salvar.");
-            }
-            
-            switch (tipoCadastro.getTipo()) {
+            if (novaConta != null) {
+                switch (tipoCadastro.getTipo()) {
                     case 0:
                         _contaBancariaService.inserir(novaConta);
                         break;
                     case 1:
+                        novaConta.setIdContaBancaria(this.conta.getIdContaBancaria());
                         _contaBancariaService.alterar(novaConta);
                         break;
                     default:
                         throw new LogicalException("Erro ao salvar.");
                 }
-            
-            ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
+
+                ViewConfiguration.mudaTela(Tela.CONTAS.getNome());
+            }
 
         } catch (LogicalException erro) {
             MessageBox.exibeAlerta(erro.getMessage());
@@ -132,8 +132,8 @@ public class CadastroContaController implements Initializable {
         try {
             Banco banco = cbBanco.getValue();
             String descricao = txtDescricao.getText().trim();
-            String agencia = txtDescricao.getText().trim();
-            String conta = txtDescricao.getText().trim();
+            String agencia = txtAgencia.getText().trim();
+            String conta = txtConta.getText().trim();
             Float meta = txtMeta.getText().trim().isEmpty() ? 0F : Float.valueOf(txtMeta.getText().trim());
 
             if (banco == null || descricao.isEmpty() || agencia.isEmpty() || conta.isEmpty()) {
