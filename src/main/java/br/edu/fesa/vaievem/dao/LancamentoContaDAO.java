@@ -44,7 +44,7 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
                      "WHERE CONTA.TB_CONTA_BANCARIA.USUARIO_ID = ?";
         
         if(comentario != null){
-            sql += " AND LANCAMENTO.TB_LANCAMENTO_CONTA.COMENTARIO LIKE ?";
+            sql += " AND UPPER(LANCAMENTO.TB_LANCAMENTO_CONTA.COMENTARIO) LIKE ?";
         }
         
         Connection connection = null;
@@ -56,7 +56,7 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
             pStatement.setLong(1, idUsuario);
          
             if(comentario != null){
-                comentario = '%' + comentario + '%';
+                comentario = '%' + comentario.toUpperCase() + '%';
                 pStatement.setString(2, comentario);
             }  
             

@@ -2,15 +2,14 @@
 package br.edu.fesa.vaievem.services;
 
 import br.edu.fesa.vaievem.dao.CartaoDAO;
-import br.edu.fesa.vaievem.dao.ContaBancariaDAO;
 import br.edu.fesa.vaievem.dao.interfaces.ICartaoDAO;
-import br.edu.fesa.vaievem.dao.interfaces.IContaBancariaDAO;
 import br.edu.fesa.vaievem.exception.LogicalException;
 import br.edu.fesa.vaievem.exception.PersistenciaException;
 import br.edu.fesa.vaievem.models.Cartao;
 import br.edu.fesa.vaievem.models.ContaBancaria;
 import br.edu.fesa.vaievem.models.Usuario;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
+import br.edu.fesa.vaievem.services.interfaces.IContaBancariaService;
 import br.edu.fesa.vaievem.utils.Session;
 import br.edu.fesa.vaievem.viewmodels.CartaoViewModel;
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ import javafx.collections.ObservableList;
 public class CartaoService implements ICartaoService {
 
     private final ICartaoDAO _cartaoDAO = new CartaoDAO();
-    private final IContaBancariaDAO _contaBancariaDAO = new ContaBancariaDAO();
+    private final IContaBancariaService _contaBancariaService = new ContaBancariaService();
     
     // Métodos privados auxiliares
 
@@ -46,25 +45,25 @@ public class CartaoService implements ICartaoService {
     
     private void validaCampos(Cartao cartao) throws LogicalException {
         
-        if(cartao.getDescricao().isBlank()){
-            throw new LogicalException("Descrição inválida");
+        if(cartao.getDescricao() == null || cartao.getDescricao().isBlank()){
+            throw new LogicalException("Descrição não pode estar vazia");
         }
         
         if(cartao.getDiaFechamento() < 1 || cartao.getDiaFechamento() > 31){
-            throw new LogicalException("Dia de Fechamento inválido");
+            throw new LogicalException("Dia de Fechamento deve set entre 1 e 31");
         }
         
         if(cartao.getDiaVencimento() < 1 || cartao.getDiaVencimento() > 31){
-            throw new LogicalException("Dia de Vencimento inválido");
+            throw new LogicalException("Dia de Vencimento deve ser entre 1 e 31");
         }
         
         if(cartao.getLimiteEstipulado() < 0) {
-            throw new LogicalException("Limite inválido");
+            throw new LogicalException("Limite deve ser maior que zero");
         }
     }
     
     private boolean contaBancariaInvalida(Cartao cartao)  throws PersistenciaException, LogicalException {
-        return cartao.getContaBancaria() == null || _contaBancariaDAO.listarPorId(cartao.getContaBancaria().getIdContaBancaria()) == null;
+        return cartao.getContaBancaria() == null || _contaBancariaService.listarPorId(cartao.getContaBancaria().getIdContaBancaria()) == null;
     }
     
     // Métodos especilizados do Service
@@ -97,7 +96,7 @@ public class CartaoService implements ICartaoService {
         List<Cartao> cartoesModel =  _cartaoDAO.listarPorUsuario(usuario.getIdUsuario(), pesquisa);
         
         for(Cartao cartaoModel : cartoesModel){
-            cartaoModel.setContaBancaria(_contaBancariaDAO.listarPorId(cartaoModel.getContaBancaria().getIdContaBancaria()));
+            cartaoModel.setContaBancaria(_contaBancariaService.listarPorId(cartaoModel.getContaBancaria().getIdContaBancaria()));
             
             retorno.add(new CartaoViewModel(cartaoModel));
         }
@@ -110,7 +109,7 @@ public class CartaoService implements ICartaoService {
         
         List<CartaoViewModel> retorno = new ArrayList<>();
         
-        ContaBancaria conta = _contaBancariaDAO.listarPorId(idContaBancaria);
+        ContaBancaria conta = _contaBancariaService.listarPorId(idContaBancaria);
         conta.setUsuario(retornaUsuarioSession());
         
         List<Cartao> cartoesModel =  _cartaoDAO.listarPorConta(idContaBancaria);

@@ -38,7 +38,11 @@ public class MensagemService implements IMensagemService {
         
         Usuario usuario = retornaUsuarioSession();
         List<ContaBancaria> contas = _contaBancariaDAO.listarPorUsuario(usuario.getIdUsuario(), null);
-        double saldo, menorLimite = 1;
+        double saldo;
+        
+        if(contas.isEmpty()){
+            return new Mensagem("Atenção!", "Cadastre uma conta para cálculo da Meta!");
+        }
         
         for(ContaBancaria conta : contas){
             saldo = _lancamentoContaService.retornaSaldoPorConta(conta.getIdContaBancaria());
@@ -48,13 +52,8 @@ public class MensagemService implements IMensagemService {
             }
             
             if(saldo <= conta.getMeta() * LIMITE_META){
-                
-                if(saldo / conta.getMeta() < menorLimite){
-                    menorLimite = saldo / conta.getMeta();
-                } 
-                
                 titulo = "Atenção!";
-                mensagem = "Existem contas cujo saldo está " + (menorLimite * 100) + "% próximo à meta!";
+                mensagem = "Existem contas cujo saldo está próximo à meta!";
             }
         }
         

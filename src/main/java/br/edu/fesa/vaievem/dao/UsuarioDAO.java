@@ -108,7 +108,7 @@ public class UsuarioDAO implements IUsuarioDAO {
     }
     
     @Override
-    public Usuario listarPorEmail(String email ) throws PersistenciaException {
+    public Usuario listarPorEmail(String email) throws PersistenciaException {
         Usuario retorno = null;
         String sql = "SELECT * FROM USUARIO.TB_USUARIO WHERE EMAIL = ?";
         Connection connection = null;

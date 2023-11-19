@@ -22,16 +22,21 @@ public class UsuarioService implements IUsuarioService {
     }
     
     private void iniciaRegex(){
-        _emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9]+(.[A-Za-z0-9]+)+$";
+        _emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)+$";
         _pattern = Pattern.compile(_emailRegex);
     }
     
     // Métodos privados auxiliares
      private void realizaValidacoesUsuario(Usuario usuario) throws PersistenciaException, LogicalException {
         
+        // Valida Nome vazio
+        if(usuario.getNome() == null || usuario.getNome().isBlank()){
+            throw new LogicalException("Nome do usuário não pode estar vazio");
+        }
+         
         // Valida se o e-mail está no padrão do Regex
         if(emailInvalido(usuario)){
-            throw new LogicalException("E-mail inválido");
+            throw new LogicalException("E-mail não está no formato correto");
         }
         
         // Valida se o e-mail já está cadastrado

@@ -50,7 +50,7 @@ public class ContaBancariaService implements IContaBancariaService {
     }
     
     private boolean descricaoInvalida(ContaBancaria conta) throws LogicalException{
-        return conta.getDescricao().isBlank();
+        return conta.getDescricao() == null || conta.getDescricao().isBlank();
     }
     
     private boolean metaInvalida(ContaBancaria conta) throws LogicalException{
@@ -67,12 +67,25 @@ public class ContaBancariaService implements IContaBancariaService {
     public List<ContaBancaria> listarPorUsuario() throws PersistenciaException, LogicalException {
         Usuario usuario = retornaUsuarioSession();
         
-        return _contaBancariaDAO.listarPorUsuario(usuario.getIdUsuario(), null);
+        List<ContaBancaria> contas = _contaBancariaDAO.listarPorUsuario(usuario.getIdUsuario(), null);
+        
+        for(ContaBancaria conta : contas){
+            conta.setUsuario(usuario);
+            conta.setBanco(_bancoDAO.listarPorId(conta.getBanco().getIdBanco()));
+        }
+        
+        return contas;
     }
 
     @Override
     public ContaBancaria listarPorId(long idContaBancaria) throws PersistenciaException, LogicalException {
-        return _contaBancariaDAO.listarPorId(idContaBancaria);
+        
+        ContaBancaria retorno = _contaBancariaDAO.listarPorId(idContaBancaria);
+        
+        retorno.setUsuario(retornaUsuarioSession());
+        retorno.setBanco(_bancoDAO.listarPorId(retorno.getBanco().getIdBanco()));
+
+        return retorno;
     }
 
     @Override
