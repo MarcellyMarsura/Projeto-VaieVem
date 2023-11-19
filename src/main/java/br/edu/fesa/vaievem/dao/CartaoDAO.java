@@ -40,7 +40,7 @@ public class CartaoDAO implements ICartaoDAO {
             sql = "SELECT ID_CARTAO, CONTA_BANCARIA_ID, CARTAO.TB_CARTAO.DESCRICAO, DIA_FECHAMENTO, DIA_VENCIMENTO, LIMITE_ESTIPULADO FROM CARTAO.TB_CARTAO "
                     + "JOIN CONTA.TB_CONTA_BANCARIA ON CARTAO.TB_CARTAO.CONTA_BANCARIA_ID = CONTA.TB_CONTA_BANCARIA.ID_CONTA_BANCARIA "
                     + "WHERE CONTA.TB_CONTA_BANCARIA.USUARIO_ID = ? "
-                    + "AND CARTAO.TB_CARTAO.DESCRICAO LIKE ?";
+                    + "AND UPPER(CARTAO.TB_CARTAO.DESCRICAO) LIKE ?";
         }       
         
         Connection connection = null;
@@ -51,7 +51,7 @@ public class CartaoDAO implements ICartaoDAO {
             
             pStatement.setLong(1, idUsuario);
             if(descricao != null){
-                descricao = '%' + descricao + '%';
+                descricao = '%' + descricao.toUpperCase() + '%';
                 pStatement.setString(2, descricao);
             }   
             

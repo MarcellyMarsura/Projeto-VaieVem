@@ -126,7 +126,7 @@ public class ContaBancaria implements Serializable {
         }
         return lancamentosConta;
     }
-    public void setLancamentosConta(ArrayList<LancamentoConta> lancamentosConta) {
+    public void setLancamentosConta(List<LancamentoConta> lancamentosConta) {
         this.lancamentosConta = lancamentosConta;
     }
     

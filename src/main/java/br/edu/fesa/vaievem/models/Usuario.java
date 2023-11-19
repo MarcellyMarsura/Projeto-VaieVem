@@ -12,7 +12,7 @@ public class Usuario implements Serializable {
     private String nome;
     private String email;
     private String senha;
-    private boolean ativo;
+    private boolean ativo = true;
     private boolean administrador;
     
     // Atributos de relacionamento

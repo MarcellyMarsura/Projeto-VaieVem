@@ -4,6 +4,7 @@
  */
 package br.edu.fesa.vaievem.viewmodels;
 
+import br.edu.fesa.vaievem.models.LancamentoConta;
 import javafx.beans.property.SimpleStringProperty;
 
 /**
@@ -25,6 +26,15 @@ public class LancamentoViewModel {
         this.Comentario = new SimpleStringProperty(comentario);
     }
 
+    public LancamentoViewModel(LancamentoConta lancamento){
+        
+        this.Id = new SimpleStringProperty(String.valueOf(lancamento.getIdLancamentoConta()));
+        this.Tipo = new SimpleStringProperty(lancamento.getTipoLancamento().getDescricao());
+        this.Data = new SimpleStringProperty(String.valueOf(lancamento.getDataLancamento()));
+        this.Valor = new SimpleStringProperty(String.valueOf(lancamento.getValor()));
+        this.Comentario = new SimpleStringProperty(lancamento.getComentario());
+    }
+    
     public String getId() {
         return this.Id.get();
     }
