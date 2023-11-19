@@ -13,7 +13,6 @@ import br.edu.fesa.vaievem.models.Usuario;
 import br.edu.fesa.vaievem.services.interfaces.ICartaoService;
 import br.edu.fesa.vaievem.utils.Session;
 import br.edu.fesa.vaievem.viewmodels.CartaoViewModel;
-import br.edu.fesa.vaievem.viewmodels.ContaViewModel;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;

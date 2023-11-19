@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ILancamentoContaDAO extends IGenericoDAO<LancamentoConta> {
     
-    List<LancamentoConta> listarPorUsuario(long idUsuario) throws PersistenciaException;
+    List<LancamentoConta> listarPorUsuario(long idUsuario, String comentario) throws PersistenciaException;
     
     List<LancamentoConta> listarPorConta(long idContaBancaria) throws PersistenciaException;
     

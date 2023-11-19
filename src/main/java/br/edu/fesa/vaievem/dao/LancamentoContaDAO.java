@@ -35,13 +35,17 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
     }
     
     @Override
-    public List<LancamentoConta> listarPorUsuario (long idUsuario) throws PersistenciaException {
+    public List<LancamentoConta> listarPorUsuario (long idUsuario, String comentario) throws PersistenciaException {
         
         List<LancamentoConta> retorno = new ArrayList<>();
         String sql = "SELECT ID_LANCAMENTO_CONTA, TIPO_LANCAMENTO_ID, CONTA_BANCARIA_ID, DATA_LANCAMENTO, VALOR, COMENTARIO " +
                      "FROM LANCAMENTO.TB_LANCAMENTO_CONTA JOIN CONTA.TB_CONTA_BANCARIA " +
                      "ON LANCAMENTO.TB_LANCAMENTO_CONTA.CONTA_BANCARIA_ID = CONTA.TB_CONTA_BANCARIA.ID_CONTA_BANCARIA " +
                      "WHERE CONTA.TB_CONTA_BANCARIA.USUARIO_ID = ?";
+        
+        if(comentario != null){
+            sql += " AND LANCAMENTO.TB_LANCAMENTO_CONTA.COMENTARIO LIKE ?";
+        }
         
         Connection connection = null;
         
@@ -51,6 +55,11 @@ public class LancamentoContaDAO implements ILancamentoContaDAO{
             PreparedStatement pStatement = connection.prepareStatement(sql);
             pStatement.setLong(1, idUsuario);
          
+            if(comentario != null){
+                comentario = '%' + comentario + '%';
+                pStatement.setString(2, comentario);
+            }  
+            
             ResultSet result = pStatement.executeQuery();
             
             while (result.next()) {

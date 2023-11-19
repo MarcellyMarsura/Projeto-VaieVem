@@ -272,7 +272,7 @@ public class Main {
         
         var listagem = dao.listar();
         var listagemPorId = dao.listarPorId(id); 
-        var listagemPorUsuario = dao.listarPorUsuario(idUsuario);
+        var listagemPorUsuario = dao.listarPorUsuario(idUsuario, "");
         var listagemPorConta = dao.listarPorConta(idConta);
         var listagemDespesaPorConta = dao.listarDespesasPorConta(idConta);
         var listagemReceitaPorConta = dao.listarReceitasPorConta(idConta);
