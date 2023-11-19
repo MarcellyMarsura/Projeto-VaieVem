@@ -82,7 +82,7 @@ public class CadastroContaController implements Initializable {
             if (conta != null) {
                 cbBanco.setValue(conta.getBanco());
                 txtAgencia.setText(conta.getNumeroAgencia());
-                txtConta.setText(conta.getNumeroConta());
+                txtConta.setText(conta.getNumeroConta().replace("-", ""));
                 txtMeta.setText(String.valueOf(conta.getMeta()));
                 txtDescricao.setText(conta.getDescricao());
             }
@@ -138,15 +138,18 @@ public class CadastroContaController implements Initializable {
             String conta = txtConta.getText().trim();
             Float meta = txtMeta.getText().trim().isEmpty() ? 0F : Float.valueOf(txtMeta.getText().trim());
 
-            if (banco == null || descricao.isEmpty() || agencia.isEmpty() || conta.isEmpty()) {
+            if (banco == null || descricao.isEmpty()) {
                 throw new LogicalException("Preencha todos os campos obrigatórios.");
             }
             if (meta >= 10000000) {
                 throw new LogicalException("Valor inválido.");
             }
             
-            if (conta.length() > 7 || agencia.length() > 4) {
-                throw new LogicalException("Conta ou agência inválidos.");
+            if(agencia.isEmpty()) {
+                agencia = null;
+            }
+            if(conta.isEmpty()) {
+                conta = null;
             }
 
             ContaBancaria novaConta = new ContaBancaria();
