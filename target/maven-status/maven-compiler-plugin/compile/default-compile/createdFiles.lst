@@ -6,6 +6,7 @@ br\edu\fesa\vaievem\dao\BancoDAO.class
 br\edu\fesa\vaievem\viewmodels\LancamentoViewModel.class
 br\edu\fesa\vaievem\dao\interfaces\IBancoDAO.class
 br\edu\fesa\vaievem\dao\interfaces\ILancamentoCartaoDAO.class
+br\edu\fesa\vaievem\services\MensagemService.class
 br\edu\fesa\vaievem\viewmodels\ContaViewModel.class
 br\edu\fesa\vaievem\services\interfaces\IMensagemService.class
 br\edu\fesa\vaievem\services\LancamentoContaService.class

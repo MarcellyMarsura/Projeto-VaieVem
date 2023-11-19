@@ -23,14 +23,16 @@ public class DbProjetoDAO {
     
     private void executaResourceBundle(String key) throws PersistenciaException {
         
-        String sql = DB_PROJETO.getString(key);
+        String[] comandos = DB_PROJETO.getString(key).split(";");
         Connection connection = null;
         
         try {
             connection = Conexao.getInstance().getConnection();
-            PreparedStatement pStatement = connection.prepareStatement(sql);
-            
-            pStatement.execute();
+            for(String comando : comandos){
+                 PreparedStatement pStatement = connection.prepareStatement(comando);
+                 pStatement.execute();
+            }
+           
         
         } catch(ClassNotFoundException ex){
             Logger.getLogger(DbProjetoDAO.class.getName()).log(Level.SEVERE, null, ex);
