@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="190.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.MenuController">
+<Pane prefHeight="700.0" prefWidth="190.0" styleClass="linear-grad" stylesheets="@styles/style.css">
+    <children>
+       <Text fill="WHITE" layoutX="73.0" layoutY="65.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Olá," textAlignment="CENTER">
+          <font>
+             <Font name="System Bold" size="24.0" />
+          </font>
+       </Text>
+       <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="151.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnHome" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Home" textFill="WHITE">
+          <graphic>
+             <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@icon/icon-home.png" />
+                </image>
+             </ImageView>
+          </graphic>
+          <padding>
+             <Insets left="45.0" />
+          </padding>
+          <font>
+             <Font name="System Bold" size="16.0" />
+          </font>
+       </Button>
+       <Button fx:id="btnPerfil" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="376.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPerfil" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Perfil" textFill="WHITE">
+          <graphic>
+             <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@icon/icon-user.png" />
+                </image>
+             </ImageView>
+          </graphic>
+          <padding>
+             <Insets left="45.0" />
+          </padding>
+          <font>
+             <Font name="System Bold" size="16.0" />
+          </font>
+       </Button>
+       <Button fx:id="btnContas" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="226.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnContas" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Contas" textFill="WHITE">
+          <graphic>
+             <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@icon/icon-conta.png" />
+                </image>
+             </ImageView>
+          </graphic>
+          <padding>
+             <Insets left="40.0" />
+          </padding>
+          <font>
+             <Font name="System Bold" size="16.0" />
+          </font>
+       </Button>
+       <Button fx:id="btnSobre" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="451.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnSobre" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Sobre" textFill="WHITE">
+          <graphic>
+             <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@icon/icon-info.png" />
+                </image>
+             </ImageView>
+          </graphic>
+          <padding>
+             <Insets left="45.0" />
+          </padding>
+          <font>
+             <Font name="System Bold" size="16.0" />
+          </font>
+       </Button>
+       <Button fx:id="btnSair" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="526.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnSair" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Sair" textFill="WHITE">
+          <graphic>
+             <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                   <Image url="@icon/icon-logout.png" />
+                </image>
+             </ImageView>
+          </graphic>
+          <padding>
+             <Insets left="45.0" />
+          </padding>
+          <font>
+             <Font name="System Bold" size="16.0" />
+          </font>
+       </Button>
+         <Button fx:id="btnCartoes" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="301.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnCartoes" prefHeight="75.0" prefWidth="190.0" styleClass="button2" stylesheets="@styles/style.css" text="Cartões" textFill="WHITE">
+            <graphic>
+               <ImageView fitHeight="30.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@icon/icon-cards.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <padding>
+               <Insets left="45.0" />
+            </padding>
+            <font>
+               <Font name="System Bold" size="16.0" />
+            </font>
+         </Button>
+         <Text fx:id="txtNome" fill="WHITE" layoutX="20.0" layoutY="100.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Usuário" textAlignment="CENTER" wrappingWidth="150.0">
+            <font>
+               <Font name="System Bold" size="24.0" />
+            </font>
+         </Text>
+    </children>
+ </Pane>
+</AnchorPane>

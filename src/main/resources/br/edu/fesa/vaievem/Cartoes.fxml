@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.CartoesController">
+   <children>
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
+         <children>
+            <Pane layoutX="56.0" layoutY="95.0" prefHeight="579.0" prefWidth="896.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <TableView fx:id="tbCartao" layoutY="63.0" prefHeight="516.0" prefWidth="896.0" stylesheets="@styles/style.css">
+                    <columns>
+                      <TableColumn fx:id="colConta" prefWidth="270.0" text="Conta" />
+                      <TableColumn fx:id="colDescricao" prefWidth="291.0" text="Descrição" />
+                        <TableColumn fx:id="colLimite" prefWidth="145.0" text="Limite" />
+                        <TableColumn fx:id="colEditar" prefWidth="90.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" minWidth="0.0" prefWidth="99.0" text="Excluir" />
+                    </columns>
+                  </TableView>
+                  <TextField layoutX="26.0" layoutY="15.0" prefHeight="35.0" prefWidth="719.0" promptText="Pesquisar" />
+                  <Button layoutX="754.0" layoutY="15.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnPesquisar" prefHeight="35.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Pesquisar">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
+            <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões de Crédito" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            <Button layoutX="810.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnAdicionarCartao" prefHeight="40.0" prefWidth="123.0" styleClass="button1" stylesheets="@styles/style.css" text="Adicionar">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.51" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/icon-cards-black.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

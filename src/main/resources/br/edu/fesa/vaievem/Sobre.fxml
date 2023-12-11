@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.SobreController">
+   <children>
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
+         <children>
+            <Pane layoutX="61.0" layoutY="90.0" prefHeight="563.0" prefWidth="888.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <Text layoutX="89.0" layoutY="190.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No mundo agitado de hoje, manter o controle das suas finanças é mais importante do que nunca. Foi com essa visão que criamos nossa plataforma. Combinando tecnologia moderna com simplicidade, nossa missão é tornar a gestão financeira pessoal fácil, eficiente e acessível para todos." textAlignment="JUSTIFY" wrappingWidth="746.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#8005b5" layoutX="146.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bem-vindo ao nosso aplicativo de finanças!">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9308b2" layoutX="350.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores:" textOrigin="TOP">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="291.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marcelly Molinari Marsura - RA: 081210020" textOrigin="TOP">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="308.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Analuz Marin Ramos - RA: 081210034" textOrigin="TOP">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="289.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vinicius Benevides da Silva - RA: 081210030" textOrigin="TOP">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Sobre" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.72" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/icon-info-black.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

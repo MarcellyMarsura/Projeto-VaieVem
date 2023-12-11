@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.HomeController">
+   <children>
+       
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
+         <children>
+             <Text fill="#00000093" layoutX="102.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            
+            <Pane layoutX="334.0" layoutY="91.0" prefHeight="166.0" prefWidth="342.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <Text layoutX="65.0" layoutY="71.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo Total" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="21.0" layoutY="83.0" prefHeight="58.0" prefWidth="301.0" style="-fx-alignment: center;">
+                     <children>
+                        <Text fill="#000000d3" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Light" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="4.0" top="15.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="txtSaldoTotal" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="40.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children></Pane>
+            <Pane layoutX="54.0" layoutY="308.0" prefHeight="370.0" prefWidth="623.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <TableView fx:id="tbLancamento" focusTraversable="false" prefHeight="370.0" prefWidth="623.0" stylesheets="@styles/style.css">
+                    <columns>
+                      <TableColumn fx:id="colTipo" prefWidth="94.0" text="Tipo" />
+                        <TableColumn fx:id="colData" prefWidth="97.0" text="Data" />
+                      <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="92.0" text="Valor" />
+                        <TableColumn fx:id="colComentario" prefWidth="208.0" text="Comentário" />
+                        <TableColumn fx:id="colEditar" prefWidth="55.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" prefWidth="76.0" text="Excluir" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Pane layoutX="54.0" layoutY="91.0" prefHeight="166.0" prefWidth="266.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <VBox layoutX="9.0" layoutY="11.0" prefHeight="145.0" prefWidth="212.0" style="-fx-alignment: center;">
+                     <children>
+                        <Text fx:id="txtTituloMensagem" fill="#7707abd9" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Título da Mensagem" textAlignment="CENTER" wrappingWidth="248.91796875">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#530f72a6" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="248.91796875">
+                           <font>
+                              <Font name="System Bold" size="10.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="txtMensagem" fill="#000000e2" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Mensagem" textAlignment="CENTER" wrappingWidth="213.91796875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane layoutX="691.0" layoutY="91.0" prefHeight="166.0" prefWidth="266.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <Button fx:id="btnLancamentoCartao" layoutX="33.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnLancamentoCartao" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@styles/style.css">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icon/icon-card.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Text layoutX="56.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Novo Lançamento" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="95.0" layoutY="79.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartão de Crédito" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="95.0" layoutY="134.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Receita/Despesa" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="btnLancamentoConta" layoutX="33.0" layoutY="106.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnLancamentoConta" prefHeight="45.0" prefWidth="45.0" styleClass="round-button" stylesheets="@styles/style.css">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icon/icon-pig.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutX="691.0" layoutY="308.0" prefHeight="370.0" prefWidth="266.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <BarChart fx:id="grafico" layoutX="9.0" layoutY="20.0" prefHeight="331.0" prefWidth="249.0" stylesheets="@styles/style.css">
+                     <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                     </xAxis>
+                     <yAxis>
+                        <NumberAxis side="LEFT" />
+                     </yAxis>
+                  </BarChart>
+               </children>
+            </Pane>
+            <Text fill="#000000ab" layoutX="56.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Lançamentos" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#000000ab" layoutX="691.0" layoutY="298.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Balanço Total" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="57.0" layoutY="33.0" opacity="0.51" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/icon-home-black.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

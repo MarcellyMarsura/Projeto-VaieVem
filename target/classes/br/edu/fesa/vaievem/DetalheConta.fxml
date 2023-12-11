@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.fesa.vaievem.controller.DetalheContaController">
+   <children>
+      <Pane layoutX="190.0" prefHeight="700.0" prefWidth="1010.0" style="-fx-background-color: #dcddde;">
+         <children>
+            <Pane layoutX="57.0" layoutY="328.0" prefHeight="95.0" prefWidth="175.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutX="56.0" layoutY="38.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="8.0" layoutY="43.0" prefHeight="45.0" prefWidth="158.0" style="-fx-alignment: center;">
+                     <children>
+                        <Text fill="#000000d3" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" top="8.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="txtSaldo" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Pane layoutX="57.0" layoutY="468.0" prefHeight="192.0" prefWidth="895.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <TableView fx:id="tbLancamento" prefHeight="192.0" prefWidth="895.0" stylesheets="@styles/style.css">
+                     <columns>
+                        <TableColumn fx:id="colTipo" prefWidth="103.0" text="Tipo" />
+                        <TableColumn fx:id="colData" prefWidth="123.0" text="Data" />
+                        <TableColumn fx:id="colValor" minWidth="0.0" prefWidth="131.0" text="Valor" />
+                        <TableColumn fx:id="colComentario" prefWidth="377.0" text="Comentário" />
+                        <TableColumn fx:id="colEditar" prefWidth="81.0" text="Editar" />
+                        <TableColumn fx:id="colExcluir" prefWidth="79.0" text="Excluir" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Pane layoutX="429.0" layoutY="127.0" prefHeight="297.0" prefWidth="520.0" styleClass="card" stylesheets="@styles/style.css">
+               <children>
+                  <TableView fx:id="tbCartao" prefHeight="297.0" prefWidth="520.0" stylesheets="@styles/style.css">
+                     <columns>
+                        <TableColumn fx:id="colDescricao" prefWidth="258.0" text="Descrição" />
+                        <TableColumn fx:id="colLimite" prefWidth="109.0" text="Limite" />
+                        <TableColumn fx:id="colEditarCartao" prefWidth="76.0" text="Editar" />
+                        <TableColumn fx:id="colExcluirCartao" minWidth="0.0" prefWidth="76.0" text="Excluir" />
+                     </columns>
+                  </TableView>
+               </children>
+            </Pane>
+            <Pane layoutX="57.0" layoutY="127.0" prefHeight="192.0" prefWidth="358.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutX="32.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Banco:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="33.0" layoutY="67.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Agência:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="33.0" layoutY="103.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="31.0" layoutY="137.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtBanco" layoutX="92.0" layoutY="33.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Santander" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtAgencia" layoutX="108.0" layoutY="66.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="42363" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtConta" layoutX="93.0" layoutY="104.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0005251252200" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtDescricao" layoutX="121.0" layoutY="137.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Conta principal" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="31.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Meta:" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semibold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="84.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtMeta" layoutX="107.0" layoutY="170.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                     <font>
+                        <Font name="Segoe UI Semilight" size="17.0" />
+                     </font>
+                  </Text>
+               </children></Pane>
+            <Text fill="#000000ab" layoutX="57.0" layoutY="457.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Lançamentos" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#000000ab" layoutX="431.0" layoutY="118.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartões" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#000000ab" layoutX="58.0" layoutY="118.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Semibold" size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="57.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#onMouseClicked_btnVoltar" prefHeight="45.0" prefWidth="45.0" styleClass="back-button" stylesheets="@styles/style.css">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" opacity="0.61" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/icon-back-arrow.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="#00000093" layoutX="115.0" layoutY="64.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Detalhes" textAlignment="CENTER">
+               <font>
+                  <Font name="Segoe UI Bold" size="30.0" />
+               </font>
+            </Text>
+            <Pane layoutX="240.0" layoutY="328.0" prefHeight="95.0" prefWidth="175.0" style="-fx-background-color: #fff; -fx-background-radius: 15;">
+               <children>
+                  <Text layoutX="51.0" layoutY="40.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Fatura" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <HBox layoutX="8.0" layoutY="43.0" prefHeight="45.0" prefWidth="158.0" style="-fx-alignment: center;">
+                     <children>
+                        <Text fill="#000000d3" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="R$" textAlignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Light" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets right="2.0" top="8.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="txtFatura" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="0,00" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

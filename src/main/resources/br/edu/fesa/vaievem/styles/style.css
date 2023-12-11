@@ -1,0 +1,134 @@
+.card {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-background-color: #ffffff;
+}
+
+.button1
+{
+    -fx-text-fill: #ffffff;
+    -fx-background-color : #8d47f6;
+}
+.button1:hover
+{
+-fx-background-color : #9e63f7;
+}
+
+.button2
+{
+-fx-background-color : transparent;
+}
+.button2:hover
+{
+-fx-background-color : rgba(0, 0, 0, 0.2);
+}
+.button2:pressed
+{
+-fx-background-color : rgba(0, 0, 0, 0.3);
+
+}
+
+.round-button
+{
+    -fx-background-color:  #6332ac;
+    -fx-background-radius :  20;
+}
+.round-button:hover
+{
+    -fx-background-color:  #7930e6;
+}
+.round-button:pressed
+{
+    -fx-background-color:  #572d96;
+}
+
+.back-button
+{
+    -fx-background-color:  transparent;
+    -fx-background-radius :  20;
+}
+.back-button:hover
+{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+.back-button:pressed
+{
+    -fx-background-color:  rgba(0, 0, 0, 0.2);
+}
+
+.red-button
+{
+    -fx-text-fill: #ffffff;
+    -fx-background-color : #d12828;
+}
+.red-button:hover
+{
+    -fx-background-color : #ad2121;
+}
+.red-button:pressed
+{
+    -fx-background-color : #8c1b1b;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:   #6332ac;
+    -fx-font-size: 14px;
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER;
+}
+
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-font-size: 14px;
+
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+
+ }
+
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
+}
+
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color:derive(  #2D75E8,80%);
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+
+}
+
+.linear-grad
+{
+    -fx-background-color: linear-gradient(to bottom left, #B324FF, #329AE0);
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #11ad00;
+}
+
+.default-color1.chart-bar {
+    -fx-bar-fill: #d12828;
+}
